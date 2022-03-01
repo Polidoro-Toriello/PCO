@@ -18,6 +18,28 @@ USE `storage`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `indirizzo`
+--
+
+DROP TABLE IF EXISTS `indirizzo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `indirizzo` (
+  `codice` int NOT NULL AUTO_INCREMENT,
+  `utente` varchar(100) NOT NULL,
+  `nome` varchar(45) NOT NULL,
+  `cognome` varchar(45) NOT NULL,
+  `cellulare` varchar(45) NOT NULL,
+  `provincia` varchar(45) NOT NULL,
+  `citta` varchar(45) NOT NULL,
+  `CAP` varchar(45) NOT NULL,
+  PRIMARY KEY (`codice`),
+  KEY `utente_idx` (`utente`),
+  CONSTRAINT `utente` FOREIGN KEY (`utente`) REFERENCES `users` (`Email`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `order`
 --
 
@@ -123,4 +145,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-01 22:41:31
+-- Dump completed on 2022-03-01 22:59:06
