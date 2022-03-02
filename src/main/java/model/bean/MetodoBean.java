@@ -1,4 +1,4 @@
-package model;
+package model.bean;
 
 public class MetodoBean {
     private String nome, cognome, tipo, scadenza, email;

@@ -1,4 +1,6 @@
-package model;
+package model.bean;
+
+import model.bean.ProdottoBean;
 
 public class ProdottoCarrello {
     private ProdottoBean product;
