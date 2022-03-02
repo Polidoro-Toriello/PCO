@@ -23,7 +23,7 @@ public class ConnectionPool {
         Connection newConnection = null;
         String ip = "localhost";
         String port = "3306";
-        String db = "easyaid";
+        String db = "storage";
         String username = "root";
         String password = "root";
 
