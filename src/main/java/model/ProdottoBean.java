@@ -11,8 +11,7 @@ public class ProdottoBean implements Serializable {
 
     }
 
-    public ProdottoBean(int code, int quantity, String nome, String descrizione, String action, String categoria, float prezzo) {
-        this.code = code;
+    public ProdottoBean (int quantity, String nome, String descrizione, String action, String categoria, float prezzo) {
         this.quantity = quantity;
         this.nome = nome;
         this.descrizione = descrizione;
