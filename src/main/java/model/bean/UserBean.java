@@ -2,19 +2,18 @@ package model.bean;
 
 public class UserBean {
 
-    private String nome, cognome, username, password, email, paymentMethod;
+    private String nome, cognome, username, password, email;
     public boolean valid, admin;
 
     public UserBean() {
     }
 
-    public UserBean(String nome, String cognome, String username, String password, String email, String paymentMethod, boolean valid, boolean admin) {
+    public UserBean(String nome, String cognome, String username, String password, String email, boolean valid, boolean admin) {
         this.nome = nome;
         this.cognome = cognome;
         this.username = username;
         this.password = password;
         this.email = email;
-        this.paymentMethod = paymentMethod;
         this.valid = valid;
         this.admin = admin;
     }
@@ -57,14 +56,6 @@ public class UserBean {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPaymentMethod() {
-        return paymentMethod;
-    }
-
-    public void setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
     }
 
     public boolean isValid() {
