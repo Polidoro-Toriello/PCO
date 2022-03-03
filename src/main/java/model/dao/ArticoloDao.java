@@ -51,7 +51,7 @@ public class ArticoloDao {
         try {
             conn = ConnectionPool.conn();
             stmt = conn.prepareStatement(query);
-            stmt.setInt(1,id);
+            stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 articoloBean.setCode(rs.getInt("idarticolo"));
@@ -72,5 +72,38 @@ public class ArticoloDao {
                 conn.close();
         }
         return articoloBean;
+    }
+
+    public static Collection<ArticoloBean> doRetrieveCategoria(String categoria) throws SQLException, ClassNotFoundException {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        Collection<ArticoloBean> articoli = new ArrayList<ArticoloBean>();
+        String query = "SELECT * FROM articolo where categoria = ?";
+        try {
+            conn = ConnectionPool.conn();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, categoria);
+            ResultSet rs = stmt.executeQuery();
+            ArticoloBean articoloBean = new ArticoloBean();
+            while (rs.next()) {
+                articoloBean.setCode(rs.getInt("idarticolo"));
+                articoloBean.setNome(rs.getString("nome"));
+                articoloBean.setCategoria(rs.getString("categoria"));
+                articoloBean.setDescrizione(rs.getString("descrizione"));
+                articoloBean.setQtaDisponibile(rs.getInt("qtadisponibile"));
+                articoloBean.setPrezzo(rs.getFloat("prezzo"));
+                articoloBean.setIva(rs.getInt("iva"));
+                articoli.add(articoloBean);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (stmt != null)
+                stmt.close();
+            if (conn != null)
+                conn.close();
+        }
+        return articoli;
     }
 }
