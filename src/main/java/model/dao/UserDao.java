@@ -19,13 +19,13 @@ public class UserDao {
         Connection conn = null;
         Collection<UserBean> risultato = new ArrayList<>();
         String sql = "SELECT * FROM utente";
-        PreparedStatement query = null;
+        PreparedStatement stmt = null;
 
         try {
 
             conn = ConnectionPool.conn();
-            query = conn.prepareStatement(sql);
-            ResultSet set = query.executeQuery();
+            stmt = conn.prepareStatement(sql);
+            ResultSet set = stmt.executeQuery();
             while (set.next()) {
 
                 String email = set.getString("email");
@@ -43,8 +43,8 @@ public class UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (query != null)
-                query.close();
+            if (stmt != null)
+                stmt.close();
             if (conn != null)
                 conn.close();
         }
@@ -58,14 +58,14 @@ public class UserDao {
         Connection conn = null;
         UserBean risultato = new UserBean();
         String sql = "SELECT * FROM utente WHERE email = ?";
-        PreparedStatement query = null;
+        PreparedStatement stmt = null;
 
         try {
 
             conn = ConnectionPool.conn();
-            query = conn.prepareStatement(sql);
-            query.setString(1, email);
-            ResultSet set = query.executeQuery();
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, email);
+            ResultSet set = stmt.executeQuery();
             if (set.next()) {
 
                 String nome = set.getString("nome");
@@ -81,8 +81,8 @@ public class UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (query != null)
-                query.close();
+            if (stmt != null)
+                stmt.close();
             if (conn != null)
                 conn.close();
         }
@@ -97,21 +97,21 @@ public class UserDao {
 
         Connection conn = null;
         String sql = "DELETE FROM utente WHERE email = ?";
-        PreparedStatement query = null;
+        PreparedStatement stmt = null;
         boolean check = false;
 
         try {
             conn = ConnectionPool.conn();
-            query = conn.prepareStatement(sql);
-            query.setString(1, email);
-            check = query.executeUpdate() == 1;
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, email);
+            check = stmt.executeUpdate() == 1;
             conn.commit();
 
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (query != null)
-                query.close();
+            if (stmt != null)
+                stmt.close();
             if (conn != null)
                 conn.close();
         }
@@ -124,25 +124,25 @@ public class UserDao {
     public synchronized boolean doInsertUser(UserBean b) throws SQLException {
         Connection conn = null;
         String sql = "INSERT INTO utente (email,nome,cognome,username,password,admin) VALUES (?, ?, ?, ?, ?, ?)";
-        PreparedStatement query = null;
+        PreparedStatement stmt = null;
         boolean check = false;
         String pwd = generatePwd(b.getPassword());
         try {
             conn = ConnectionPool.conn();
-            query = conn.prepareStatement(sql);
-            query.setString(1, b.getEmail());
-            query.setString(2, b.getNome());
-            query.setString(3, b.getCognome());
-            query.setString(4, b.getUsername());
-            query.setString(5, pwd);
-            query.setInt(6, 0);
-            check = query.executeUpdate() == 1;
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, b.getEmail());
+            stmt.setString(2, b.getNome());
+            stmt.setString(3, b.getCognome());
+            stmt.setString(4, b.getUsername());
+            stmt.setString(5, pwd);
+            stmt.setInt(6, 0);
+            check = stmt.executeUpdate() == 1;
             conn.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (query != null)
-                query.close();
+            if (stmt != null)
+                stmt.close();
             if (conn != null)
                 conn.close();
         }
