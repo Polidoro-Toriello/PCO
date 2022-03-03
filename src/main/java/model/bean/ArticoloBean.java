@@ -3,19 +3,22 @@ package model.bean;
 import java.io.Serializable;
 
 public class ArticoloBean implements Serializable {
-    private int code, qtaDisponibile;
-    private String nome, descrizione, action, categoria;
+    private int code;
+    private int qtaDisponibile;
+    private int iva;
+    private String nome;
+    private String descrizione;
+    private String categoria;
     private float prezzo;
 
     public ArticoloBean() {
 
     }
 
-    public ArticoloBean(int qtaDisponibile, String nome, String descrizione, String action, String categoria, float prezzo) {
+    public ArticoloBean(int qtaDisponibile, String nome, String descrizione, String categoria, float prezzo, int iva) {
         this.qtaDisponibile = qtaDisponibile;
         this.nome = nome;
         this.descrizione = descrizione;
-        this.action = action;
         this.categoria = categoria;
         this.prezzo = prezzo;
     }
@@ -44,14 +47,6 @@ public class ArticoloBean implements Serializable {
         this.nome = nome;
     }
 
-    public String getAction() {
-        return action;
-    }
-
-    public void setAction(String action) {
-        this.action = action;
-    }
-
     public String getCategoria() {
         return categoria;
     }
@@ -74,5 +69,14 @@ public class ArticoloBean implements Serializable {
 
     public void setQtaDisponibile(int qtaDisponibile) {
         this.qtaDisponibile = qtaDisponibile;
+    }
+
+
+    public int getIva() {
+        return iva;
+    }
+
+    public void setIva(int iva) {
+        this.iva = iva;
     }
 }
