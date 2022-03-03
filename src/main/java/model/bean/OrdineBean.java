@@ -2,26 +2,26 @@ package model.bean;
 
 public class OrdineBean {
 
-    private long numeroOrdine;
+    private int numeroOrdine;
     private float totale;
     private String stato;
-    private UserBean utente;
+    private String emailutente;
 
     public OrdineBean() {
 
     }
 
-    public OrdineBean(float totale, String stato, UserBean utente) {
+    public OrdineBean(float totale, String stato, String emailutente) {
         this.totale = totale;
         this.stato = stato;
-        this.utente = utente;
+        this.emailutente = emailutente;
     }
 
-    public long getNumeroOrdine() {
+    public int getNumeroOrdine() {
         return numeroOrdine;
     }
 
-    public void setNumeroOrdine(long numeroOrdine) {
+    public void setNumeroOrdine(int numeroOrdine) {
         this.numeroOrdine = numeroOrdine;
     }
 
@@ -41,12 +41,12 @@ public class OrdineBean {
         this.stato = stato;
     }
 
-    public UserBean getUtente() {
-        return utente;
+    public String getUtente() {
+        return emailutente;
     }
 
-    public void setUtente(UserBean utente) {
-        this.utente = utente;
+    public void setUtente(String utente) {
+        this.emailutente = utente;
     }
 
     @Override
@@ -55,7 +55,7 @@ public class OrdineBean {
                 "numeroOrdine=" + numeroOrdine +
                 ", totale=" + totale +
                 ", stato='" + stato + '\'' +
-                ", utente=" + utente +
+                ", utente=" + emailutente+
                 '}';
     }
 }
