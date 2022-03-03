@@ -2,17 +2,17 @@ package model.bean;
 
 import java.io.Serializable;
 
-public class ProdottoBean implements Serializable {
-    private int code, quantity;
+public class ArticoloBean implements Serializable {
+    private int code, qtaDisponibile;
     private String nome, descrizione, action, categoria;
     private float prezzo;
 
-    public ProdottoBean() {
+    public ArticoloBean() {
 
     }
 
-    public ProdottoBean (int quantity, String nome, String descrizione, String action, String categoria, float prezzo) {
-        this.quantity = quantity;
+    public ArticoloBean(int qtaDisponibile, String nome, String descrizione, String action, String categoria, float prezzo) {
+        this.qtaDisponibile = qtaDisponibile;
         this.nome = nome;
         this.descrizione = descrizione;
         this.action = action;
@@ -68,11 +68,11 @@ public class ProdottoBean implements Serializable {
         this.code = code;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getQtaDisponibile() {
+        return qtaDisponibile;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setQtaDisponibile(int qtaDisponibile) {
+        this.qtaDisponibile = qtaDisponibile;
     }
 }

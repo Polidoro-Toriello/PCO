@@ -1,19 +1,17 @@
 package model.bean;
 
-import model.bean.ProdottoBean;
-
-public class ProdottoCarrello {
-    private ProdottoBean product;
+public class ArticoloCarrello {
+    private ArticoloBean product;
     private int qta;
-    public ProdottoCarrello(ProdottoBean product, int qta) {
+    public ArticoloCarrello(ArticoloBean product, int qta) {
         super();
         this.product = product;
         this.qta = qta;
     }
-    public ProdottoBean getProduct() {
+    public ArticoloBean getProduct() {
         return product;
     }
-    public void setProduct(ProdottoBean product) {
+    public void setProduct(ArticoloBean product) {
         this.product = product;
     }
     public int getQta() {
