@@ -1,14 +1,25 @@
 package model.bean;
 
+import java.util.Date;
+
 public class OrdineBean {
 
     private int numeroOrdine;
     private float totale;
     private String stato;
     private String emailutente;
+    private Date data;
 
     public OrdineBean() {
 
+    }
+
+    public OrdineBean(int numeroOrdine, float totale, String stato, String emailutente, Date data) {
+        this.numeroOrdine = numeroOrdine;
+        this.totale = totale;
+        this.stato = stato;
+        this.emailutente = emailutente;
+        this.data = data;
     }
 
     public OrdineBean(float totale, String stato, String emailutente) {
@@ -49,13 +60,12 @@ public class OrdineBean {
         this.emailutente = utente;
     }
 
+    public Date getData() { return data; }
+
+    public void setData(Date data) {  this.data = data; }
+
     @Override
     public String toString() {
-        return "OrdineBean{" +
-                "numeroOrdine=" + numeroOrdine +
-                ", totale=" + totale +
-                ", stato='" + stato + '\'' +
-                ", utente=" + emailutente+
-                '}';
+        return "OrdineBean{" + "numeroOrdine=" + numeroOrdine + ", totale=" + totale + ", stato='" + stato + '\'' + ", utente=" + emailutente + '}';
     }
 }
