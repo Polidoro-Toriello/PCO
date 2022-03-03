@@ -138,10 +138,38 @@ public class UserDao {
             ConnectionPool.releaseConnection(conn);
             query.close();
         }
-
         return check;
-
     }
-
-
+    public synchronized UserBean doRetrieveUtente(UserBean b) throws SQLException, ClassNotFoundException{
+        Connection conn = null;
+        UserBean user = null;
+        String query = "SELECT * FROM users WHERE email = ? AND password = ?";
+        PreparedStatement stmt = null;
+        try{
+            conn = ConnectionPool.conn();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1,b.getEmail());
+            stmt.setString(2,b.getPassword());
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()){
+                user = new UserBean();
+                user.setNome(rs.getString("nome"));
+                user.setCognome(rs.getString("cognome"));
+                user.setEmail(rs.getString("email"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                if(rs.getInt("admin")==0){
+                    user.setAdmin(false);
+                }else {
+                    user.setAdmin(true);
+                }
+                stmt.close();
+                conn.close();
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+        return user;
+    }
 }
