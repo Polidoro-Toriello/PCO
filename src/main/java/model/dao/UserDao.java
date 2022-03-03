@@ -43,8 +43,10 @@ public class UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            ConnectionPool.releaseConnection(conn);
-            query.close();
+            if (query != null)
+                query.close();
+            if (conn != null)
+                conn.close();
         }
 
         return risultato;
@@ -79,8 +81,10 @@ public class UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            ConnectionPool.releaseConnection(conn);
-            query.close();
+            if (query != null)
+                query.close();
+            if (conn != null)
+                conn.close();
         }
 
         return risultato;
@@ -106,8 +110,10 @@ public class UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            ConnectionPool.releaseConnection(conn);
-            query.close();
+            if (query != null)
+                query.close();
+            if (conn != null)
+                conn.close();
         }
 
         return check;
@@ -132,12 +138,13 @@ public class UserDao {
             query.setInt(6, 0);
             check = query.executeUpdate() == 1;
             conn.commit();
-
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            ConnectionPool.releaseConnection(conn);
-            query.close();
+            if (query != null)
+                query.close();
+            if (conn != null)
+                conn.close();
         }
         return check;
     }
@@ -145,7 +152,7 @@ public class UserDao {
     public synchronized UserBean doRetrieveUtente(UserBean b) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         UserBean user = null;
-        String query = "SELECT * FROM users WHERE email = ? AND password = ?";
+        String query = "SELECT * FROM utente WHERE email = ? AND password = ?";
         PreparedStatement stmt = null;
         String pwd = generatePwd(b.getPassword());
         try {
@@ -172,6 +179,11 @@ public class UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
+        } finally {
+            if (stmt != null)
+                stmt.close();
+            if (conn != null)
+                conn.close();
         }
         return user;
     }
