@@ -4,24 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Carrello {
-    private List<ProdottoCarrello> prodotti;
+    private List<ArticoloCarrello> prodotti;
     private float totale;
 
     public Carrello() {
-        prodotti=new ArrayList<ProdottoCarrello>();
+        prodotti=new ArrayList<ArticoloCarrello>();
         totale=0;
     }
 
-    public Carrello(List<ProdottoCarrello> prodotti, float totale) {
+    public Carrello(List<ArticoloCarrello> prodotti, float totale) {
         this.prodotti = prodotti;
         this.totale = totale;
     }
 
-    public List<ProdottoCarrello> getProdotti() {
+    public List<ArticoloCarrello> getProdotti() {
         return prodotti;
     }
 
-    public void setProdotti(List<ProdottoCarrello> prodotti) {
+    public void setProdotti(List<ArticoloCarrello> prodotti) {
         this.prodotti = prodotti;
     }
 

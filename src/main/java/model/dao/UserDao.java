@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import static other.Utils.generatePwd;
+
 public class UserDao {
 
 
@@ -41,8 +43,10 @@ public class UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            ConnectionPool.releaseConnection(conn);
-            query.close();
+            if (query != null)
+                query.close();
+            if (conn != null)
+                conn.close();
         }
 
         return risultato;
@@ -77,8 +81,10 @@ public class UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            ConnectionPool.releaseConnection(conn);
-            query.close();
+            if (query != null)
+                query.close();
+            if (conn != null)
+                conn.close();
         }
 
         return risultato;
@@ -104,8 +110,10 @@ public class UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            ConnectionPool.releaseConnection(conn);
-            query.close();
+            if (query != null)
+                query.close();
+            if (conn != null)
+                conn.close();
         }
 
         return check;
@@ -114,12 +122,11 @@ public class UserDao {
 
 
     public synchronized boolean doInsertUser(UserBean b) throws SQLException {
-
         Connection conn = null;
         String sql = "INSERT INTO utente (email,nome,cognome,username,password,admin) VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement query = null;
         boolean check = false;
-
+        String pwd = generatePwd(b.getPassword());
         try {
             conn = ConnectionPool.conn();
             query = conn.prepareStatement(sql);
@@ -127,48 +134,56 @@ public class UserDao {
             query.setString(2, b.getNome());
             query.setString(3, b.getCognome());
             query.setString(4, b.getUsername());
-            query.setString(5, b.getPassword());
+            query.setString(5, pwd);
             query.setInt(6, 0);
             check = query.executeUpdate() == 1;
             conn.commit();
-
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            ConnectionPool.releaseConnection(conn);
-            query.close();
+            if (query != null)
+                query.close();
+            if (conn != null)
+                conn.close();
         }
         return check;
     }
-    public synchronized UserBean doRetrieveUtente(UserBean b) throws SQLException, ClassNotFoundException{
+
+    public synchronized UserBean doRetrieveUtente(UserBean b) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         UserBean user = null;
-        String query = "SELECT * FROM users WHERE email = ? AND password = ?";
+        String query = "SELECT * FROM utente WHERE email = ? AND password = ?";
         PreparedStatement stmt = null;
-        try{
+        String pwd = generatePwd(b.getPassword());
+        try {
             conn = ConnectionPool.conn();
             stmt = conn.prepareStatement(query);
-            stmt.setString(1,b.getEmail());
-            stmt.setString(2,b.getPassword());
+            stmt.setString(1, b.getEmail());
+            stmt.setString(2, pwd);
             ResultSet rs = stmt.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 user = new UserBean();
                 user.setNome(rs.getString("nome"));
                 user.setCognome(rs.getString("cognome"));
                 user.setEmail(rs.getString("email"));
                 user.setUsername(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
-                if(rs.getInt("admin")==0){
+                if (rs.getInt("admin") == 0) {
                     user.setAdmin(false);
-                }else {
+                } else {
                     user.setAdmin(true);
                 }
                 stmt.close();
                 conn.close();
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             return null;
+        } finally {
+            if (stmt != null)
+                stmt.close();
+            if (conn != null)
+                conn.close();
         }
         return user;
     }
