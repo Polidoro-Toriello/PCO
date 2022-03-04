@@ -3,7 +3,7 @@ package model.bean;
 import java.io.Serializable;
 
 public class ArticoloBean implements Serializable {
-    private int code;
+    private int idArticolo;
     private int qtaDisponibile;
     private int iva;
     private String nome;
@@ -55,12 +55,12 @@ public class ArticoloBean implements Serializable {
         this.categoria = categoria;
     }
 
-    public int getCode() {
-        return code;
+    public int getIdArticolo() {
+        return idArticolo;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setIdArticolo(int idArticolo) {
+        this.idArticolo = idArticolo;
     }
 
     public int getQtaDisponibile() {
