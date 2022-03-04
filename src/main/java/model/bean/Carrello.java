@@ -20,9 +20,9 @@ public class Carrello {
         this.totale = totale;
     }
 
-    public boolean addArticolo(int idProdotto) throws SQLException, ClassNotFoundException {
+    public boolean addArticolo(int idArticolo) throws SQLException, ClassNotFoundException {
         boolean result = false;
-        ArticoloBean articolo = ArticoloDao.doRetrieveById(idProdotto);
+        ArticoloBean articolo = ArticoloDao.doRetrieveById(idArticolo);
         for (ArticoloCarrello articoloCarrello : articoli) {
             if (articoloCarrello.getProduct().getIdArticolo() == articolo.getIdArticolo() && articoloCarrello.getQta() + 1 < articolo.getQtaDisponibile()) {
                 articoloCarrello.setQta(articoloCarrello.getQta() + 1);
@@ -44,9 +44,9 @@ public class Carrello {
         return nProdotti;
     }
 
-    public boolean checkQuantity(int idProd, int quantita) throws SQLException, ClassNotFoundException {
+    public boolean checkQuantity(int idArticolo, int quantita) throws SQLException, ClassNotFoundException {
         boolean result = false;
-        ArticoloBean articolo = ArticoloDao.doRetrieveById(idProd);
+        ArticoloBean articolo = ArticoloDao.doRetrieveById(idArticolo);
         int pos = this.isInCart(articolo);
         int quantitaDesiderata = quantita;
         if (pos > 0) {
@@ -59,9 +59,9 @@ public class Carrello {
         return result;
     }
 
-    public void deleteProdotto(int idProd) {
+    public void deleteProdotto(int idArticolo) {
         for (ArticoloCarrello articoloCarrello : articoli) {
-            if (articoloCarrello.getProduct().getIdArticolo() == idProd) {
+            if (articoloCarrello.getProduct().getIdArticolo() == idArticolo) {
                 articoli.remove(articoloCarrello);
                 this.updateTotale();
                 break;
