@@ -1,7 +1,6 @@
 package model.dao;
 
 import model.bean.ArticoloBean;
-import model.bean.MetodoBean;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,7 +21,7 @@ public class ArticoloDao {
             ResultSet rs = stmt.executeQuery();
             ArticoloBean articoloBean = new ArticoloBean();
             while (rs.next()) {
-                articoloBean.setCode(rs.getInt("idarticolo"));
+                articoloBean.setIdArticolo(rs.getInt("idarticolo"));
                 articoloBean.setNome(rs.getString("nome"));
                 articoloBean.setCategoria(rs.getString("categoria"));
                 articoloBean.setDescrizione(rs.getString("descrizione"));
@@ -54,7 +53,7 @@ public class ArticoloDao {
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                articoloBean.setCode(rs.getInt("idarticolo"));
+                articoloBean.setIdArticolo(rs.getInt("idarticolo"));
                 articoloBean.setNome(rs.getString("nome"));
                 articoloBean.setCategoria(rs.getString("categoria"));
                 articoloBean.setDescrizione(rs.getString("descrizione"));
@@ -86,7 +85,7 @@ public class ArticoloDao {
             ResultSet rs = stmt.executeQuery();
             ArticoloBean articoloBean = new ArticoloBean();
             while (rs.next()) {
-                articoloBean.setCode(rs.getInt("idarticolo"));
+                articoloBean.setIdArticolo(rs.getInt("idarticolo"));
                 articoloBean.setNome(rs.getString("nome"));
                 articoloBean.setCategoria(rs.getString("categoria"));
                 articoloBean.setDescrizione(rs.getString("descrizione"));

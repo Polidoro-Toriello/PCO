@@ -20,11 +20,11 @@ public class Carrello {
         this.totale = totale;
     }
 
-    public boolean addArticolo(int idProdotto) throws SQLException, ClassNotFoundException {
+    public boolean addArticolo(int idArticolo) throws SQLException, ClassNotFoundException {
         boolean result = false;
-        ArticoloBean articolo = ArticoloDao.doRetrieveById(idProdotto);
+        ArticoloBean articolo = ArticoloDao.doRetrieveById(idArticolo);
         for (ArticoloCarrello articoloCarrello : articoli) {
-            if (articoloCarrello.getProduct().getCode() == articolo.getCode() && articoloCarrello.getQta() + 1 < articolo.getQtaDisponibile()) {
+            if (articoloCarrello.getProduct().getIdArticolo() == articolo.getIdArticolo() && articoloCarrello.getQta() + 1 < articolo.getQtaDisponibile()) {
                 articoloCarrello.setQta(articoloCarrello.getQta() + 1);
                 this.updateTotale();
                 result = true;
@@ -37,16 +37,16 @@ public class Carrello {
         int nProdotti = 0;
         if (articoli.isEmpty()) nProdotti = -1;
         for (int i = 0; i < articoli.size(); i++) {
-            if (articoli.get(i).getProduct().getCode() == articolo.getCode()) {
+            if (articoli.get(i).getProduct().getIdArticolo() == articolo.getIdArticolo()) {
                 nProdotti = i;
             }
         }
         return nProdotti;
     }
 
-    public boolean checkQuantity(int idProd, int quantita) throws SQLException, ClassNotFoundException {
+    public boolean checkQuantity(int idArticolo, int quantita) throws SQLException, ClassNotFoundException {
         boolean result = false;
-        ArticoloBean articolo = ArticoloDao.doRetrieveById(idProd);
+        ArticoloBean articolo = ArticoloDao.doRetrieveById(idArticolo);
         int pos = this.isInCart(articolo);
         int quantitaDesiderata = quantita;
         if (pos > 0) {
@@ -59,9 +59,9 @@ public class Carrello {
         return result;
     }
 
-    public void deleteProdotto(int idProd) {
+    public void deleteProdotto(int idArticolo) {
         for (ArticoloCarrello articoloCarrello : articoli) {
-            if (articoloCarrello.getProduct().getCode() == idProd) {
+            if (articoloCarrello.getProduct().getIdArticolo() == idArticolo) {
                 articoli.remove(articoloCarrello);
                 this.updateTotale();
                 break;
