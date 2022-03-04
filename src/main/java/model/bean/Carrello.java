@@ -24,7 +24,7 @@ public class Carrello {
         boolean result = false;
         ArticoloBean articolo = ArticoloDao.doRetrieveById(idProdotto);
         for (ArticoloCarrello articoloCarrello : articoli) {
-            if (articoloCarrello.getProduct().getCode() == articolo.getCode() && articoloCarrello.getQta() + 1 < articolo.getQtaDisponibile()) {
+            if (articoloCarrello.getProduct().getIdArticolo() == articolo.getIdArticolo() && articoloCarrello.getQta() + 1 < articolo.getQtaDisponibile()) {
                 articoloCarrello.setQta(articoloCarrello.getQta() + 1);
                 this.updateTotale();
                 result = true;
@@ -37,7 +37,7 @@ public class Carrello {
         int nProdotti = 0;
         if (articoli.isEmpty()) nProdotti = -1;
         for (int i = 0; i < articoli.size(); i++) {
-            if (articoli.get(i).getProduct().getCode() == articolo.getCode()) {
+            if (articoli.get(i).getProduct().getIdArticolo() == articolo.getIdArticolo()) {
                 nProdotti = i;
             }
         }
@@ -61,7 +61,7 @@ public class Carrello {
 
     public void deleteProdotto(int idProd) {
         for (ArticoloCarrello articoloCarrello : articoli) {
-            if (articoloCarrello.getProduct().getCode() == idProd) {
+            if (articoloCarrello.getProduct().getIdArticolo() == idProd) {
                 articoli.remove(articoloCarrello);
                 this.updateTotale();
                 break;
