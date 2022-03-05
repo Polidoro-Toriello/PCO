@@ -9,6 +9,7 @@ import java.util.List;
 public class Carrello {
     private List<ArticoloCarrello> articoli;
     private float totale;
+    private ArticoloDao dao = new ArticoloDao();
 
     public Carrello() {
         articoli = new ArrayList<ArticoloCarrello>();
@@ -22,7 +23,7 @@ public class Carrello {
 
     public boolean addArticolo(int idArticolo) throws SQLException, ClassNotFoundException {
         boolean result = false;
-        ArticoloBean articolo = ArticoloDao.doRetrieveById(idArticolo);
+        ArticoloBean articolo = dao.doRetrieveById(idArticolo);
         for (ArticoloCarrello articoloCarrello : articoli) {
             if (articoloCarrello.getProduct().getIdArticolo() == articolo.getIdArticolo() && articoloCarrello.getQta() + 1 < articolo.getQtaDisponibile()) {
                 articoloCarrello.setQta(articoloCarrello.getQta() + 1);
@@ -46,7 +47,7 @@ public class Carrello {
 
     public boolean checkQuantity(int idArticolo, int quantita) throws SQLException, ClassNotFoundException {
         boolean result = false;
-        ArticoloBean articolo = ArticoloDao.doRetrieveById(idArticolo);
+        ArticoloBean articolo = dao.doRetrieveById(idArticolo);
         int pos = this.isInCart(articolo);
         int quantitaDesiderata = quantita;
         if (pos > 0) {

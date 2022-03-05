@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class MetodoPagamentoDao {
-    public static Collection<MetodoBean> doRetrieveAll(String email) throws SQLException, ClassNotFoundException {
+    public Collection<MetodoBean> doRetrieveAll(String email) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         PreparedStatement stmt = null;
         Collection<MetodoBean> metodi = new ArrayList<MetodoBean>();
@@ -43,7 +43,7 @@ public class MetodoPagamentoDao {
         return metodi;
     }
 
-    public static synchronized boolean doInsertMetodo(MetodoBean metodo) throws SQLException, ClassNotFoundException {
+    public synchronized boolean doInsertMetodo(MetodoBean metodo) throws SQLException, ClassNotFoundException {
         boolean insert = false;
         Connection conn = null;
         PreparedStatement stmt = null;

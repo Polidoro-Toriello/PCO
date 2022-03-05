@@ -42,7 +42,7 @@ public class ArticoloDao {
         return articoli;
     }
 
-    public static ArticoloBean doRetrieveById(int id) throws SQLException, ClassNotFoundException {
+    public ArticoloBean doRetrieveById(int id) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         PreparedStatement stmt = null;
         String query = "SELECT * FROM articolo where idarticolo = ?";
@@ -73,7 +73,7 @@ public class ArticoloDao {
         return articoloBean;
     }
 
-    public static Collection<ArticoloBean> doRetrieveCategoria(String categoria) throws SQLException, ClassNotFoundException {
+    public Collection<ArticoloBean> doRetrieveCategoria(String categoria) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         PreparedStatement stmt = null;
         Collection<ArticoloBean> articoli = new ArrayList<ArticoloBean>();

@@ -15,7 +15,7 @@ import java.io.IOException;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
+    private UserDao dao = new UserDao();
     public LoginServlet() {
         super();
     }
@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
             UserBean user = new UserBean();
             user.setUsername(request.getParameter("Username"));
             user.setPassword(request.getParameter("Password"));
-            user = UserDao.doRetrieveUtente(user);
+            user = dao.doRetrieveUtente(user);
             if (user.isValid()) {
                 if (user.isAdmin())
                     session.setAttribute("manager", user);

@@ -149,16 +149,16 @@ public class UserDao {
         return check;
     }
 
-    public static synchronized UserBean doRetrieveUtente(UserBean b) throws SQLException, ClassNotFoundException {
+    public synchronized UserBean doRetrieveUtente(UserBean b) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         UserBean user = null;
-        String query = "SELECT * FROM utente WHERE email = ? AND password = ?";
+        String query = "SELECT * FROM utente WHERE username = ? AND password = ?";
         PreparedStatement stmt = null;
         String pwd = generatePwd(b.getPassword());
         try {
             conn = ConnectionPool.conn();
             stmt = conn.prepareStatement(query);
-            stmt.setString(1, b.getEmail());
+            stmt.setString(1, b.getUsername());
             stmt.setString(2, pwd);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
