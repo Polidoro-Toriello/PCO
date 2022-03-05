@@ -73,7 +73,7 @@ public class ArticoloDao {
         return articoloBean;
     }
 
-    public Collection<ArticoloBean> doRetrieveCategoria(String categoria) throws SQLException, ClassNotFoundException {
+    public static Collection<ArticoloBean> doRetrieveCategoria(String categoria) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         PreparedStatement stmt = null;
         Collection<ArticoloBean> articoli = new ArrayList<ArticoloBean>();
