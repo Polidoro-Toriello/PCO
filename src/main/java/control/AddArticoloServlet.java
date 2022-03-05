@@ -28,12 +28,17 @@ public class AddArticoloServlet extends HttpServlet {
                 articolo.setCategoria(req.getParameter("Categoria"));
                 articolo.setQtaDisponibile(Integer.parseInt(req.getParameter("Qta")));
                 if(ArticoloDao.doInsertArticolo(articolo)){
-                    session.setAttribute("alertMsg","ProdottoInserito");
+                    session.setAttribute("alertMsg","Articolo Inserito");
                     resp.sendRedirect("view/AddArticolo.jsp");
                 }
             }catch (SQLException e) {
                 e.printStackTrace();
+                session.setAttribute("alertMsg","Errore nell'inserimento dell'articolo");
+                resp.sendRedirect("view/AddArticolo.jsp");
             }
+        }else{
+            session.setAttribute("alertMsg","Accesso non effettuato");
+            resp.sendRedirect("view/Home.jsp");
         }
     }
 
