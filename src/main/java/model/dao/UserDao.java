@@ -168,13 +168,12 @@ public class UserDao {
                 user.setEmail(rs.getString("email"));
                 user.setUsername(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
+                user.setValid(true);
                 if (rs.getInt("admin") == 0) {
                     user.setAdmin(false);
                 } else {
                     user.setAdmin(true);
                 }
-                stmt.close();
-                conn.close();
             }
         } catch (SQLException e) {
             e.printStackTrace();
