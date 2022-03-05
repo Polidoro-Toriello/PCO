@@ -149,7 +149,7 @@ public class UserDao {
         return check;
     }
 
-    public synchronized UserBean doRetrieveUtente(UserBean b) throws SQLException, ClassNotFoundException {
+    public static synchronized UserBean doRetrieveUtente(UserBean b) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         UserBean user = null;
         String query = "SELECT * FROM utente WHERE email = ? AND password = ?";
