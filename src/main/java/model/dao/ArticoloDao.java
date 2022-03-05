@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import static other.Utils.generatePwd;
+
 public class ArticoloDao {
     public static Collection<ArticoloBean> doRetrieveAll() throws SQLException, ClassNotFoundException {
         Connection conn = null;
@@ -104,5 +106,32 @@ public class ArticoloDao {
                 conn.close();
         }
         return articoli;
+    }
+
+    public static boolean doInsertArticolo(ArticoloBean articolo) throws SQLException {
+        Connection conn = null;
+        String sql = "INSERT INTO articolo (`nome`, `descrizione`, `prezzo`, `iva`, `categoria`, `qtadisponibile`) VALUES (?, ?, ?, ?, ?, ?)";
+        PreparedStatement stmt = null;
+        boolean check = false;
+        try {
+            conn = ConnectionPool.conn();
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1,articolo.getNome());
+            stmt.setString(2, articolo.getDescrizione());
+            stmt.setFloat(3, articolo.getPrezzo());
+            stmt.setInt(4, articolo.getIva());
+            stmt.setString(5, articolo.getCategoria());
+            stmt.setInt(6, articolo.getQtaDisponibile());
+            check = stmt.executeUpdate() == 1;
+            conn.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stmt != null)
+                stmt.close();
+            if (conn != null)
+                conn.close();
+        }
+        return check;
     }
 }
