@@ -9,6 +9,6 @@
 </h1>
 <h2>Polidoro e Toriello</h2>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+<a href="LoginPage.jsp">Prova Login</a>
 </body>
 </html>
