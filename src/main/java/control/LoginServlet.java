@@ -21,6 +21,10 @@ public class LoginServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, IOException {
+         doPost(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         try {
             UserBean user = new UserBean();
@@ -40,9 +44,5 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("alertMsg", "Errore, ritorno alla Homepage");
             response.sendRedirect("view/Home.jsp");
         }
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
     }
 }
