@@ -28,4 +28,5 @@ It was created during the Software Technologies for the Web exam of the Universi
 
 ## 🛠️ Main technologies used 
 * <a href="https://www.oracle.com/java/technologies/javase/17-0-2-relnotes.html">Java™ SE Development Kit 17.0.2 (JDK 17.0.2)</a>
+* <a href="https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-28.html">MySQL 8.0</a>
 * <a href="https://gradle.org/">Gradle</a>
