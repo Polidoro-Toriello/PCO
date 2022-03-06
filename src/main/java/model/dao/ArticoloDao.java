@@ -21,8 +21,8 @@ public class ArticoloDao {
             conn = ConnectionPool.conn();
             stmt = conn.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
-            ArticoloBean articoloBean = new ArticoloBean();
             while (rs.next()) {
+                ArticoloBean articoloBean = new ArticoloBean();
                 articoloBean.setIdArticolo(rs.getInt("idarticolo"));
                 articoloBean.setNome(rs.getString("nome"));
                 articoloBean.setCategoria(rs.getString("categoria"));
@@ -31,6 +31,7 @@ public class ArticoloDao {
                 articoloBean.setPrezzo(rs.getFloat("prezzo"));
                 articoloBean.setIva(rs.getInt("iva"));
                 articoli.add(articoloBean);
+                System.out.println(articoloBean);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -44,7 +45,7 @@ public class ArticoloDao {
         return articoli;
     }
 
-    public ArticoloBean doRetrieveById(int id) throws SQLException, ClassNotFoundException {
+    public static synchronized ArticoloBean doRetrieveById(int id) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         PreparedStatement stmt = null;
         String query = "SELECT * FROM articolo where idarticolo = ?";
@@ -62,6 +63,8 @@ public class ArticoloDao {
                 articoloBean.setQtaDisponibile(rs.getInt("qtadisponibile"));
                 articoloBean.setPrezzo(rs.getFloat("prezzo"));
                 articoloBean.setIva(rs.getInt("iva"));
+            } else if (!rs.next()) {
+                return null;
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -116,7 +119,7 @@ public class ArticoloDao {
         try {
             conn = ConnectionPool.conn();
             stmt = conn.prepareStatement(sql);
-            stmt.setString(1,articolo.getNome());
+            stmt.setString(1, articolo.getNome());
             stmt.setString(2, articolo.getDescrizione());
             stmt.setFloat(3, articolo.getPrezzo());
             stmt.setInt(4, articolo.getIva());
