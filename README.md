@@ -21,8 +21,9 @@ It was created during the Software Technologies for the Web exam of the Universi
   
 |Name|Position|Project Role|Contact Information|
 |:-: |:-: |:-: |:-: |
-|Riccardo Polidoro|BSc student|Software Engineer|<a href="https://github.com/rikon311">GitHub</a>|
-|Giovanni Toriello|BSc student|Software Engineer|<a href="https://github.com/giovanni-toriello">GitHub</a>|
+|Rita Francese|Full Professor|Sponsor / Top Manager|<a href="https://docenti.unisa.it/004763/home">UNISA</a>|
+|Riccardo Polidoro|BSc student|Team Member|<a href="https://github.com/rikon311">GitHub</a>|
+|Giovanni Toriello|BSc student|Team Member|<a href="https://github.com/giovanni-toriello">GitHub</a>|
 </div>
 
 ## 🛠️ Main technologies used 
