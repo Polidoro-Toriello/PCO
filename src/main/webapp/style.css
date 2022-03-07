@@ -287,3 +287,46 @@ ul li ul li a:hover {
 .articoliHome .box-container .box .overlay a:hover{
     color:var(--blue);
 }
+.offer{
+    background: #007cc7;
+    margin-top: 80px;
+    padding: 30px 0;
+}
+.col-2 .offer-img{
+    padding: 50px;
+}
+small{
+    color: #f0f0f0;
+}
+.offer h1{
+    font-size: 30px;
+    color: #fff;
+}
+.offer p{
+    color: #fff;
+}
+.btn{
+    display: inline-block;
+    background: #122325;
+    color: #fff;
+    padding:8px 30px ;
+    margin: 30px 0;
+    border-radius: 30px;
+}
+.btn:hover{
+    background:#fff ;
+}
+.brands{
+    margin: 100px auto;
+}
+.col-5{
+    width: 160px;
+}
+.col-5 img{
+    width: 100%;
+    cursor: pointer;
+    filter: grayscale(100%);
+}
+.col-5 img:hover{
+    filter: grayscale(5%);
+}

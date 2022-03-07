@@ -149,5 +149,39 @@
 
     </div>
 </section>
+<div class="offer">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-2">
+                <img class="offer-img" src="../images/NicePng_gaming-computer-png_2167532.png" alt="">
+            </div>
+            <div class="col-2">
+                <p>Exclusively Available on PCO</p>
+                <h1>Hp Pavillion Gaming 15</h1>
+                <small>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque nostrum perspiciatis neque velit beatae maiores saepe ex quia rerum voluptate nihil, quisquam dolor minus voluptatibus, molestiae quis necessitatibus vero.</small>
+                <a href="#" class="btn">Acquista</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="brands">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-5">
+                <img src="../images/amazonPay.png">
+            </div>
+            <div class="col-5">
+                <img src="../images/paypal.png">
+            </div>
+            <div class="col-5">
+                <img src="../images/maestro.png">
+            </div>
+            <div class="col-5">
+                <img src="../images/applePay.png">
+            </div>
+        </div>
+    </div>
+</div>
+<small>Copyright@2022 Polidoro-Toriello</small>
 </body>
 </html>
