@@ -121,7 +121,7 @@ public class UserDao {
     }
 
 
-    public static synchronized boolean doInsertUser(UserBean b) throws SQLException {
+    public synchronized boolean doInsertUser(UserBean b) throws SQLException {
         Connection conn = null;
         String sql = "INSERT INTO utente (email,nome,cognome,username,password,admin) VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement stmt = null;
