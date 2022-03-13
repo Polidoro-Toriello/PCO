@@ -49,7 +49,9 @@
                         <div class="text-center">
                             <h2 class="fw-bold text-light">Benvenuto in PCO</h2>
                         </div>
+                        <a href="Home.jsp">
                         <img src="../images/logo/loginlogo.png" class="mt-5 rounded-circle" alt="">
+                        </a>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 m-auto">
