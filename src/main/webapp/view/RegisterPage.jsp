@@ -45,13 +45,13 @@
     <section class="p-0 d-flex align-items-center position-relative overflow-hidden">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12 col-lg-6 d-md-flex align-items-center justify-content-center bg-info vh-lg-100">
+                <div class="col-12 col-lg-6 d-md-flex align-items-center justify-content-center bg-info vh-lg-100"">
                     <div class="p-3 p-lg-5">
                         <div class="text-center">
                             <h2 class="fw-bold text-light">Benvenuto in PCO</h2>
                         </div>
                         <a href="Home.jsp">
-                            <img src="../images/logo/loginlogo.png" class="mt-5 rounded-circle" alt="">
+                            <img src="../immagini/logo/loginlogo.png" class="mt-5 rounded-circle" alt="">
                         </a>
                     </div>
                 </div>
