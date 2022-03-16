@@ -20,7 +20,7 @@
             </a>
                 <ul class="dropdown">
                     <li><a href="#">Metodi di Pagamento</a></li>
-                    <li><a href="#">Indirizzi</a></li>
+                    <li><a href="#">Indirizzi di Spedizione</a></li>
                     <li><a href="../logout">Logout</a></li>
                 </ul>
             </li>
