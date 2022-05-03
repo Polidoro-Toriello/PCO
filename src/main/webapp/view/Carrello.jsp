@@ -21,6 +21,7 @@
     <p>Descrizione:<%=articolo.getProduct().getDescrizione()%></p>
     <p>Qta:<%=articolo.getQta()%></p>
     <p>Prezzo:<%=articolo.getProduct().getPrezzo()%></p>
+    <a href="../rimuovicarrello?idArticolo=<%=articolo.getProduct().getIdArticolo()%>">Rimuovi</a>
     <hr>
 <%}%>
 <p>Totale: <%=c.getTotale()%></p>
