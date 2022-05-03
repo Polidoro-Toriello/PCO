@@ -21,15 +21,21 @@ public class Carrello {
         this.totale = totale;
     }
 
-    public boolean addArticolo(int idArticolo) throws SQLException, ClassNotFoundException {
+    public boolean addArticolo(ArticoloCarrello nuovoarticolo) {
         boolean result = false;
-        ArticoloBean articolo = dao.doRetrieveById(idArticolo);
-        for (ArticoloCarrello articoloCarrello : articoli) {
-            if (articoloCarrello.getProduct().getIdArticolo() == articolo.getIdArticolo() && articoloCarrello.getQta() + 1 < articolo.getQtaDisponibile()) {
-                articoloCarrello.setQta(articoloCarrello.getQta() + 1);
-                this.updateTotale();
-                result = true;
-            }
+        boolean checkarticolo = false;
+            for (ArticoloCarrello articoloCarrello : articoli)
+                if (articoloCarrello.getProduct().getIdArticolo() == nuovoarticolo.getProduct().getIdArticolo() ) {
+                    checkarticolo = true;
+                    articoloCarrello.setQta(nuovoarticolo.getQta());
+                    this.updateTotale();
+                    result = true;
+                }
+
+        if(!checkarticolo) {
+            articoli.add(nuovoarticolo);
+            this.updateTotale();
+            result = true;
         }
         return result;
     }
