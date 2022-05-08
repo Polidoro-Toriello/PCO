@@ -3,6 +3,7 @@ package control;
 import model.bean.ArticoloCarrello;
 import model.bean.Carrello;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,15 +24,14 @@ public class ModificaQuantitaCarrelloServlet extends HttpServlet {
         int articoloid = Integer.parseInt(req.getParameter("idArticolo"));
         Carrello c = (Carrello) session.getAttribute("carrello");
 
-        //Usa la servlet che rimuove l'articolo dal carrello
+        //Usa la servlet che rimuove l'articolo dal carrello,se la nuova quantità è 0
         if(nuovaQuantita == 0) {
-            resp.sendRedirect("/rimuovicarrello");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/rimuovicarrello");
+            dispatcher.forward(req,resp);
+        } else { //Altrimenti modifica la quantità
+            c.modifyQuantity(articoloid, nuovaQuantita);
+            resp.sendRedirect("view/Carrello.jsp");
         }
-
-        //altrimenti modifica la quantità
-        c.modifyQuantity(articoloid, nuovaQuantita);
-        resp.sendRedirect("view/Carrello.jsp");
-
 
     }
 
