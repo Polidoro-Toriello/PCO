@@ -19,7 +19,11 @@
 <%for(ArticoloCarrello articolo: c.getArticoli()){%>
     <p>Nome:<%=articolo.getProduct().getNome()%></p>
     <p>Descrizione:<%=articolo.getProduct().getDescrizione()%></p>
-    <p>Qta:<%=articolo.getQta()%></p>
+    <p>Qta:</p>
+    <form action="../modificaquantitaarticolo" method="get">
+    <input type="number" max="<%=articolo.getProduct().getQtaDisponibile()%>"name="nuovaq" onchange="this.form.submit()" value="<%=articolo.getQta()%>">
+        <input type="hidden" name="idArticolo" value="<%=articolo.getProduct().getIdArticolo()%>">
+    </form>
     <p>Prezzo:<%=articolo.getProduct().getPrezzo()%></p>
     <a href="../rimuovicarrello?idArticolo=<%=articolo.getProduct().getIdArticolo()%>">Rimuovi</a>
     <hr>
