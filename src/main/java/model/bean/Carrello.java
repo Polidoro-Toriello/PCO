@@ -76,6 +76,18 @@ public class Carrello {
         }
     }
 
+    public void modifyQuantity(int idArticolo,int nuovaquantita){
+
+        for(ArticoloCarrello articoloCarrello: articoli) {
+            if(articoloCarrello.getProduct().getIdArticolo() == idArticolo) {
+                articoloCarrello.setQta(nuovaquantita);
+                this.updateTotale();
+                break;
+            }
+        }
+
+    }
+
     public List<ArticoloCarrello> getArticoli() {
         return articoli;
     }
