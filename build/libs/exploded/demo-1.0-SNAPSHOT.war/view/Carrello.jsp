@@ -72,7 +72,7 @@
         </table>
     </div>
     <form action="./confirmAcquisto" method="get">
-        <input type="submit" class="btn">Conferma Ordine</form>
+        <input type="submit" class="btn" value="Conferma Ordine">
     </form>
 </div>
 <%@include file="./fragment/footer.jsp" %>
