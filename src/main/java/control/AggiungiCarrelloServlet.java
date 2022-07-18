@@ -32,6 +32,7 @@ public class AggiungiCarrelloServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
+
         ArticoloCarrello articoloCarrello = new ArticoloCarrello(articolo, qta);
         Carrello c = (Carrello) session.getAttribute("carrello");
         if(c == null) {

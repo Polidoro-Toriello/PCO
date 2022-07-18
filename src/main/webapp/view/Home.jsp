@@ -93,6 +93,7 @@
         </div>
     </div>
 </div>
+
 <%@include file="./fragment/footer.jsp" %>
 </body>
 </html>
