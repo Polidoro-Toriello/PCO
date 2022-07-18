@@ -1,35 +1,80 @@
+<%@ page import="model.bean.UserBean" %>
 <%@ page import="model.bean.Carrello" %>
-<%@ page import="model.bean.ArticoloCarrello" %><%--
+<%@ page import="model.bean.ArticoloCarrello" %>
+<%--
   Created by IntelliJ IDEA.
-  User: Riccardo
-  Date: 03/05/2022
-  Time: 16:30
+  User: G.TORIELLO
+  Date: 14/03/2022
+  Time: 07:53
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<% Carrello c = (Carrello) session.getAttribute("carrello"); %>
+<% UserBean utente = (UserBean) session.getAttribute("utente"); %>
+<% UserBean manager = (UserBean) session.getAttribute("manager");
+    Carrello c = (Carrello) session.getAttribute("carrello");
+%>
+
 <html>
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
 </head>
 <body>
-<%if(c == null) { %>
-    <p>Nessun articolo nel carrello</p>
-<%}else{%>
-<%for(ArticoloCarrello articolo: c.getArticoli()){%>
-    <p>Nome:<%=articolo.getProduct().getNome()%></p>
-    <p>Descrizione:<%=articolo.getProduct().getDescrizione()%></p>
-    <p>Qta:</p>
-    <form action="../modificaquantitaarticolo" method="get">
-    <input type="number" max="<%=articolo.getProduct().getQtaDisponibile()%>"name="nuovaq" onchange="this.form.submit()" value="<%=articolo.getQta()%>">
-        <input type="hidden" name="idArticolo" value="<%=articolo.getProduct().getIdArticolo()%>">
-    </form>
-    <p>Prezzo:<%=articolo.getProduct().getPrezzo()%></p>
-    <a href="../rimuovicarrello?idArticolo=<%=articolo.getProduct().getIdArticolo()%>">Rimuovi</a>
-    <hr>
-<%}%>
-<p>Totale: <%=c.getTotale()%></p>
-<%}%>
+<%@include file="./fragment/navbar.jsp" %>
+<!--Dettagli del Carrello---->
 
+<div class="small-container cart-page">
+    <table>
+        <tr>
+            <th>Prodotto</th>
+            <th>Quantita'</th>
+            <th>Subtotal</th>
+        </tr>
+        <%
+            for (ArticoloCarrello articolo : c.getArticoli()){
+            %>
+        <td>
+            <div class="cart-info">
+                <img src="../immagini/NicePng_gaming-computer-png_2167532.png" alt="">
+                <<div>
+                <small><%=articolo.getProduct().getNome()%></small><br>
+                <small><%=articolo.getProduct().getPrezzo()%></small>
+                <br>
+                <a href="../rimuovicarrello?idArticolo=<%=articolo.getProduct().getIdArticolo()%>">Rimuovi</a>
+            </div>
+            </div>
+        </td>
+        <form action="../modificaquantitaarticolo" method="get">
+        <td><input type="number" max="<%=articolo.getProduct().getQtaDisponibile()%>"name="nuovaq" onchange="this.form.submit()" value="<%=articolo.getQta()%>"></td>
+        </form>
+        <td><%=articolo.getQta()%>></td><%}%>
+    </table>
+
+<!--Somma totale-->
+    <div class="total-price">
+        <table>
+            <tr>
+                <td>Iva</td>
+                <td>22%</td>
+            </tr>
+            <tr>
+                <td>Totale</td>
+                <td><%=c.getTotale()%></td>
+            </tr>
+        </table>
+    </div>
+    <form action="./confirmAcquisto" method="get">
+        <input type="submit" class="btn" value="Conferma Ordine">
+    </form>
+</div>
+<%@include file="./fragment/footer.jsp" %>
 </body>
-</html>
+

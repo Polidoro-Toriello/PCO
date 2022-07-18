@@ -1,4 +1,7 @@
-<%@ page import="model.bean.UserBean" %><%--
+<%@ page import="model.bean.UserBean" %>
+<%@ page import="model.bean.Carrello" %>
+<%@ page import="model.bean.ArticoloCarrello" %>
+<%--
   Created by IntelliJ IDEA.
   User: G.TORIELLO
   Date: 14/03/2022
@@ -7,7 +10,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <% UserBean utente = (UserBean) session.getAttribute("utente"); %>
-<% UserBean manager = (UserBean) session.getAttribute("manager"); %>
+<% UserBean manager = (UserBean) session.getAttribute("manager");
+    Carrello c = (Carrello) session.getAttribute("carrello");
+%>
+
 <html>
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +30,7 @@
 <body>
 <%@include file="./fragment/navbar.jsp" %>
 <!--Dettagli del Carrello---->
+
 <div class="small-container cart-page">
     <table>
         <tr>
@@ -31,38 +38,42 @@
             <th>Quantita'</th>
             <th>Subtotal</th>
         </tr>
+        <%
+            for (ArticoloCarrello articolo : c.getArticoli()){
+            %>
         <td>
             <div class="cart-info">
                 <img src="../immagini/NicePng_gaming-computer-png_2167532.png" alt="">
-                <div>
-                    <small>NvidiaRTX</small><br>
-                    <small>Prezzo: $780.00</small>
-                    <br>
-                    <a href="">Remove</a>
-                </div>
+                <<div>
+                <small><%=articolo.getProduct().getNome()%></small><br>
+                <small><%=articolo.getProduct().getPrezzo()%></small>
+                <br>
+                <a href="../rimuovicarrello?idArticolo=<%=articolo.getProduct().getIdArticolo()%>">Rimuovi</a>
+            </div>
             </div>
         </td>
-        <td><input type="number" value=1></td>
-        <td>$50.00</td>
+        <form action="../modificaquantitaarticolo" method="get">
+        <td><input type="number" max="<%=articolo.getProduct().getQtaDisponibile()%>"name="nuovaq" onchange="this.form.submit()" value="<%=articolo.getQta()%>"></td>
+        </form>
+        <td><%=articolo.getQta()%>></td><%}%>
     </table>
 
 <!--Somma totale-->
     <div class="total-price">
         <table>
             <tr>
-                <td>Subtotal</td>
-                <td>50.00</td>
-            </tr>
-            <tr>
                 <td>Iva</td>
                 <td>22%</td>
             </tr>
             <tr>
-                <td>Subtotal</td>
-                <td>500</td>
+                <td>Totale</td>
+                <td><%=c.getTotale()%></td>
             </tr>
         </table>
     </div>
+    <form action="./confirmAcquisto" method="get">
+        <input type="submit" class="btn">Conferma Ordine</form>
+    </form>
 </div>
 <%@include file="./fragment/footer.jsp" %>
 </body>
