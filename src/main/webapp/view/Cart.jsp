@@ -53,7 +53,7 @@
             </div>
         </td>
         <form action="../modificaquantitaarticolo" method="get">
-        <td><input type="number" value=<%=articolo.getQta()%>></td>
+        <td><input type="number" max="<%=articolo.getProduct().getQtaDisponibile()%>"name="nuovaq" onchange="this.form.submit()" value="<%=articolo.getQta()%>"></td>
         </form>
         <td><%=articolo.getQta()%>></td><%}%>
     </table>
