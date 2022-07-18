@@ -110,7 +110,7 @@ public class OrdineDao {
     }
 
 
-    public synchronized boolean doInsertOrdine(OrdineBean b) throws SQLException {
+    public static synchronized boolean doInsertOrdine(OrdineBean b) throws SQLException {
         Connection conn = null;
         PreparedStatement stmt = null;
         String sql = "INSERT INTO ordine (stato,totale,email,data) VALUES(?, ?, ?, ?)";

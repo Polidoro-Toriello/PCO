@@ -82,7 +82,7 @@
                 <p>Exclusively Available on PCO</p>
                 <h1>Hp Pavillion Gaming 15</h1>
                 <small>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque nostrum perspiciatis neque velit beatae maiores saepe ex quia rerum voluptate nihil, quisquam dolor minus voluptatibus, molestiae quis necessitatibus vero.</small>
-                <a href="#" class="btn">Acquista</a>
+                <input type="submit" class="btn" value="Acquista">
             </div>
         </div>
     </div>

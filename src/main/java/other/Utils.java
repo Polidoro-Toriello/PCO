@@ -3,6 +3,9 @@ package other;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Utils {
     /**
@@ -24,5 +27,14 @@ public class Utils {
             e.printStackTrace();
         }
         return generatedPassword;
+    }
+    public String dataOggi() {
+        SimpleDateFormat dtf = new SimpleDateFormat("dd/MM/yyyy");
+        Calendar calendar = Calendar.getInstance();
+
+        Date dateObj = calendar.getTime();
+        String formattedDate = dtf.format(dateObj);
+        System.out.println(formattedDate);
+        return formattedDate;
     }
 }
