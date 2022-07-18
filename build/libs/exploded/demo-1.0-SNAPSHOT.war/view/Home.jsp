@@ -54,7 +54,7 @@
     <h2 class="title">Ultimi Arrivi</h2>
 
     <div class="box-container">
-       <%for(int i=0;i<10;i++){%>
+       <%for(int i=0;i<9;i++){%>
         <div class="box">
             <div class="image">
                 <img src="../immagini/NvidiaGpu.jpg" alt="gpu">
