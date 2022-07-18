@@ -22,5 +22,7 @@
 </p>
 <a href="../articolo?idArticolo=<%=articolo.getIdArticolo()%>">scegli</a>
 <%}%>
+
+<a href="Carrello.jsp">Visualizza carrello</a>
 </body>
 </html>
