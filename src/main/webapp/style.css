@@ -379,6 +379,17 @@ small {
     margin: 30px 0;
     border-radius: 30px;
 }
+.btnCarrello{
+    display: flex;
+    background: #007cc7;
+    color: #fff;
+    padding: 0% 80%;
+    margin: 20px 0;
+    border-radius: 30px;
+}
+.btnCarrello:hover{
+    background-color: #0b0f13;
+}
 
 .btn:hover {
     background: #fff;
@@ -491,7 +502,8 @@ th:last-child {
     background-color: #007cc7;
     width: 50%;
 }
-#btnPiccolo:hover{
+
+#btnPiccolo:hover {
     background-color: #0b0f13;
     color: #fff;
 }
@@ -539,7 +551,14 @@ th:last-child {
     padding: 10px 0;
     margin: 0 auto 0 62%;
 }
-
+.productPage-btn{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+    padding: 10px 0;
+    margin: 0 auto 0 0%;
+}
 .modal {
     display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -562,7 +581,8 @@ th:last-child {
     border: 1px solid #888;
     width: 30%;
 }
-.modal-content-btn{
+
+.modal-content-btn {
     margin-left: 35%;
 }
 
@@ -584,5 +604,50 @@ th:last-child {
 .close:focus {
     color: #000;
     text-decoration: none;
+    cursor: pointer;
+}
+
+.single-product {
+    margin-top: 80px;
+}
+
+.single-product .col-2 img {
+    padding: 0;
+}
+
+.single-product .col-2 {
+    padding: 20px;
+}
+
+.single-product h4 {
+    margin: 20px 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.single-product .qtaSelect {
+    display: block;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.single-product input {
+    width: 50px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 20px;
+    margin-right: 10px;
+    border:1px solid #0d6efd;
+}
+input:focus{
+    outline: none;
+}
+.small-img-row{
+    padding-top: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+.small-img-col{
+    flex-basis: 24%;
     cursor: pointer;
 }

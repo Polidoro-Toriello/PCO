@@ -21,7 +21,11 @@ public class AggiungiCarrelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         ArticoloBean articolo = (ArticoloBean) session.getAttribute("articolo");
-        if(articolo == null) {
+        int qta = 1;
+        if (req.getParameter("qta") != null) {
+            qta = Integer.parseInt(req.getParameter("qta"));
+        }
+        if (articolo == null) {
             try {
                 articolo = ArticoloDao.doRetrieveById(Integer.parseInt(req.getParameter("idArticolo")));
             } catch (SQLException e) {
@@ -31,15 +35,15 @@ public class AggiungiCarrelloServlet extends HttpServlet {
             }
         }
 
-        ArticoloCarrello articoloCarrello = new ArticoloCarrello(articolo, 1);
+        ArticoloCarrello articoloCarrello = new ArticoloCarrello(articolo, qta);
         Carrello c = (Carrello) session.getAttribute("carrello");
-        if(c == null) {
+        if (c == null) {
             c = new Carrello();
             session.setAttribute("carrello", c);
         }
         c.addArticolo(articoloCarrello);
         session.setAttribute("carrello", c);
-        session.setAttribute("alertMsg","true");
+        session.setAttribute("alertMsg", "true");
         resp.sendRedirect("view/Home.jsp");
 
 
