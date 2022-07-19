@@ -34,27 +34,27 @@
 <div class="small-container single-product">
     <div class="row">
         <div class="col-2">
-            <img src="../immagini/NvidiaGpu.jpg" width="100%" id="product-img">
+            <img src="../immagini/RTX_3090_1.jpg" width="100%" id="product-img">
             <div class="small-img-row">
                 <div class="small-img-col">
-                    <img src="../immagini/NvidiaGpu.jpg" width="100%" class="small-img">
+                    <img src="../immagini/RTX_3090_2.jpg" width="100%" class="small-img">
                 </div>
                 <div class="small-img-col">
-                    <img src="../immagini/NvidiaGpu.jpg" width="100%" class="small-img">
+                    <img src="../immagini/RTX_3090_3.jpg" width="100%" class="small-img">
                 </div>
                 <div class="small-img-col">
-                    <img src="../immagini/NvidiaGpu.jpg" width="100%" class="small-img">
+                    <img src="../immagini/RTX_3090_4.jpg" width="100%" class="small-img">
                 </div>
                 <div class="small-img-col">
-                    <img src="../immagini/NvidiaGpu.jpg" width="100%" class="small-img">
+                    <img src="../immagini/RTX_3090_1.jpg" width="100%" class="small-img">
                 </div>
             </div>
         </div>
         <div class="col-2">
-            <p> Scheda Video</p>
+            <p>Categoria: <a href="#" class="linkCategoria"> <%=articoloBean.getCategoria().toUpperCase()%></a></p>
             <h1><%=articoloBean.getNome()%>
             </h1>
-            <h4><%=articoloBean.getPrezzo()%>&euro;</h4>
+            <h4>Prezzo: <%=articoloBean.getPrezzo()%>&euro;</h4>
             <form action="../aggiungicarrello" method="get">
                 <div class="productPage-btn">
                     <input value="<%=articoloBean.getIdArticolo()%>" name="idArticolo" type="hidden">

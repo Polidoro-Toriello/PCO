@@ -99,7 +99,7 @@
         <%for (ArticoloBean articolo : articoli) {%>
         <div class="box">
             <div class="image">
-                <img src="../immagini/NvidiaGpu.jpg" alt="gpu">
+                <img src="../immagini/RTX_3090_3.jpg" alt="gpu">
             </div>
             <div class="info">
                 <h3><%=articolo.getNome()%>

@@ -651,3 +651,7 @@ input:focus{
     flex-basis: 24%;
     cursor: pointer;
 }
+linkCategoria{
+    text-decoration: none;
+    color: #0d6efd;
+}
