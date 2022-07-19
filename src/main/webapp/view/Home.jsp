@@ -12,6 +12,11 @@
 
 <%
     Collection<ArticoloBean> articoli = (Collection<ArticoloBean>) session.getAttribute("articoli");
+    if(articoli==null){
+        System.out.println("null");
+        response.sendRedirect(request.getContextPath()+"/home");
+        return;
+    }
 %>
 <html>
 <head>
@@ -27,6 +32,7 @@
     <title>Title</title>
 </head>
 <body>
+
 <%
     if (aggiunto != null && aggiunto.equals("true")) {
 %>
