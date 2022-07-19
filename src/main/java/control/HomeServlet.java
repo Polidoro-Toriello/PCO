@@ -21,7 +21,7 @@ public class HomeServlet extends HttpServlet {
         req.getSession().removeAttribute("alertMsg");
         Collection<ArticoloBean> articoli = null;
         try {
-            articoli = ArticoloDao.doRetrieveAll();
+            articoli = ArticoloDao.doRetrieveLastArrive();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

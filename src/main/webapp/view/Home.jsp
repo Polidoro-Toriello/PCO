@@ -13,7 +13,6 @@
 <%
     Collection<ArticoloBean> articoli = (Collection<ArticoloBean>) session.getAttribute("articoli");
     if(articoli==null){
-        System.out.println("null");
         response.sendRedirect(request.getContextPath()+"/home");
         return;
     }

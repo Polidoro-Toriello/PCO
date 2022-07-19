@@ -137,4 +137,36 @@ public class ArticoloDao {
         }
         return check;
     }
+    public static Collection<ArticoloBean> doRetrieveLastArrive() throws SQLException, ClassNotFoundException {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        Collection<ArticoloBean> articoli = new ArrayList<ArticoloBean>();
+        String query = "SELECT * FROM articolo order by idarticolo desc limit 9";
+        try {
+            conn = ConnectionPool.conn();
+            stmt = conn.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                ArticoloBean articoloBean = new ArticoloBean();
+                articoloBean.setIdArticolo(rs.getInt("idarticolo"));
+                articoloBean.setNome(rs.getString("nome"));
+                articoloBean.setCategoria(rs.getString("categoria"));
+                articoloBean.setDescrizione(rs.getString("descrizione"));
+                articoloBean.setQtaDisponibile(rs.getInt("qtadisponibile"));
+                articoloBean.setPrezzo(rs.getFloat("prezzo"));
+                articoloBean.setIva(rs.getInt("iva"));
+                articoli.add(articoloBean);
+                System.out.println(articoloBean);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (stmt != null)
+                stmt.close();
+            if (conn != null)
+                conn.close();
+        }
+        return articoli;
+    }
 }
