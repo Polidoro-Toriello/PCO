@@ -42,13 +42,13 @@
             <li><a class="navigation-bar" href="Home.jsp">Home</a></li>
             <li><a class="navigation-bar" href="#">Componenti</a>
                 <ul class="dropdown">
-                    <li><a class="navigation-bar" href="#">Tutti</a></li>
-                    <li><a class="navigation-bar" href="#">PC</a></li>
-                    <li><a class="navigation-bar" href="#">RAM</a></li>
-                    <li><a class="navigation-bar" href="#">CPU</a></li>
-                    <li><a class="navigation-bar" href="#">GPU</a></li>
-                    <li><a class="navigation-bar" href="#">SSD</a></li>
-                    <li><a class="navigation-bar" href="#">HDD</a></li>
+                    <li><a class="navigation-bar" href="../catalogoarticoli?categoria=tutti">Tutti</a></li>
+                    <li><a class="navigation-bar" href="../catalogoarticoli?categoria=PC">PC</a></li>
+                    <li><a class="navigation-bar" href="../catalogoarticoli?categoria=RAM">RAM</a></li>
+                    <li><a class="navigation-bar" href="../catalogoarticoli?categoria=CPU">CPU</a></li>
+                    <li><a class="navigation-bar" href="../catalogoarticoli?categoria=GPU">GPU</a></li>
+                    <li><a class="navigation-bar" href="../catalogoarticoli?categoria=SSD">SSD</a></li>
+                    <li><a class="navigation-bar" href="../catalogoarticoli?categoria=HDD">HDD</a></li>
                 </ul>
             </li>
             <li><a class="navigation-bar" href="#">Accessori</a></li>

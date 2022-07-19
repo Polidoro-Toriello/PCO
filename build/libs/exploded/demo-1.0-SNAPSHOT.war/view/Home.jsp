@@ -7,10 +7,9 @@
 <% UserBean utente = (UserBean) session.getAttribute("utente"); %>
 <% UserBean manager = (UserBean) session.getAttribute("manager"); %>
 <% String aggiunto = (String) session.getAttribute("alertMsg"); %>
-<% session.setAttribute("paginaCorrente","Home.jsp");%>
+
 <%
-    Collection<ArticoloBean> articoli = ArticoloDao.doRetrieveAll();
-    //Collection<ArticoloBean> articoli = session.getAttribute("articoli");
+    Collection<ArticoloBean> articoli = (Collection<ArticoloBean>) session.getAttribute("articoli");
 %>
 <html>
 <head>
@@ -59,8 +58,8 @@
     }
 </script>
 <%  //possibilità di mettere anchore per farlo apparire centrale
-        session.removeAttribute("alertMsg");
-    }%>
+    session.removeAttribute("alertMsg");
+}%>
 <%@include file="./fragment/navbar.jsp" %>
 <div class="hero">
     <div class="hero_content">
@@ -99,7 +98,7 @@
         <%for (ArticoloBean articolo : articoli) {%>
         <div class="box">
             <div class="image">
-                <img src="../immagini/RTX_3090_TI3.jpg" alt="gpu">
+                <img src="../immagini/RTX_3090_3.jpg" alt="gpu">
             </div>
             <div class="info">
                 <h3><%=articolo.getNome()%>
