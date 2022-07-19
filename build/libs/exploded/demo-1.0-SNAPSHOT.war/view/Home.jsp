@@ -3,10 +3,12 @@
 <%@ page import="java.util.Collection" %>
 <%@ page import="model.bean.ArticoloBean" %>
 <%@ page import="model.dao.ArticoloDao" %>
+<%@ page import="java.util.Random" %>
 
 <% UserBean utente = (UserBean) session.getAttribute("utente"); %>
 <% UserBean manager = (UserBean) session.getAttribute("manager"); %>
 <% String aggiunto = (String) session.getAttribute("alertMsg"); %>
+<% Random rand = new Random();%>
 
 <%
     Collection<ArticoloBean> articoli = (Collection<ArticoloBean>) session.getAttribute("articoli");
@@ -97,9 +99,11 @@
     <div class="box-container">
         <%for (ArticoloBean articolo : articoli) {%>
         <div class="box">
+            <%if(articolo.getCategoria().equalsIgnoreCase("gpu")){%>
             <div class="image">
-                <img src="../immagini/RTX_3090_3.jpg" alt="gpu">
+                <img src="<%="../immagini/gpu1.jpeg"%>" alt="gpu">
             </div>
+            <%}%>
             <div class="info">
                 <h3><%=articolo.getNome()%>
                 </h3>
