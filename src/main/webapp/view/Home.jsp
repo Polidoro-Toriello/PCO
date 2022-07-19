@@ -101,32 +101,32 @@
         <div class="box">
             <%if(articolo.getCategoria().equalsIgnoreCase("gpu")){%>
             <div class="image">
-                <img src="<%="../immagini/gpu1.jpeg"%>" alt="gpu">
+                <img src="<%="../immagini/gpu1.jpg"%>" alt="gpu">
             </div>
             <%}%>
             <%if(articolo.getCategoria().equalsIgnoreCase("pc")){%>
             <div class="image">
-                <img src="<%="../immagini/pc1.jpeg"%>" alt="pc">
+                <img src="<%="../immagini/pc1.jpg"%>" alt="pc">
             </div>
             <%}%>
             <%if(articolo.getCategoria().equalsIgnoreCase("cpu")){%>
             <div class="image">
-                <img src="<%="../immagini/cpu1.jpeg"%>" alt="cpu">
+                <img src="<%="../immagini/cpu1.jpg"%>" alt="cpu">
             </div>
             <%}%>
             <%if(articolo.getCategoria().equalsIgnoreCase("ram")){%>
             <div class="image">
-                <img src="<%="../immagini/ram1.jpeg"%>" alt="ram">
+                <img src="<%="../immagini/ram1.jpg"%>" alt="ram">
             </div>
             <%}%>
             <%if(articolo.getCategoria().equalsIgnoreCase("ssd")){%>
             <div class="image">
-                <img src="<%="../immagini/ssd1.jpeg"%>" alt="ssd">
+                <img src="<%="../immagini/ssd1.jpg"%>" alt="ssd">
             </div>
             <%}%>
             <%if(articolo.getCategoria().equalsIgnoreCase("hdd")){%>
             <div class="image">
-                <img src="<%="../immagini/hdd1.jpeg"%>" alt="hdd">
+                <img src="<%="../immagini/hdd1.jpg"%>" alt="hdd">
             </div>
             <%}%>
             <div class="info">
