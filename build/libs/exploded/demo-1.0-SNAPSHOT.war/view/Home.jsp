@@ -104,6 +104,31 @@
                 <img src="<%="../immagini/gpu1.jpeg"%>" alt="gpu">
             </div>
             <%}%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("pc")){%>
+            <div class="image">
+                <img src="<%="../immagini/pc1.jpeg"%>" alt="pc">
+            </div>
+            <%}%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("cpu")){%>
+            <div class="image">
+                <img src="<%="../immagini/cpu1.jpeg"%>" alt="cpu">
+            </div>
+            <%}%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("ram")){%>
+            <div class="image">
+                <img src="<%="../immagini/ram1.jpeg"%>" alt="ram">
+            </div>
+            <%}%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("ssd")){%>
+            <div class="image">
+                <img src="<%="../immagini/ssd1.jpeg"%>" alt="ssd">
+            </div>
+            <%}%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("hdd")){%>
+            <div class="image">
+                <img src="<%="../immagini/hdd1.jpeg"%>" alt="hdd">
+            </div>
+            <%}%>
             <div class="info">
                 <h3><%=articolo.getNome()%>
                 </h3>

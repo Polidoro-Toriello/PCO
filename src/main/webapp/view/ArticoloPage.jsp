@@ -66,6 +66,9 @@
         }
     }
 </script>
+<%  //possibilità di mettere anchore per farlo apparire centrale
+    session.removeAttribute("alertMsg");
+    }%>
 <div class="small-container single-product" style="width: 100%">
     <div class="row">
         <div class="col-2">
