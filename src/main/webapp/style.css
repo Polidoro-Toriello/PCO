@@ -651,7 +651,14 @@ input:focus{
     flex-basis: 24%;
     cursor: pointer;
 }
-linkCategoria{
+.linkCategoria{
     text-decoration: none;
-    color: #0d6efd;
+    color: #007cc7;
+}
+.linkCategoria:hover{
+    color: #0b0f13;
+}
+.small-img{
+    max-width:117px ;
+    max-height: 66px;
 }

@@ -7,7 +7,7 @@
 <% UserBean utente = (UserBean) session.getAttribute("utente"); %>
 <% UserBean manager = (UserBean) session.getAttribute("manager"); %>
 <% String aggiunto = (String) session.getAttribute("alertMsg"); %>
-
+<% session.setAttribute("paginaCorrente","Home.jsp");%>
 <%
     Collection<ArticoloBean> articoli = ArticoloDao.doRetrieveAll();
     //Collection<ArticoloBean> articoli = session.getAttribute("articoli");
@@ -99,7 +99,7 @@
         <%for (ArticoloBean articolo : articoli) {%>
         <div class="box">
             <div class="image">
-                <img src="../immagini/RTX_3090_3.jpg" alt="gpu">
+                <img src="../immagini/RTX_3090_TI3.jpg" alt="gpu">
             </div>
             <div class="info">
                 <h3><%=articolo.getNome()%>
