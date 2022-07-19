@@ -39,26 +39,34 @@
             <th>Subtotal</th>
         </tr>
         <%
-            for (ArticoloCarrello articolo : c.getArticoli()){
-            %>
-        <td>
+            for (ArticoloCarrello articolo : c.getArticoli()) {
+        %>
+        <tr>
+            <td>
             <div class="cart-info">
                 <img src="../immagini/NicePng_gaming-computer-png_2167532.png" alt="">
-                <<div>
-                <small><%=articolo.getProduct().getNome()%></small><br>
-                <small><%=articolo.getProduct().getPrezzo()%></small>
-                <br>
-                <a href="../rimuovicarrello?idArticolo=<%=articolo.getProduct().getIdArticolo()%>">Rimuovi</a>
-            </div>
+                <div>
+                    <small><%=articolo.getProduct().getNome()%>
+                    </small><br>
+                    <small><%=articolo.getProduct().getPrezzo()%>&euro;</small>
+                    <br>
+                    <a href="../rimuovicarrello?idArticolo=<%=articolo.getProduct().getIdArticolo()%>">Rimuovi</a>
+                </div>
             </div>
         </td>
-        <form action="../modificaquantitaarticolo" method="get">
-        <td><input type="number" max="<%=articolo.getProduct().getQtaDisponibile()%>"name="nuovaq" onchange="this.form.submit()" value="<%=articolo.getQta()%>"></td>
-        </form>
-        <td><%=articolo.getQta()%>></td><%}%>
+        <td>
+            <form action="../modificaquantitaarticolo?idArticolo=<%=articolo.getProduct().getIdArticolo()%>"
+                  method="get">
+                <input value="<%=articolo.getProduct().getIdArticolo()%>" name="idArticolo" type="hidden">
+                <input type="number" max="<%=articolo.getProduct().getQtaDisponibile()%>" name="nuovaq"
+                       onchange="this.form.submit()" value="<%=articolo.getQta()%>">
+            </form>
+        </td>
+        <td><%=articolo.getQta()*articolo.getProduct().getPrezzo()%>&euro;</td>
+        </tr><%}%>
     </table>
 
-<!--Somma totale-->
+    <!--Somma totale-->
     <div class="total-price">
         <table>
             <tr>
@@ -67,13 +75,16 @@
             </tr>
             <tr>
                 <td>Totale</td>
-                <td><%=c.getTotale()%></td>
+                <td><%=c.getTotale()%>&euro;</td>
             </tr>
         </table>
     </div>
-    <form action="./confirmAcquisto" method="get">
-        <input type="submit" class="btn" value="Conferma Ordine">
-    </form>
+    <div class="carrelloButton">
+        <form action="../confirmAcquisto" method="get">
+            <input type="submit" class="confirmBtn" id="confirmBtn" value="Conferma Ordine">
+        </form>
+        <input type="submit" class="returnBtn" id="returnBtn" value="Torna al catalogo">
+    </div>
 </div>
 <%@include file="./fragment/footer.jsp" %>
 </body>

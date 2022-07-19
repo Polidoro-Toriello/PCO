@@ -24,15 +24,16 @@ public class Carrello {
     public boolean addArticolo(ArticoloCarrello nuovoarticolo) {
         boolean result = false;
         boolean checkarticolo = false;
-            for (ArticoloCarrello articoloCarrello : articoli)
-                if (articoloCarrello.getProduct().getIdArticolo() == nuovoarticolo.getProduct().getIdArticolo() ) {
-                    checkarticolo = true;
-                    articoloCarrello.setQta(nuovoarticolo.getQta());
-                    this.updateTotale();
-                    result = true;
-                }
-
-        if(!checkarticolo) {
+        for (ArticoloCarrello articoloCarrello : articoli) {
+            if (articoloCarrello.getProduct().getIdArticolo() == nuovoarticolo.getProduct().getIdArticolo()) {
+                checkarticolo = true;
+                articoloCarrello.setQta(nuovoarticolo.getQta() + articoloCarrello.getQta());
+                this.updateTotale();
+                result = true;
+                System.out.println(""+articoloCarrello.getQta());
+            }
+        }
+        if (!checkarticolo) {
             articoli.add(nuovoarticolo);
             this.updateTotale();
             result = true;
@@ -76,10 +77,10 @@ public class Carrello {
         }
     }
 
-    public void modifyQuantity(int idArticolo,int nuovaquantita){
+    public void modifyQuantity(int idArticolo, int nuovaquantita) {
 
-        for(ArticoloCarrello articoloCarrello: articoli) {
-            if(articoloCarrello.getProduct().getIdArticolo() == idArticolo) {
+        for (ArticoloCarrello articoloCarrello : articoli) {
+            if (articoloCarrello.getProduct().getIdArticolo() == idArticolo) {
                 articoloCarrello.setQta(nuovaquantita);
                 this.updateTotale();
                 break;

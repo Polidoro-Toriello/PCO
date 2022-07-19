@@ -19,9 +19,7 @@ public class AggiungiCarrelloServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         HttpSession session = req.getSession();
-        int qta= Integer.parseInt(req.getParameter("qta"));
         ArticoloBean articolo = (ArticoloBean) session.getAttribute("articolo");
         if(articolo == null) {
             try {
@@ -33,7 +31,7 @@ public class AggiungiCarrelloServlet extends HttpServlet {
             }
         }
 
-        ArticoloCarrello articoloCarrello = new ArticoloCarrello(articolo, qta);
+        ArticoloCarrello articoloCarrello = new ArticoloCarrello(articolo, 1);
         Carrello c = (Carrello) session.getAttribute("carrello");
         if(c == null) {
             c = new Carrello();
@@ -41,6 +39,7 @@ public class AggiungiCarrelloServlet extends HttpServlet {
         }
         c.addArticolo(articoloCarrello);
         session.setAttribute("carrello", c);
+        session.setAttribute("alertMsg","true");
         resp.sendRedirect("view/Home.jsp");
 
 

@@ -39,7 +39,7 @@
     <img src="" alt="">
     <ul class="menu">
         <ul>
-            <li><a class="navigation-bar" href="#">Home</a></li>
+            <li><a class="navigation-bar" href="Home.jsp">Home</a></li>
             <li><a class="navigation-bar" href="#">Componenti</a>
                 <ul class="dropdown">
                     <li><a class="navigation-bar" href="#">Tutti</a></li>

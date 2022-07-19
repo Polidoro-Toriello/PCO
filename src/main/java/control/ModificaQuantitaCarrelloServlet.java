@@ -18,7 +18,6 @@ public class ModificaQuantitaCarrelloServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         HttpSession session = req.getSession();
         int nuovaQuantita = Integer.parseInt(req.getParameter("nuovaq"));
         int articoloid = Integer.parseInt(req.getParameter("idArticolo"));

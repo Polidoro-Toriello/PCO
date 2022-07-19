@@ -31,6 +31,7 @@ public class ConfirmAcquisto extends HttpServlet {
             try {
                 ordine.setTotale(carrello.getTotale());
                 ordine.setStato("confermato");
+                ordine.setUtente(userBean.getEmail());
                 if (OrdineDao.doInsertOrdine(ordine)) {
                     session.setAttribute("alertMsg", "Ordine Completato");
                     resp.sendRedirect("view/OrdineEffettuato.jsp");
