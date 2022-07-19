@@ -11,7 +11,7 @@ public class OrdineBean {
     private Date data;
 
     public OrdineBean() {
-
+        data = new Date();
     }
 
     public OrdineBean(int numeroOrdine, float totale, String stato, String emailutente, Date data) {

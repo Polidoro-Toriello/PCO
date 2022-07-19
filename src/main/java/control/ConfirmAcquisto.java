@@ -24,7 +24,7 @@ public class ConfirmAcquisto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        UserBean userBean = (UserBean) session.getAttribute("manager");
+        UserBean userBean = (UserBean) session.getAttribute("utente");
         Carrello carrello = (Carrello) session.getAttribute("carrello");
         OrdineBean ordine = new OrdineBean();
         if (userBean != null && userBean.isValid()) {
@@ -33,6 +33,7 @@ public class ConfirmAcquisto extends HttpServlet {
                 ordine.setStato("confermato");
                 ordine.setUtente(userBean.getEmail());
                 if (OrdineDao.doInsertOrdine(ordine)) {
+                    System.out.println("Fatto!");
                     session.setAttribute("alertMsg", "Ordine Completato");
                     resp.sendRedirect("view/OrdineEffettuato.jsp");
                 }
