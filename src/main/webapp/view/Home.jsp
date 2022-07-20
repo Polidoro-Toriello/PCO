@@ -11,11 +11,7 @@
 <% Random rand = new Random();%>
 
 <%
-    Collection<ArticoloBean> articoli = (Collection<ArticoloBean>) session.getAttribute("articoli");
-    if(articoli==null){
-        response.sendRedirect(request.getContextPath()+"/home");
-        return;
-    }
+    Collection<ArticoloBean> articoli = (Collection<ArticoloBean>) ArticoloDao.doRetrieveAll();
 %>
 <html>
 <head>
