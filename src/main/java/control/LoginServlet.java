@@ -32,11 +32,14 @@ public class LoginServlet extends HttpServlet {
             user.setPassword(request.getParameter("Password"));
             user = dao.doRetrieveUtente(user);
             if (user!=null) {
-                if (user.isAdmin())
+                if (user.isAdmin()) {
                     session.setAttribute("manager", user);
-                else
+                    response.sendRedirect("view/HomeAdmin.jsp");
+                }
+                else {
                     session.setAttribute("utente", user);
-                response.sendRedirect("view/Home.jsp");
+                    response.sendRedirect("view/Home.jsp");
+                }
             } else {
                 session.setAttribute("alertMsg", "Email o password inserita non è valida");
                 response.sendRedirect("view/LoginPage.jsp");

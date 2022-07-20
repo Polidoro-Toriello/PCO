@@ -1,11 +1,14 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: G.TORIELLO
-  Date: 05/03/2022
-  Time: 19:41
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="model.bean.UserBean" %>
+<% UserBean manager = (UserBean) session.getAttribute("manager");
+    if(manager == null)
+    {
+        request.getSession().setAttribute("alertMsg","Errore!Accesso non consentito!");
+        response.sendRedirect("./LoginPage.jsp");
+    }
+
+%>
 <html>
 <head>
     <title>Title</title>

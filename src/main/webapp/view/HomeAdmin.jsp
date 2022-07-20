@@ -4,7 +4,14 @@
 <%@ page import="model.bean.ArticoloBean" %>
 <%@ page import="model.dao.ArticoloDao" %>
 
-<% UserBean manager = (UserBean) session.getAttribute("manager"); %>
+<% UserBean manager = (UserBean) session.getAttribute("manager");
+if(manager == null)
+{
+    request.getSession().setAttribute("alertMsg","Errore!Accesso non consentito!");
+    response.sendRedirect("./LoginPage.jsp");
+}
+
+%>
 
 
 <%
