@@ -38,32 +38,36 @@
             <th>Quantita'</th>
             <th>Subtotal</th>
         </tr>
-        <%
+        <% if (c != null) {
             for (ArticoloCarrello articolo : c.getArticoli()) {
         %>
         <tr>
             <td>
-            <div class="cart-info">
-                <img src="../immagini/NicePng_gaming-computer-png_2167532.png" alt="">
-                <div>
-                    <small><%=articolo.getProduct().getNome()%>
-                    </small><br>
-                    <small><%=articolo.getProduct().getPrezzo()%>&euro;</small>
-                    <br>
-                    <a href="../rimuovicarrello?idArticolo=<%=articolo.getProduct().getIdArticolo()%>">Rimuovi</a>
+                <div class="cart-info">
+                    <img src="../immagini/NicePng_gaming-computer-png_2167532.png" alt="">
+                    <div>
+                        <small><%=articolo.getProduct().getNome()%>
+                        </small><br>
+                        <small><%=articolo.getProduct().getPrezzo()%>&euro;</small>
+                        <br>
+                        <a href="../rimuovicarrello?idArticolo=<%=articolo.getProduct().getIdArticolo()%>">Rimuovi</a>
+                    </div>
                 </div>
-            </div>
-        </td>
-        <td>
-            <form action="../modificaquantitaarticolo?idArticolo=<%=articolo.getProduct().getIdArticolo()%>"
-                  method="get">
-                <input value="<%=articolo.getProduct().getIdArticolo()%>" name="idArticolo" type="hidden">
-                <input type="number" max="<%=articolo.getProduct().getQtaDisponibile()%>" name="nuovaq"
-                       onchange="this.form.submit()" value="<%=articolo.getQta()%>">
-            </form>
-        </td>
-        <td><%=articolo.getQta()*articolo.getProduct().getPrezzo()%>&euro;</td>
-        </tr><%}%>
+            </td>
+            <td>
+                <form action="../modificaquantitaarticolo?idArticolo=<%=articolo.getProduct().getIdArticolo()%>"
+                      method="get">
+                    <input value="<%=articolo.getProduct().getIdArticolo()%>" name="idArticolo" type="hidden">
+                    <input type="number" max="<%=articolo.getProduct().getQtaDisponibile()%>" name="nuovaq"
+                           onchange="this.form.submit()" value="<%=articolo.getQta()%>">
+                </form>
+            </td>
+            <td><%=articolo.getQta()*articolo.getProduct().getPrezzo()%>&euro;</td>
+        </tr>
+        <%
+                }
+            }
+        %>
     </table>
 
     <!--Somma totale-->
@@ -75,7 +79,11 @@
             </tr>
             <tr>
                 <td>Totale</td>
+                <%if (c != null) {%>
                 <td><%=c.getTotale()%>&euro;</td>
+                <%} else {%>
+                <td>0.0 &euro;</td>
+                <%}%>
             </tr>
         </table>
     </div>
