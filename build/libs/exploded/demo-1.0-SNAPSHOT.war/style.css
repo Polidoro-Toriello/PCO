@@ -379,7 +379,8 @@ small {
     margin: 30px 0;
     border-radius: 30px;
 }
-.btnCarrello{
+
+.btnCarrello {
     display: flex;
     background: #007cc7;
     color: #fff;
@@ -387,7 +388,8 @@ small {
     margin: 20px 0;
     border-radius: 30px;
 }
-.btnCarrello:hover{
+
+.btnCarrello:hover {
     background-color: #0b0f13;
 }
 
@@ -551,7 +553,8 @@ th:last-child {
     padding: 10px 0;
     margin: 0 auto 0 62%;
 }
-.productPage-btn{
+
+.productPage-btn {
     width: 50%;
     display: flex;
     justify-content: space-between;
@@ -559,6 +562,7 @@ th:last-child {
     padding: 10px 0;
     margin: 0 auto 0 0%;
 }
+
 .modal {
     display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -637,28 +641,88 @@ th:last-child {
     padding-left: 10px;
     font-size: 20px;
     margin-right: 10px;
-    border:1px solid #0d6efd;
+    border: 1px solid #0d6efd;
 }
-input:focus{
+
+input:focus {
     outline: none;
 }
-.small-img-row{
+
+.small-img-row {
     padding-top: 10%;
     display: flex;
     justify-content: space-between;
 }
-.small-img-col{
+
+.small-img-col {
     flex-basis: 24%;
     cursor: pointer;
 }
-.linkCategoria{
+
+.linkCategoria {
     text-decoration: none;
     color: #007cc7;
 }
-.linkCategoria:hover{
+
+.linkCategoria:hover {
     color: #0b0f13;
 }
-.small-img{
-    max-width:117px ;
+
+.small-img {
+    max-width: 117px;
     max-height: 66px;
+}
+
+.shop-content {
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, auto));
+    gap: 1.5rem;
+}
+.shop-content .btn{
+    display: flex;
+    justify-content: center;
+    background-color: #0d6efd;
+}
+.shop-content .btn:hover{
+    background-color: #0b0f13;
+    color: #ffffff;
+}
+.product-box{
+    padding: 10%;
+}
+.product-box:hover {
+    border: 1px solid #0d6efd;
+    transition: 0.4s;
+}
+
+.product-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+.product-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    font-weight: 50;
+}
+
+.add-cart {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: tomato;
+    color: blueviolet;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.add-cart:hover {
+    background: hsl(249, 32%, 17%);
 }

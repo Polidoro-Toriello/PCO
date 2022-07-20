@@ -27,37 +27,44 @@ public class CatalogoArticoliServlet extends HttpServlet {
                     case "tutti":
                         articoli = ArticoloDao.doRetrieveAll();
                         session.setAttribute("articoli", articoli);
-                        resp.sendRedirect("view/Home.jsp");
+                        session.setAttribute("title","Tutto il nostro Catalogo");
+                        resp.sendRedirect("view/Catalogo.jsp");
                         break;
                     case "RAM":
                         articoli = ArticoloDao.doRetrieveCategoria("RAM");
                         session.setAttribute("articoli", articoli);
-                        resp.sendRedirect("view/Home.jsp");
+                        session.setAttribute("title","Componenti PC/Memorie Ram");
+                        resp.sendRedirect("view/Catalogo.jsp");
                         break;
                     case "CPU":
                         articoli = ArticoloDao.doRetrieveCategoria("CPU");
                         session.setAttribute("articoli", articoli);
-                        resp.sendRedirect("view/Home.jsp");
+                        session.setAttribute("title","Componenti PC/Processori");
+                        resp.sendRedirect("view/Catalogo.jsp");
                         break;
                     case "GPU":
                         articoli = ArticoloDao.doRetrieveCategoria("GPU");
                         session.setAttribute("articoli", articoli);
-                        resp.sendRedirect("view/Home.jsp");
+                        session.setAttribute("title","Componenti PC/Schede Video");
+                        resp.sendRedirect("view/Catalogo.jsp");
                         break;
                     case "SSD":
                         articoli = ArticoloDao.doRetrieveCategoria("SSD");
                         session.setAttribute("articoli", articoli);
-                        resp.sendRedirect("view/Home.jsp");
+                        session.setAttribute("title","Periferiche PC/Hard Disk");
+                        resp.sendRedirect("view/Catalogo.jsp");
                         break;
                     case "HDD":
                         articoli = ArticoloDao.doRetrieveCategoria("HDD");
                         session.setAttribute("articoli", articoli);
+                        session.setAttribute("title","Periferiche PC/SSD Esterni");
                         resp.sendRedirect("view/Home.jsp");
                         break;
                     case "PC":
                         articoli = ArticoloDao.doRetrieveCategoria("PC");
                         session.setAttribute("articoli", articoli);
-                        resp.sendRedirect("view/Home.jsp");
+                        session.setAttribute("title","PC da Gaming e Professionali");
+                        resp.sendRedirect("view/Catalogo.jsp");
                         break;
                 }
             } catch (SQLException | ClassNotFoundException ex) {
