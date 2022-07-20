@@ -34,5 +34,4 @@ function validateReg() {
         document.getElementById("errorCognome").innerHTML = " <p class=\"text-danger\">Il campo del cognome non può contenere numeri o simboli</p>"
     }
     return check;
-
 }

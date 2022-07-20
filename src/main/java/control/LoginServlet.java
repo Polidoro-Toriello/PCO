@@ -31,17 +31,18 @@ public class LoginServlet extends HttpServlet {
             user.setUsername(request.getParameter("Username"));
             user.setPassword(request.getParameter("Password"));
             user = dao.doRetrieveUtente(user);
-            if (user.isValid()) {
+            if (user!=null) {
                 if (user.isAdmin())
                     session.setAttribute("manager", user);
                 else
                     session.setAttribute("utente", user);
                 response.sendRedirect("view/Home.jsp");
             } else {
+                session.setAttribute("alertMsg", "Email o password inserita non è valida");
                 response.sendRedirect("view/LoginPage.jsp");
             }
         } catch (Throwable e) {
-            session.setAttribute("alertMsg", "Errore, ritorno alla Homepage");
+            session.setAttribute("alertMsg", "Errore inaspettato, ritorno alla Homepage");
             response.sendRedirect("view/Home.jsp");
         }
     }

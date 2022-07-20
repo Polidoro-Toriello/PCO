@@ -1,4 +1,4 @@
-function validateInserimento() {
+function validateReg() {
     const pass_valid = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d[\]{};.:=<>_+^#$@!%*?&]{8,30}$/;
     const email_valid = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
     const nome_cognome_valid = /^[a-zA-Z\s]*$/;
@@ -34,5 +34,4 @@ function validateInserimento() {
         document.getElementById("errorCognome").innerHTML = " <p class=\"text-danger\">Il campo del cognome non può contenere numeri o simboli</p>"
     }
     return check;
-
 }

@@ -76,7 +76,7 @@
                     <div class="col-sm-10 col-xl-8 m-auto">
                         <h1 class="fs-2 text-info">Registrati su PCO</h1>
                         <form action="../register" method="get" accept-charset="utf-8 "
-                              onsubmit="return validateInserimento()">
+                              onsubmit="return validateReg()">
                             <div class="mb-4">
                                 <label for="Nome" class="form-label">Nome</label>
                                 <div class="input-group input-group-lg">
