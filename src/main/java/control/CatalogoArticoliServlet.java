@@ -66,6 +66,18 @@ public class CatalogoArticoliServlet extends HttpServlet {
                         session.setAttribute("title","PC da Gaming e Professionali");
                         resp.sendRedirect("view/Catalogo.jsp");
                         break;
+                    case "tastiera":
+                        articoli = ArticoloDao.doRetrieveCategoria("tastiera");
+                        session.setAttribute("articoli", articoli);
+                        session.setAttribute("title","Accessori/Tastiere");
+                        resp.sendRedirect("view/Catalogo.jsp");
+                        break;
+                    case "mouse":
+                        articoli = ArticoloDao.doRetrieveCategoria("mouse");
+                        session.setAttribute("articoli", articoli);
+                        session.setAttribute("title","Accessori/Mouse");
+                        resp.sendRedirect("view/Catalogo.jsp");
+                        break;
                 }
             } catch (SQLException | ClassNotFoundException ex) {
                 ex.printStackTrace();

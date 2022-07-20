@@ -40,19 +40,28 @@
     <ul class="menu">
         <ul>
             <li><a class="navigation-bar" href="Home.jsp">Home</a></li>
-            <li><a class="navigation-bar" href="#">Componenti</a>
+            <li><a class="navigation-bar" href="../catalogoarticoli?categoria=tutti">Shop</a>
+            <li><a class="navigation-bar" href="#">Componenti PC</a>
                 <ul class="dropdown">
-                    <li><a class="navigation-bar" href="../catalogoarticoli?categoria=tutti">Tutti</a></li>
-                    <li><a class="navigation-bar" href="../catalogoarticoli?categoria=PC">PC</a></li>
                     <li><a class="navigation-bar" href="../catalogoarticoli?categoria=RAM">RAM</a></li>
                     <li><a class="navigation-bar" href="../catalogoarticoli?categoria=CPU">CPU</a></li>
                     <li><a class="navigation-bar" href="../catalogoarticoli?categoria=GPU">GPU</a></li>
-                    <li><a class="navigation-bar" href="../catalogoarticoli?categoria=SSD">SSD</a></li>
-                    <li><a class="navigation-bar" href="../catalogoarticoli?categoria=HDD">HDD</a></li>
+
                 </ul>
             </li>
-            <li><a class="navigation-bar" href="#">Accessori</a></li>
-            <li><a class="navigation-bar" href="#">&nbsp;</a></li>
+            <li><a class="navigation-bar" href="#">Periferiche PC</a>
+            <ul class="dropdown">
+                <li><a class="navigation-bar" href="../catalogoarticoli?categoria=SSD">SSD</a></li>
+                <li><a class="navigation-bar" href="../catalogoarticoli?categoria=HDD">HDD</a></li>
+            </ul>
+            </li>
+            <li><a class="navigation-bar" href="#">Accessori</a>
+            <ul class="dropdown">
+                <li><a class="navigation-bar" href="../catalogoarticoli?categoria=tastiera">Tastiere</a></li>
+                <li><a class="navigation-bar" href="../catalogoarticoli?categoria=mouse">Mouse</a></li>
+            </ul>
+            </li>
+            <li><a class="navigation-bar" href="../catalogoarticoli?categoria=PC">PC Assemblati</a></li>
         </ul>
     </ul>
 </nav>

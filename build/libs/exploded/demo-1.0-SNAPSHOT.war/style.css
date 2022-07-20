@@ -6,7 +6,7 @@
 }
 
 .menu, .navigation-bar {
-    display: flex;
+    display: inline-block;
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 600;
     font-size: 30px;
@@ -47,7 +47,6 @@ nav {
     position: absolute;
     padding-left: 0;
     left: 0;
-
     display: none;
     background: white;
 }
