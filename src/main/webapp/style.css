@@ -725,3 +725,12 @@ input:focus {
 .add-cart:hover {
     background: hsl(249, 32%, 17%);
 }
+.filtro{
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+    padding: 10px 0;
+    position: relative;
+    margin: 0px 0px 5% 90%;
+}

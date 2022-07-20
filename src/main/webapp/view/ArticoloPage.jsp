@@ -17,7 +17,12 @@
 <% session.setAttribute("paginaCorrente", "ArticoloPage.jsp");%>
 <% String aggiunto = (String) session.getAttribute("alertMsg"); %>
 <% UserBean manager = (UserBean) session.getAttribute("manager"); %>
-<%ArticoloBean articoloBean = (ArticoloBean) session.getAttribute("articolo");%>
+<%ArticoloBean articoloBean = (ArticoloBean) session.getAttribute("articolo");
+if(articoloBean==null){
+    response.sendRedirect(request.getContextPath()+"/home");
+    return;
+}%>
+
 <html>
 <head>
     <title>Title</title>
@@ -66,16 +71,16 @@
         }
     }
 </script>
-<%  //possibilità di mettere anchore per farlo apparire centrale
+<% //possibilità di mettere anchore per farlo apparire centrale
     session.removeAttribute("alertMsg");%>
 <div class="small-container single-product" style="width: 100%">
     <div class="row">
         <div class="col-2">
-            <img src="../immagini/<%=articoloBean.getCategoria().toLowerCase()%>1.jpg"  id="product-img">
+            <img src="../immagini/<%=articoloBean.getCategoria().toLowerCase()%>1.jpg" id="product-img">
             <div class="small-img-row">
                 <% for (int i = 1; i <= 4; i++) {%>
                 <div class="small-img-col">
-                    <img src="../immagini/<%=articoloBean.getCategoria().toLowerCase()+i%>.jpg"  class="small-img">
+                    <img src="../immagini/<%=articoloBean.getCategoria().toLowerCase()+i%>.jpg" class="small-img">
                 </div>
                 <%}%>
             </div>
@@ -108,32 +113,32 @@
     <div class="box-container">
         <%for (ArticoloBean articolo : articoli) {%>
         <div class="box">
-            <%if(articolo.getCategoria().equalsIgnoreCase("gpu")){%>
+            <%if (articolo.getCategoria().equalsIgnoreCase("gpu")) {%>
             <div class="image">
                 <img src="<%="../immagini/gpu1.jpg"%>" alt="gpu">
             </div>
             <%}%>
-            <%if(articolo.getCategoria().equalsIgnoreCase("pc")){%>
+            <%if (articolo.getCategoria().equalsIgnoreCase("pc")) {%>
             <div class="image">
                 <img src="<%="../immagini/pc1.jpg"%>" alt="pc">
             </div>
             <%}%>
-            <%if(articolo.getCategoria().equalsIgnoreCase("cpu")){%>
+            <%if (articolo.getCategoria().equalsIgnoreCase("cpu")) {%>
             <div class="image">
                 <img src="<%="../immagini/cpu1.jpg"%>" alt="cpu">
             </div>
             <%}%>
-            <%if(articolo.getCategoria().equalsIgnoreCase("ram")){%>
+            <%if (articolo.getCategoria().equalsIgnoreCase("ram")) {%>
             <div class="image">
                 <img src="<%="../immagini/ram1.jpg"%>" alt="ram">
             </div>
             <%}%>
-            <%if(articolo.getCategoria().equalsIgnoreCase("ssd")){%>
+            <%if (articolo.getCategoria().equalsIgnoreCase("ssd")) {%>
             <div class="image">
                 <img src="<%="../immagini/ssd1.jpg"%>" alt="ssd">
             </div>
             <%}%>
-            <%if(articolo.getCategoria().equalsIgnoreCase("hdd")){%>
+            <%if (articolo.getCategoria().equalsIgnoreCase("hdd")) {%>
             <div class="image">
                 <img src="<%="../immagini/hdd1.jpg"%>" alt="hdd">
             </div>

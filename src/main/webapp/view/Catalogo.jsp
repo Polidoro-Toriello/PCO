@@ -11,7 +11,11 @@
 <% UserBean utente = (UserBean) session.getAttribute("utente"); %>
 <% UserBean manager = (UserBean) session.getAttribute("manager");%>
 <% Collection<ArticoloBean> articoli = (Collection<ArticoloBean>) session.getAttribute("articoli");%>
-<% String title = (String) session.getAttribute("title");%>
+<% String title = (String) session.getAttribute("title");
+    if (articoli == null) {
+        response.sendRedirect(request.getContextPath() + "/catalogoarticoli?categoria=tutti");
+        return;
+    }%>
 <html>
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +24,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
+    <script src="/js/ajaxFilter.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,12 +33,27 @@
 <body>
 <%@include file="./fragment/navbar.jsp" %>
 <section class="shop container">
-    <h2 class="section-tit1e"><%=title%></h2>
+    <h2 class="section-tit1e"><%=title%>
+    </h2>
+    <div class="filtro">
+        <input type="text" placeholder="Rtx 3090 Ti" name="cercaProdotto">
+        <select onchange="ajaxFilter()" name="filterProdotto">
+            <option>RAM</option>
+            <option>GPU</option>
+            <option>CPU</option>
+            <option>HDD</option>
+            <option>SDD</option>
+            <option>PC</option>
+            <option>Tastiera</option>
+            <option>Mouse</option>
+        </select>
+    </div>
     <div class="shop-content">
         <%for (ArticoloBean articolo : articoli) {%>
         <div class="product-box">
             <img src="../immagini/RTX_3090_TI1.jpg" alt="" class="product-img">
-            <h2 class="product-title"><%=articolo.getNome().toUpperCase()%> &nbsp; &nbsp;Prezzo:&nbsp;<%=articolo.getPrezzo()%>&euro;</h2>
+            <h2 class="product-title"><%=articolo.getNome().toUpperCase()%> &nbsp;
+                &nbsp;Prezzo:&nbsp;<%=articolo.getPrezzo()%>&euro;</h2>
             <a class="btn" href="../articolo?idArticolo=<%=articolo.getIdArticolo()%>">Vai al Prodotto</a>
             <a class="btn" id="aggiungiCarrello"
                href="../aggiungicarrello?idArticolo=<%=articolo.getIdArticolo()%>&qta=1">
