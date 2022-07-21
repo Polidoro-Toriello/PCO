@@ -2,7 +2,7 @@ package control;
 
 import model.bean.ArticoloBean;
 import model.dao.ArticoloDao;
-
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +19,8 @@ public class CatalogoArticoliServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
+        String ajax = req.getParameter("ajax");
+        System.out.println(ajax);
         Collection<ArticoloBean> articoli = new ArrayList<ArticoloBean>();
         if (req.getParameter("categoria") != null) {
             try {
@@ -28,20 +30,34 @@ public class CatalogoArticoliServlet extends HttpServlet {
                         articoli = ArticoloDao.doRetrieveAll();
                         session.setAttribute("articoli", articoli);
                         session.setAttribute("title", "Tutto il nostro Catalogo");
-                        resp.sendRedirect("view/Catalogo.jsp");
+                        if (ajax == null) {
+                            resp.sendRedirect("view/Catalogo.jsp");
+                        }
                         break;
                     case "RAM":
                         articoli = ArticoloDao.doRetrieveCategoria("RAM");
                         if (articoli != null) {
                             session.setAttribute("articoli", articoli);
                             session.setAttribute("title", "Componenti PC/Memorie Ram");
-                            resp.sendRedirect("view/Catalogo.jsp");
+                            if(ajax!=null){
+                                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("view/Catalogo.jsp");
+                                dispatcher.forward(req, resp);
+                            }
+                            if (ajax == null) {
+                                resp.sendRedirect("view/Catalogo.jsp");
+                            }
                         } else {
                             articoli = ArticoloDao.doRetrieveAll();
                             session.setAttribute("articoli", articoli);
                             session.setAttribute("title", "Tutto il nostro Catalogo");
+                            if(ajax!=null){
+                                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("view/Catalogo.jsp");
+                                dispatcher.forward(req, resp);
+                            }
                             session.setAttribute("alertMsg", "Errore inaspettato nel trovare gli articoli richiesti");
-                            resp.sendRedirect("view/Catalogo.jsp");
+                            if (ajax == null) {
+                                resp.sendRedirect("view/Catalogo.jsp");
+                            }
                         }
                         break;
                     case "CPU":
@@ -49,13 +65,25 @@ public class CatalogoArticoliServlet extends HttpServlet {
                         if (articoli != null) {
                             session.setAttribute("articoli", articoli);
                             session.setAttribute("title", "Componenti PC/Processori");
-                            resp.sendRedirect("view/Catalogo.jsp");
+                            if(ajax!=null){
+                                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/view/Catalogo.jsp");
+                                dispatcher.forward(req, resp);
+                            }
+                            if (ajax == null) {
+                                resp.sendRedirect("view/Catalogo.jsp");
+                            }
                         } else {
                             articoli = ArticoloDao.doRetrieveAll();
                             session.setAttribute("articoli", articoli);
                             session.setAttribute("title", "Tutto il nostro Catalogo");
+                            if(ajax!=null){
+                                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("view/Catalogo.jsp");
+                                dispatcher.forward(req, resp);
+                            }
                             session.setAttribute("alertMsg", "Errore inaspettato nel trovare gli articoli richiesti");
-                            resp.sendRedirect("view/Catalogo.jsp");
+                            if (ajax == null) {
+                                resp.sendRedirect("view/Catalogo.jsp");
+                            }
                         }
                         break;
                     case "GPU":
@@ -63,13 +91,25 @@ public class CatalogoArticoliServlet extends HttpServlet {
                         if (articoli != null) {
                             session.setAttribute("articoli", articoli);
                             session.setAttribute("title", "Componenti PC/Schede Video");
-                            resp.sendRedirect("view/Catalogo.jsp");
+                            if(ajax!=null){
+                                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("view/Catalogo.jsp");
+                                dispatcher.forward(req, resp);
+                            }
+                            if (ajax == null) {
+                                resp.sendRedirect("view/Catalogo.jsp");
+                            }
                         } else {
                             articoli = ArticoloDao.doRetrieveAll();
                             session.setAttribute("articoli", articoli);
                             session.setAttribute("title", "Tutto il nostro Catalogo");
+                            if(ajax!=null){
+                                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("view/Catalogo.jsp");
+                                dispatcher.forward(req, resp);
+                            }
                             session.setAttribute("alertMsg", "Errore inaspettato nel trovare gli articoli richiesti");
-                            resp.sendRedirect("view/Catalogo.jsp");
+                            if (ajax == null) {
+                                resp.sendRedirect("view/Catalogo.jsp");
+                            }
                         }
                         break;
                     case "SSD":
@@ -77,13 +117,25 @@ public class CatalogoArticoliServlet extends HttpServlet {
                         if (articoli != null) {
                             session.setAttribute("articoli", articoli);
                             session.setAttribute("title", "Periferiche PC/Hard Disk");
-                            resp.sendRedirect("view/Catalogo.jsp");
+                            if(ajax!=null){
+                                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("view/Catalogo.jsp");
+                                dispatcher.forward(req, resp);
+                            }
+                            if (ajax == null) {
+                                resp.sendRedirect("view/Catalogo.jsp");
+                            }
                         } else {
                             articoli = ArticoloDao.doRetrieveAll();
                             session.setAttribute("articoli", articoli);
                             session.setAttribute("title", "Tutto il nostro Catalogo");
                             session.setAttribute("alertMsg", "Errore inaspettato nel trovare gli articoli richiesti");
-                            resp.sendRedirect("view/Catalogo.jsp");
+                            if(ajax!=null){
+                                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("view/Catalogo.jsp");
+                                dispatcher.forward(req, resp);
+                            }
+                            if (ajax == null) {
+                                resp.sendRedirect("view/Catalogo.jsp");
+                            }
                         }
                         break;
                     case "HDD":
@@ -91,7 +143,13 @@ public class CatalogoArticoliServlet extends HttpServlet {
                         if (articoli != null) {
                             session.setAttribute("articoli", articoli);
                             session.setAttribute("title", "Periferiche PC/SSD Esterni");
-                            resp.sendRedirect("view/Catalogo.jsp");
+                            if(ajax!=null){
+                                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("view/Catalogo.jsp");
+                                dispatcher.forward(req, resp);
+                            }
+                            if (ajax == null) {
+                                resp.sendRedirect("view/Catalogo.jsp");
+                            }
                         } else {
                             articoli = ArticoloDao.doRetrieveAll();
                             session.setAttribute("articoli", articoli);
@@ -105,41 +163,77 @@ public class CatalogoArticoliServlet extends HttpServlet {
                         if (articoli != null) {
                             session.setAttribute("articoli", articoli);
                             session.setAttribute("title", "PC da Gaming e Professionali");
-                            resp.sendRedirect("view/Catalogo.jsp");
+                            if(ajax!=null){
+                                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("view/Catalogo.jsp");
+                                dispatcher.forward(req, resp);
+                            }
+                            if (ajax == null) {
+                                resp.sendRedirect("view/Catalogo.jsp");
+                            }
                         } else {
                             articoli = ArticoloDao.doRetrieveAll();
                             session.setAttribute("articoli", articoli);
                             session.setAttribute("title", "Tutto il nostro Catalogo");
                             session.setAttribute("alertMsg", "Errore inaspettato nel trovare gli articoli richiesti");
-                            resp.sendRedirect("view/Catalogo.jsp");
+                            if(ajax!=null){
+                                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("view/Catalogo.jsp");
+                                dispatcher.forward(req, resp);
+                            }
+                            if (ajax == null) {
+                                resp.sendRedirect("view/Catalogo.jsp");
+                            }
                         }
                         break;
-                    case "tastiera":
+                    case "Tastiera":
                         articoli = ArticoloDao.doRetrieveCategoria("tastiera");
                         if (articoli != null) {
                             session.setAttribute("articoli", articoli);
                             session.setAttribute("title", "Accessori/Tastiere");
-                            resp.sendRedirect("view/Catalogo.jsp");
+                            if(ajax!=null){
+                                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("view/Catalogo.jsp");
+                                dispatcher.forward(req, resp);
+                            }
+                            if (ajax == null) {
+                                resp.sendRedirect("view/Catalogo.jsp");
+                            }
                         } else {
                             articoli = ArticoloDao.doRetrieveAll();
                             session.setAttribute("articoli", articoli);
                             session.setAttribute("title", "Tutto il nostro Catalogo");
                             session.setAttribute("alertMsg", "Errore inaspettato nel trovare gli articoli richiesti");
-                            resp.sendRedirect("view/Catalogo.jsp");
+                            if(ajax!=null){
+                                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("view/Catalogo.jsp");
+                                dispatcher.forward(req, resp);
+                            }
+                            if (ajax == null) {
+                                resp.sendRedirect("view/Catalogo.jsp");
+                            }
                         }
                         break;
-                    case "mouse":
+                    case "Mouse":
                         articoli = ArticoloDao.doRetrieveCategoria("mouse");
                         if (articoli != null) {
                             session.setAttribute("articoli", articoli);
                             session.setAttribute("title", "Accessori/Mouse");
-                            resp.sendRedirect("view/Catalogo.jsp");
+                            if(ajax!=null){
+                                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("view/Catalogo.jsp");
+                                dispatcher.forward(req, resp);
+                            }
+                            if (ajax == null) {
+                                resp.sendRedirect("view/Catalogo.jsp");
+                            }
                         } else {
                             articoli = ArticoloDao.doRetrieveAll();
                             session.setAttribute("articoli", articoli);
                             session.setAttribute("title", "Tutto il nostro Catalogo");
                             session.setAttribute("alertMsg", "Errore inaspettato nel trovare gli articoli richiesti");
-                            resp.sendRedirect("view/Catalogo.jsp");
+                            if(ajax!=null){
+                                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("view/Catalogo.jsp");
+                                dispatcher.forward(req, resp);
+                            }
+                            if (ajax == null) {
+                                resp.sendRedirect("view/Catalogo.jsp");
+                            }
                         }
                         break;
                 }

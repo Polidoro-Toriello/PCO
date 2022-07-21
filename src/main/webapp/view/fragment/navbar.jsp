@@ -57,8 +57,8 @@
             </li>
             <li><a class="navigation-bar" href="#">Accessori</a>
             <ul class="dropdown">
-                <li><a class="navigation-bar" href="../catalogoarticoli?categoria=tastiera">Tastiere</a></li>
-                <li><a class="navigation-bar" href="../catalogoarticoli?categoria=mouse">Mouse</a></li>
+                <li><a class="navigation-bar" href="../catalogoarticoli?categoria=Tastiera">Tastiere</a></li>
+                <li><a class="navigation-bar" href="../catalogoarticoli?categoria=Mouse">Mouse</a></li>
             </ul>
             </li>
             <li><a class="navigation-bar" href="../catalogoarticoli?categoria=PC">PC Assemblati</a></li>
