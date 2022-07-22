@@ -104,11 +104,10 @@ if(manager == null)
                 </h3>
                 <div class="subInfo">
                     <strong class="price"><%=articolo.getPrezzo()%>&euro;</strong>
-                    <a class="btn" href="#">Vai al Prodotto</a>
                     <a class="btn"
                        href="../rimuovicatalogo?idArticolo=<%=articolo.getIdArticolo()%>">
                         Rimuovi Prodotto</a>
-                    <a class="btn" href="">Modifica</a>
+                    <a class="btn" href="#">Modifica</a>
                 </div>
             </div>
         </div>
