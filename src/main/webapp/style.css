@@ -740,3 +740,9 @@ input:focus {
     width: max-content;
     height: 100px;
 }
+
+.selectinput{
+    border-color: #0d6efd ;
+}
+
+
