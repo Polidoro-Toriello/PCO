@@ -734,3 +734,9 @@ input:focus {
     position: relative;
     margin: 0px 0px 5% 90%;
 }
+
+.textarea{
+    border-color: #0d6efd;
+    width: max-content;
+    height: 100px;
+}

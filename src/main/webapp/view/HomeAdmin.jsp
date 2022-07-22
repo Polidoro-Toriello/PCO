@@ -132,6 +132,5 @@ if(manager == null)
         </div>
     </div>
 </div>
-<%@include file="fragment/footer.jsp" %>
-</body>
+<%@include file="./fragment/footer.jsp"%>
 </html>
