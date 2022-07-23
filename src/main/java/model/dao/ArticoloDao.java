@@ -169,4 +169,28 @@ public class ArticoloDao {
         }
         return articoli;
     }
+
+    public boolean doDeleteArticoloById(int id) throws SQLException
+    {
+        Connection conn = null;
+        String sql = "DELETE FROM articolo WHERE idarticolo=?";
+        PreparedStatement stmt = null;
+        boolean check = false;
+        try {
+            conn = ConnectionPool.conn();
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            check = stmt.executeUpdate() == 1;
+            conn.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stmt != null)
+                stmt.close();
+            if (conn != null)
+                conn.close();
+        }
+        return check;
+    }
+
 }

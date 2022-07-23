@@ -186,4 +186,43 @@ public class UserDao {
         }
         return user;
     }
+
+
+    public synchronized Collection<UserBean> doRetrieveNormalUsers() throws SQLException
+    {
+        PreparedStatement stmt = null;
+        Connection conn = null;
+        String sql = "SELECT nome,cognome,email,username FROM utente WHERE admin = 0";
+        Collection<UserBean> utenti = new ArrayList<>();
+        try
+        {
+            conn = ConnectionPool.conn();
+            stmt = conn.prepareStatement(sql);
+            ResultSet result =  stmt.executeQuery();
+            while(result.next())
+            {
+                String nome = result.getString("nome");
+                String cognome = result.getString("cognome");
+                String email = result.getString("email");
+                String username = result.getString("username");
+                utenti.add(new UserBean(nome,cognome,username,"",email,true,false));
+            }
+
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        finally
+        {
+            if(stmt != null)
+                stmt.close();
+            if(conn != null)
+                conn.close();
+        }
+
+        return utenti;
+    }
+
 }
