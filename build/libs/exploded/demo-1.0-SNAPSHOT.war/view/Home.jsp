@@ -69,7 +69,7 @@
         <div class="row">
             <div class="col-2">
                 <h1>Benvenuti su PCO</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rerum eos iste aliquam, aliquid
+                <p>Lorem ipsum dolor sit amet consectetur adipisicingy lit. Architecto rerum eos iste aliquam, aliquid
                     odio quae?</p>
             </div>
             <div class="col-2">

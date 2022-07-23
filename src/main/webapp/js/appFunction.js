@@ -21,7 +21,7 @@ function validateReg() {
 
         check = false;
         pass_form.focus();
-        document.getElementById("errorPwd").innerHTML = " <p class=\"text-danger\">La password deve contenere da 8 a 12 caratteri</p>"
+        document.getElementById("errorPwd").innerHTML = " <p class=\"text-danger\">La password deve contenere da 8 a 12 caratteri, una lettera maiuscola e un simbolo</p>"
     }
     if (!nome_cognome_valid.test(nome.value)) {
         check = false;

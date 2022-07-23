@@ -12,7 +12,7 @@
                 <img src="../immagini/maestro.png">
             </div>
             <div class="col-5">
-                <img src="../immagini/applePay.png">
+                <img src="../immagini/satispay.svg">
             </div>
         </div>
     </div>
