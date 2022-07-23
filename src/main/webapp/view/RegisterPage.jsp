@@ -52,7 +52,7 @@
                         <h2 class="fw-bold text-light">Benvenuto in PCO</h2>
                     </div>
                     <a href="Home.jsp">
-                        <img src="../immagini/logo/loginlogo.png" class="mt-5 rounded-circle" alt="">
+                        <img src="../immagini/logo/logo.png" class="mt-5 rounded-circle" alt="">
                     </a>
                 </div>
             </div>

@@ -135,7 +135,12 @@ ul li ul li a:hover {
     justify-content: end;
     padding-top: -4%;
     padding-right: 60%;
+
     font-family: 'Shizuru', cursive;;
+}
+
+.logo img {
+    object-fit: cover;
 }
 
 .head li {
@@ -395,15 +400,17 @@ small {
 .btn:hover {
     background: #fff;
 }
+
 .brands {
     background-color: #0b0f13;
     padding: 5%;
     margin: 100px auto 0%;
 }
-.small{
+
+.small {
     background-color: #0b0f13;
     color: #ffffff;
-    margin:auto 0%;
+    margin: auto 0%;
 }
 
 .col-5 {
@@ -684,18 +691,22 @@ input:focus {
     grid-template-columns: repeat(3, minmax(220px, auto));
     gap: 1.5rem;
 }
-.shop-content .btn{
+
+.shop-content .btn {
     display: flex;
     justify-content: center;
     background-color: #0d6efd;
 }
-.shop-content .btn:hover{
+
+.shop-content .btn:hover {
     background-color: #0b0f13;
     color: #ffffff;
 }
-.product-box{
+
+.product-box {
     padding: 10%;
 }
+
 .product-box:hover {
     border: 1px solid #0d6efd;
     transition: 0.4s;
@@ -731,7 +742,8 @@ input:focus {
 .add-cart:hover {
     background: hsl(249, 32%, 17%);
 }
-.filtro{
+
+.filtro {
     width: 25%;
     display: flex;
     justify-content: space-between;
@@ -741,14 +753,14 @@ input:focus {
     margin: 0px 0px 5% 90%;
 }
 
-.textarea{
+.textarea {
     border-color: #0d6efd;
     width: max-content;
     height: 100px;
 }
 
-.selectinput{
-    border-color: #0d6efd ;
+.selectinput {
+    border-color: #0d6efd;
 }
 
 
