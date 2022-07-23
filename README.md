@@ -1,5 +1,5 @@
 <div align = "center">
-  <img src = "https://github.com/Polidoro-Toriello/PCO/blob/master/src/main/webapp/image/logo/logo.png" width = "256" heigth = "256">
+  <img src = "/src/main/webapp/immagini/logo/logo.png" width = "256" heigth = "256">
   <h3>
    Project Proposal PCO for Software Technologies for the Web exam
   </h3>

@@ -11,9 +11,9 @@
                 Ciao <%=manager.getNome()%>
             </a>
                 <ul class="dropdown">
-                    <li><a href="#">Inserisci prodotto</a></li>
+                    <li><a href="AddArticolo.jsp">Inserisci prodotto</a></li>
                     <li><a href="#">Visualizza ordini</a></li>
-                    <li><a href="#">Visualizza utenti</a></li>
+                    <li><a href="../visualizzautenti">Visualizza utenti</a></li>
                     <li><a href="../logout">Logout</a></li>
                 </ul>
             </li>
@@ -24,20 +24,29 @@
     <img src="" alt="">
     <ul class="menu">
         <ul>
-            <li><a class="navigation-bar" href="../HomeAdmin.jsp">Home</a></li>
-            <li><a class="navigation-bar" href="#">Componenti</a>
+            <li><a class="navigation-bar" href="#">Home</a></li>
+            <li><a class="navigation-bar" href="#">Shop</a>
+            <li><a class="navigation-bar" href="#">Componenti PC</a>
                 <ul class="dropdown">
-                    <li><a class="navigation-bar" href="#">Tutti</a></li>
-                    <li><a class="navigation-bar" href=#>PC</a></li>
                     <li><a class="navigation-bar" href="#">RAM</a></li>
                     <li><a class="navigation-bar" href="#">CPU</a></li>
                     <li><a class="navigation-bar" href="#">GPU</a></li>
+
+                </ul>
+            </li>
+            <li><a class="navigation-bar" href="#">Periferiche PC</a>
+                <ul class="dropdown">
                     <li><a class="navigation-bar" href="#">SSD</a></li>
                     <li><a class="navigation-bar" href="#">HDD</a></li>
                 </ul>
             </li>
-            <li><a class="navigation-bar" href="#">Accessori</a></li>
-            <li><a class="navigation-bar" href="#">&nbsp;</a></li>
+            <li><a class="navigation-bar" href="#">Accessori</a>
+                <ul class="dropdown">
+                    <li><a class="navigation-bar" href="#">Tastiere</a></li>
+                    <li><a class="navigation-bar" href="#">Mouse</a></li>
+                </ul>
+            </li>
+            <li><a class="navigation-bar" href="#">PC Assemblati</a></li>
         </ul>
     </ul>
 </nav>
