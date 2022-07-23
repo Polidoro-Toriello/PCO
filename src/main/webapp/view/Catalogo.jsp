@@ -16,7 +16,7 @@
         response.sendRedirect(request.getContextPath() + "/catalogoarticoli?categoria=tutti");
         return;
     }%>
-<html id="shopping">
+<html>
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,12 +33,13 @@
 <body>
 <%@include file="./fragment/navbar.jsp" %>
     <section class="shop container">
-        <h2 class="section-tit1e"><%=title%>
+        <h2 class="section-tit1e" id="title"><%=title%>
         </h2>
         <div class="filtro">
             <input type="text" placeholder="Rtx 3090 Ti" name="cercaProdotto">
             <select onchange="ajaxFilter()" id="filterProdotto">
                 <option>Seleziona Categoria</option>
+                <option name="tutti" value="tutti">Tutti</option>
                 <option name="RAM">RAM</option>
                 <option name="GPU">GPU</option>
                 <option name="CPU">CPU</option>
@@ -49,9 +50,9 @@
                 <option name="mouse">Mouse</option>
             </select>
         </div>
-        <div class="shop-content">
+        <div class="shop-content" id="shopping">
             <%for (ArticoloBean articolo : articoli) {%>
-            <div class="product-box">
+            <div class="product-box" >
                 <img src="../immagini/RTX_3090_TI1.jpg" alt="" class="product-img">
                 <h2 class="product-title"><%=articolo.getNome().toUpperCase()%> &nbsp;
                     &nbsp;Prezzo:&nbsp;<%=articolo.getPrezzo()%>&euro;</h2>

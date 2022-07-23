@@ -17,4 +17,4 @@
         </div>
     </div>
 </div>
-<small>Copyright@2022 Polidoro-Toriello</small>
+<p class="small">Copyright@2022 Polidoro-Toriello</p>

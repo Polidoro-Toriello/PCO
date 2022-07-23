@@ -395,9 +395,15 @@ small {
 .btn:hover {
     background: #fff;
 }
-
 .brands {
-    margin: 100px auto;
+    background-color: #0b0f13;
+    padding: 5%;
+    margin: 100px auto 0%;
+}
+.small{
+    background-color: #0b0f13;
+    color: #ffffff;
+    margin:auto 0%;
 }
 
 .col-5 {
