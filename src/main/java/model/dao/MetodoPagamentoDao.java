@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class MetodoPagamentoDao {
-    public Collection<MetodoBean> doRetrieveAll(String email) throws SQLException, ClassNotFoundException {
+    public static Collection<MetodoBean> doRetrieveAll(String email) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         PreparedStatement stmt = null;
         Collection<MetodoBean> metodi = new ArrayList<MetodoBean>();
@@ -28,7 +28,7 @@ public class MetodoPagamentoDao {
                 metodoBean.setCvv(Integer.parseInt(rs.getString("cvv")));
                 metodoBean.setScadenza(rs.getString("scadenza"));
                 metodoBean.setTipo(rs.getString("tipo"));
-                metodoBean.setNumeroCarta(rs.getInt("numerocarta"));
+                metodoBean.setNumeroCarta(rs.getString("numerocarta"));
                 metodi.add(metodoBean);
             }
         } catch (SQLException e) {
@@ -43,7 +43,7 @@ public class MetodoPagamentoDao {
         return metodi;
     }
 
-    public synchronized boolean doInsertMetodo(MetodoBean metodo) throws SQLException, ClassNotFoundException {
+    public static synchronized boolean doInsertMetodo(MetodoBean metodo) throws SQLException, ClassNotFoundException {
         boolean insert = false;
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -51,7 +51,7 @@ public class MetodoPagamentoDao {
         try {
             conn = ConnectionPool.conn();
             stmt = conn.prepareStatement(query);
-            stmt.setString(1, String.valueOf(metodo.getNumeroCarta()));
+            stmt.setString(1, metodo.getNumeroCarta());
             stmt.setString(2, metodo.getTipo());
             stmt.setString(3, metodo.getScadenza());
             stmt.setString(4, String.valueOf(metodo.getCvv()));

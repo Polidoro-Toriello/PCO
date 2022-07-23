@@ -17,4 +17,3 @@
         </div>
     </div>
 </div>
-<p class="small">Copyright@2022 Polidoro-Toriello</p>

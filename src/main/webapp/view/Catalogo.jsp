@@ -24,7 +24,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
-    <script src="${pageContext.request.contextPath}/js/ajaxFilter.js"></script>
+    <script src="${pageContext.request.contextPath}/js/appFunction.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,8 +46,8 @@
                 <option name="HDD">HDD</option>
                 <option name="SSD">SSD</option>
                 <option name="PC">PC</option>
-                <option name="tastiera">Tastiera</option>
-                <option name="mouse">Mouse</option>
+                <option name="tastiera" value="tastiera">Tastiera</option>
+                <option name="mouse" value="mouse">Mouse</option>
             </select>
         </div>
         <div class="shop-content" id="shopping">

@@ -156,7 +156,6 @@ public class ArticoloDao {
                 articoloBean.setPrezzo(rs.getFloat("prezzo"));
                 articoloBean.setIva(rs.getInt("iva"));
                 articoli.add(articoloBean);
-                System.out.println(articoloBean);
             }
         } catch (SQLException e) {
             e.printStackTrace();

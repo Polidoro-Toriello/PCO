@@ -10,11 +10,12 @@ public class IndirizzoBean {
     private String provincia;
     private String citta;
     private String cap;
+    private String via;
 
     public IndirizzoBean() {
     }
 
-    public IndirizzoBean(int codice, String utente, String nome, String cognome, String cellulare, String provincia, String citta, String cap) {
+    public IndirizzoBean(int codice, String utente, String nome, String cognome, String cellulare, String provincia, String citta, String cap, String via) {
         this.codice = codice;
         this.utente = utente;
         this.nome = nome;
@@ -23,6 +24,7 @@ public class IndirizzoBean {
         this.provincia = provincia;
         this.citta = citta;
         this.cap = cap;
+        this.via = via;
     }
 
     public int getCodice() {
@@ -101,5 +103,13 @@ public class IndirizzoBean {
                 ", citta='" + citta + '\'' +
                 ", cap='" + cap + '\'' +
                 '}';
+    }
+
+    public String getVia() {
+        return via;
+    }
+
+    public void setVia(String via) {
+        this.via = via;
     }
 }

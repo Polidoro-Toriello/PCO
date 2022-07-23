@@ -1,13 +1,13 @@
 package model.bean;
 
 public class MetodoBean {
-    private String nome, cognome, tipo, scadenza, email;
-    private int numeroCarta, cvv;
+    private String nome, cognome, tipo, scadenza, email, numeroCarta;
+    private int cvv;
 
     public MetodoBean() {
     }
 
-    public MetodoBean(int numeroCarta, String nome, String cognome, String tipo, String scadenza, String email, int cvv) {
+    public MetodoBean(String numeroCarta, String nome, String cognome, String tipo, String scadenza, String email, int cvv) {
         this.nome = nome;
         this.cognome = cognome;
         this.tipo = tipo;
@@ -57,11 +57,11 @@ public class MetodoBean {
         this.email = email;
     }
 
-    public int getNumeroCarta() {
+    public String getNumeroCarta() {
         return numeroCarta;
     }
 
-    public void setNumeroCarta(int numeroCarta) {
+    public void setNumeroCarta(String numeroCarta) {
         this.numeroCarta = numeroCarta;
     }
 
