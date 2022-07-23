@@ -77,7 +77,7 @@ public class OrdineDao {
     }
 
 
-    public synchronized Collection<OrdineBean> doRetrieveAllByUtente(String email) throws SQLException {
+    public static synchronized Collection<OrdineBean> doRetrieveAllByUtente(String email) throws SQLException {
         Connection conn = null;
         PreparedStatement stmt = null;
         String sql = "SELECT * FROM ordine WHERE email = ?";

@@ -290,7 +290,6 @@ ul li ul li a:hover {
 .articoliHome .box-container .box .info h3 {
     padding: 1rem;
     font-size: 2rem;
-    color: var(--blue);
 }
 
 .articoliHome .box-container .box .info .subInfo {
@@ -404,13 +403,12 @@ small {
 .brands {
     background-color: #0b0f13;
     padding: 5%;
-    margin: 100px auto 0%;
+    margin: 5% auto;
 }
 
 .small {
     background-color: #0b0f13;
     color: #ffffff;
-    margin: auto 0%;
 }
 
 .col-5 {
@@ -549,12 +547,14 @@ th:last-child {
     background-color: red;
     color: #fff;
     padding: 8px 30px;
+    text-decoration: none;
     margin: 30px 0;
     border-radius: 30px;
 }
 
 .returnBtn:hover {
     background-color: #122325;
+    color: #fff;
 }
 
 .carrelloButton {
@@ -763,4 +763,181 @@ input:focus {
     border-color: #0d6efd;
 }
 
+.ui-w-80 {
+    width: 80px !important;
+    height: auto;
+}
 
+.btn-default {
+    border-color: rgba(24, 28, 33, 0.1);
+    background: rgba(0, 0, 0, 0);
+    color: #4E5155;
+}
+
+label.btn {
+    margin-bottom: 0;
+}
+
+.btn-outline-primary {
+    border-color: #26B4FF;
+    background: transparent;
+    color: #26B4FF;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.text-light {
+    color: #babbbc !important;
+}
+
+.btn-facebook {
+    border-color: rgba(0, 0, 0, 0);
+    background: #3B5998;
+    color: #fff;
+}
+
+.btn-instagram {
+    border-color: rgba(0, 0, 0, 0);
+    background: #000;
+    color: #fff;
+}
+
+.card {
+    background-clip: padding-box;
+    box-shadow: 0 1px 4px rgba(24, 28, 33, 0.012);
+}
+
+.row-bordered {
+    overflow: hidden;
+}
+
+.account-settings-fileinput {
+    position: absolute;
+    visibility: hidden;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.account-settings-links .list-group-item.active {
+    font-weight: bold !important;
+}
+
+html:not(.dark-style) .account-settings-links .list-group-item.active {
+    background: transparent !important;
+}
+
+.account-settings-multiselect ~ .select2-container {
+    width: 100% !important;
+}
+
+.light-style .account-settings-links .list-group-item {
+    padding: 0.85rem 1.5rem;
+    border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+.light-style .account-settings-links .list-group-item.active {
+    color: #4e5155 !important;
+}
+
+.material-style .account-settings-links .list-group-item {
+    padding: 0.85rem 1.5rem;
+    border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+.material-style .account-settings-links .list-group-item.active {
+    color: #4e5155 !important;
+}
+
+.dark-style .account-settings-links .list-group-item {
+    padding: 0.85rem 1.5rem;
+    border-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+.dark-style .account-settings-links .list-group-item.active {
+    color: #fff !important;
+}
+
+.light-style .account-settings-links .list-group-item.active {
+    color: #4E5155 !important;
+}
+
+.light-style .account-settings-links .list-group-item {
+    padding: 2.8499999999999943rem 2.5rem;
+    border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+.modifica {
+    display: flex;
+    background: #007cc7;
+    color: #fff;
+    padding: 1% 10%;
+    margin: 12px 0;
+    border-radius: 30px;
+}
+
+.cancella {
+    display: flex;
+    background: red;
+    color: #fff;
+    padding: 1% 10%;
+    margin: 12px 0;
+    border-radius: 30px;
+}
+
+.modifica:hover {
+    background-color: #0b0f13;
+}
+
+
+.accordion {
+    border-radius: 10px;
+    background-color:#0b0f13;
+    color: #fff;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+.attivo, .accordion:hover {
+    background-color: #007cc7;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+}
+#table-wrapper {
+    height: 450px;
+    width: auto;
+    margin-top: 5%;
+}
+#table-scroll {
+    height:100%;
+    overflow:auto;
+    margin-top:20px;
+}
+#table-wrapper table {
+    width:100%;
+
+}
+#table-wrapper table * {
+    color:black;
+}
+#table-wrapper table thead th .text {
+    position:absolute;
+    top:-20px;
+    z-index:2;
+    height:20px;
+    width:35%;
+    border:1px solid red;
+}

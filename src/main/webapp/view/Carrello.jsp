@@ -91,7 +91,8 @@
         <form action="../confirmAcquisto" method="get">
             <input type="submit" class="confirmBtn" id="confirmBtn" value="Conferma Ordine">
         </form>
-        <input type="submit" class="returnBtn" id="returnBtn" value="Torna al catalogo">
+        <a class="returnBtn" id="returnBtn" href="Catalogo.jsp">Torna al catalogo</a>
+
     </div>
 </div>
 <%@include file="./fragment/footer.jsp" %>
