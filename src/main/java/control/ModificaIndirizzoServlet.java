@@ -25,7 +25,7 @@ public class ModificaIndirizzoServlet extends HttpServlet {
         UserBean utente = (UserBean) session.getAttribute("utente");
         IndirizzoBean bean = new IndirizzoBean();
         if(utente != null && !utente.isAdmin()) {
-            bean.setCodice(Integer.parseInt(req.getParameter("codice")));
+            bean.setCodice(Integer.parseInt(req.getParameter("Codice")));
             bean.setNome(req.getParameter("Nome"));
             bean.setCognome(req.getParameter("Cognome"));
             bean.setCellulare(req.getParameter("Cellulare"));
