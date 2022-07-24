@@ -1,6 +1,6 @@
 <%if(manager != null){%>
 <header class="head">
-    <h1 class="logo"><img src="../../immagini/logo/logo" width="110" height="90" alt=""></h1>
+    <h1 class="logo"><img src="../immagini/logo/logo.png" width="300" height="90" alt=""></h1>
     <ul class="profile">
         <ul>
             <li><a href="#" class="">

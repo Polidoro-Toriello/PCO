@@ -82,10 +82,26 @@ function ajaxFilter() {
 
 function sezione(x) {
     var xmlhttprequest = new XMLHttpRequest();
-    xmlhttprequest.open("GET", "../userServlet?selezione="+x.toString(), true);
+    xmlhttprequest.open("GET", "../userServlet?selezione=" + x.toString(), true);
     xmlhttprequest.onreadystatechange = function () {
         if (xmlhttprequest.status == 4 || xmlhttprequest.status == 200) {
             document.getElementById("selezione").innerHTML = this.responseText;
+            if (x > 1 & x < 4) {
+                var acc = document.getElementsByClassName("accordion");
+                var i;
+
+                for (i = 0; i < acc.length; i++) {
+                    acc[i].addEventListener("click", function () {
+                        this.classList.toggle("attivo");
+                        var panel = this.nextElementSibling;
+                        if (panel.style.display === "block") {
+                            panel.style.display = "none";
+                        } else {
+                            panel.style.display = "block";
+                        }
+                    });
+                }
+            }
         }
     }
     xmlhttprequest.send()

@@ -51,7 +51,7 @@
                     </script>
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-sm-4 col-2">
                 <div class="tab-content" id="selezione">
                     <div class="tab-pane fade active show" id="account-general">
                         <div class="card-body">
@@ -67,7 +67,8 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Cognome</label>
-                                <p class="form-control mb-1"><%=utente.getCognome()%></p>
+                                <p class="form-control mb-1"><%=utente.getCognome()%>
+                                </p>
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Email</label>
@@ -77,9 +78,11 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 <jsp:include page="fragment/footer.jsp"></jsp:include>
 </body>
