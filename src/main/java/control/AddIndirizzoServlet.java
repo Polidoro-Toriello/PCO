@@ -38,7 +38,7 @@ public class AddIndirizzoServlet extends HttpServlet {
                 }
             } catch (Exception e) {
                 session.setAttribute("alertMsg", "Errore nell'inserimento dell'indirizzo");
-                resp.sendRedirect("view/Home.jsp");
+                resp.sendRedirect("view/AddIndirizzo.jsp");
             }
         } else {
             session.setAttribute("alertMsg", "Accesso non effettuato");
