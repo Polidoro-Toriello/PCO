@@ -120,7 +120,7 @@ public class IndirizzoDao {
     }
 
 
-    public static synchronized boolean doInsertIndirizzo(IndirizzoBean b) throws SQLException {
+    public synchronized boolean doInsertIndirizzo(IndirizzoBean b) throws SQLException {
         Connection conn = null;
         PreparedStatement stmt = null;
         String sql = "INSERT INTO indirizzo (utente,nome,cognome,cellulare,provincia,citta,cap,via) VALUES(?, ?, ?, ?, ?, ?, ?,?)";

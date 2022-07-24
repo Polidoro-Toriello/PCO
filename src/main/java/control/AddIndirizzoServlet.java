@@ -5,13 +5,18 @@ import model.bean.UserBean;
 import model.dao.IndirizzoDao;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class AddMetodoPagamento extends HttpServlet {
+@WebServlet("/aggiungiindirizzo")
+public class AddIndirizzoServlet extends HttpServlet {
+
+    private IndirizzoDao dao = new IndirizzoDao();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -26,7 +31,7 @@ public class AddMetodoPagamento extends HttpServlet {
                 indirizzo.setProvincia(req.getParameter("Provincia"));
                 indirizzo.setCitta(req.getParameter("Citta"));
                 indirizzo.setCap(req.getParameter("Cap"));
-                if (IndirizzoDao.doInsertIndirizzo(indirizzo)) {
+                if (dao.doInsertIndirizzo(indirizzo)) {
                     session.setAttribute("alertMsg", "Metodo di pagamento inserito con successo");
                     resp.sendRedirect("view/AddMetodoPagamento.jsp");
                 }
