@@ -43,7 +43,7 @@ public class MetodoPagamentoDao {
         return metodi;
     }
 
-    public static synchronized boolean doInsertMetodo(MetodoBean metodo) throws SQLException, ClassNotFoundException {
+    public synchronized boolean doInsertMetodo(MetodoBean metodo) throws SQLException, ClassNotFoundException {
         boolean insert = false;
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -70,5 +70,51 @@ public class MetodoPagamentoDao {
                 conn.close();
         }
         return insert;
+    }
+
+    public synchronized boolean doDeleteByNumero(String numerocarta) throws  SQLException{
+        boolean delete = false;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        String sql = "DELETE FROM metodopagamento WHERE numerocarta=?";
+        try{
+            conn = ConnectionPool.conn();
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1,numerocarta);
+            delete = stmt.executeUpdate() == 1;
+            conn.commit();
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        return delete;
+    }
+
+    public synchronized boolean doModifyMetodo(MetodoBean bean) throws SQLException
+    {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        String sql = "UPDATE indirizzo SET numerocarta=?,tipo=?,scadenza=?,cvv=?,nome=?,cognome=? WHERE email=?";
+        try{
+            conn = ConnectionPool.conn();
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1,bean.getNumeroCarta());
+            stmt.setString(2,bean.getTipo());
+            stmt.setString(3, bean.getScadenza());
+            stmt.setInt(4, bean.getCvv());
+            stmt.setString(5, bean.getNome());
+            stmt.setString(6, bean.getCognome());
+            stmt.setString(7,bean.getEmail());
+
+            check = stmt.executeUpdate() == 1;
+            conn.commit();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return check;
     }
 }
