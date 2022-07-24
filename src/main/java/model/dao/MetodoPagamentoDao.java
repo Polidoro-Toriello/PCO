@@ -85,6 +85,11 @@ public class MetodoPagamentoDao {
             conn.commit();
         } catch(SQLException e) {
             e.printStackTrace();
+        }  finally {
+            if (stmt != null)
+                stmt.close();
+            if (conn != null)
+                conn.close();
         }
 
         return delete;
@@ -113,6 +118,11 @@ public class MetodoPagamentoDao {
         catch (SQLException e)
         {
             e.printStackTrace();
+        }  finally {
+            if (stmt != null)
+                stmt.close();
+            if (conn != null)
+                conn.close();
         }
 
         return check;
