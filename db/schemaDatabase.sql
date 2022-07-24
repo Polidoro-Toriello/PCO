@@ -33,7 +33,7 @@ CREATE TABLE `articolo` (
   `categoria` varchar(45) NOT NULL,
   `qtadisponibile` int(11) NOT NULL,
   PRIMARY KEY (`idarticolo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,10 +76,11 @@ CREATE TABLE `indirizzo` (
   `provincia` varchar(45) NOT NULL,
   `citta` varchar(45) NOT NULL,
   `cap` varchar(45) NOT NULL,
+  `via` varchar(45) NOT NULL,
   PRIMARY KEY (`codice`),
   KEY `utente_idx` (`utente`),
   CONSTRAINT `utente` FOREIGN KEY (`utente`) REFERENCES `utente` (`email`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,7 +91,7 @@ DROP TABLE IF EXISTS `metodopagamento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `metodopagamento` (
-  `numerocarta` int(11) NOT NULL,
+  `numerocarta` varchar(45) NOT NULL,
   `tipo` varchar(45) NOT NULL,
   `scadenza` varchar(45) NOT NULL,
   `cvv` int(11) NOT NULL,
@@ -120,7 +121,7 @@ CREATE TABLE `ordine` (
   UNIQUE KEY `idOrdine_UNIQUE` (`idordine`),
   KEY `Email_idx` (`email`),
   CONSTRAINT `Email` FOREIGN KEY (`email`) REFERENCES `utente` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,4 +160,4 @@ CREATE TABLE `utente` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-03 20:24:44
+-- Dump completed on 2022-07-24 15:26:54
