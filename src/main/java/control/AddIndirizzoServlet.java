@@ -31,12 +31,13 @@ public class AddIndirizzoServlet extends HttpServlet {
                 indirizzo.setProvincia(req.getParameter("Provincia"));
                 indirizzo.setCitta(req.getParameter("Citta"));
                 indirizzo.setCap(req.getParameter("Cap"));
+                indirizzo.setVia(req.getParameter("Via"));
                 if (dao.doInsertIndirizzo(indirizzo)) {
-                    session.setAttribute("alertMsg", "Metodo di pagamento inserito con successo");
-                    resp.sendRedirect("view/AddMetodoPagamento.jsp");
+                    session.setAttribute("alertMsg", "Indirizzo inserito con successo");
+                    resp.sendRedirect("view/AddIndirizzo.jsp");
                 }
             } catch (Exception e) {
-                session.setAttribute("alertMsg", "Errore nell'inserimento del metodo di pagamento");
+                session.setAttribute("alertMsg", "Errore nell'inserimento dell'indirizzo");
                 resp.sendRedirect("view/Home.jsp");
             }
         } else {
