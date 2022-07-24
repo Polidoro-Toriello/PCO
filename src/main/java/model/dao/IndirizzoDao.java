@@ -1,6 +1,7 @@
 package model.dao;
 
 import model.bean.IndirizzoBean;
+import model.bean.UserBean;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -202,5 +203,34 @@ public class IndirizzoDao {
 
     }
 
+
+    public synchronized boolean doModifyIndirizzo(IndirizzoBean bean) throws SQLException
+    {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        String sql = "UPDATE indirizzo SET nome=?,cognome=?,cellulare=?,provincia=?,citta=?,cap=?,via=? WHERE codice=?";
+        try{
+            conn = ConnectionPool.conn();
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1,bean.getNome());
+            stmt.setString(2,bean.getCognome());
+            stmt.setString(3, bean.getCellulare());
+            stmt.setString(4, bean.getProvincia());
+            stmt.setString(5, bean.getCitta());
+            stmt.setString(6, bean.getCap());
+            stmt.setString(7,bean.getVia());
+            stmt.setInt(8,bean.getCodice());
+
+            check = stmt.executeUpdate() == 1;
+            conn.commit();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return check;
+    }
 
 }
