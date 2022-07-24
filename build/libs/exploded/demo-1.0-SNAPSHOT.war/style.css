@@ -886,7 +886,19 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
     margin: 12px 0;
     border-radius: 30px;
 }
-
+.rimuovi {
+    text-decoration: none;
+    display: flex;
+    background: red;
+    color: #fff;
+    padding: 1% 10%;
+    margin: 12px 0;
+    border-radius: 30px;
+}
+.rimuovi:hover{
+    background: #0b0f13;
+    color: #fff;
+}
 .modifica:hover {
     background-color: #0b0f13;
 }
@@ -940,4 +952,91 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
     height:20px;
     width:35%;
     border:1px solid red;
+}
+.riga {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px;
+}
+
+.col-25 {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+}
+
+.col-50 {
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+}
+
+.col-75 {
+    -ms-flex: 75%; /* IE10 */
+    flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+    padding: 0 16px;
+}
+
+.contenitore {
+    background-color: #fff;
+    margin: 5%;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
+
+input[type=text] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.icon-container {
+    margin-bottom: 20px;
+    padding: 7px 0;
+    font-size: 24px;
+}
+
+.btnAdd {
+    background-color: #0b0f13;
+    color: white;
+    padding: 12px;
+    position: relative;
+    border: none;
+    width: 10%;
+    margin: 2% 0 10px;
+    border-radius: 35px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.btnAdd:hover {
+    background-color: #007cc7;
+}
+
+span.price {
+    float: right;
+    color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+    .row {
+        flex-direction: column-reverse;
+    }
+    .col-25 {
+        margin-bottom: 20px;
+    }
 }

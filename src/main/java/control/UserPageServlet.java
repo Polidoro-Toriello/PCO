@@ -70,38 +70,43 @@ public class UserPageServlet extends HttpServlet {
             case "2":
                 Collection<IndirizzoBean> indirizzi = IndirizzoDao.doRetrieveByUtente(bean.getEmail());
                 for (IndirizzoBean indirizzo : indirizzi) {
+                    String nomeCognome = indirizzo.getNome() + " " + indirizzo.getCognome();
                     html += String.format(
                             "<button class=\"accordion\">%s, %s</button>" +
                                     "<div class=\"panel\">" +
-                                    "      <div class=\"tab-pane fade active show\" id=\"account-indirizzi\">\n" +
+                                    "<form action=\"../modificaindirizzo\" method=\"get\">" +
+                                    "<div class=\"tab-pane fade active show\" id=\"account-indirizzi\">\n" +
+                                    "<input type=\"hidden\" name=\"codice\" value=\"%s\">" +
                                     "                        <div class=\"card-body pb-2\">\n" +
-                                    "\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Nome</label>\n" +
-                                    "                                <input type=\"text\" name=\"nome\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input type=\"text\" name=\"Nome\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                            </div>\n" +
+                                    "                            <div class=\"form-group\">\n" +
+                                    "                                <label class=\"form-label\">Cognome</label>\n" +
+                                    "                                <input type=\"text\" name=\"Cognome\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Via di Domicilio</label>\n" +
-                                    "                                <input type=\"text\" name=\"via\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input type=\"text\" name=\"Via\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Citta'</label>\n" +
-                                    "                                <input type=\"text\" name=\"citta\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input type=\"text\" name=\"Citta\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Cap</label>\n" +
-                                    "                                <input type=\"text\" name=\"cap\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input type=\"text\" name=\"Cap\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Provincia</label>\n" +
-                                    "                                <input type=\"text\" name=\"provincia\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input type=\"text\" name=\"Provincia\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Cellulare</label>\n" +
-                                    "                                <input type=\"text\" name=\"cellulare\" class=\"form-control\" value=\"%s\">\n" +
-                                    "</div>" + "<form action=\"../ModificaIndirizzo\" method=\"get\">  </div>\n<div class=\"productPage-btn\"><input type=\"submit\" class=\"modifica\" value=\"Salva Modifica\"></div></div>" +
-                                    "                    </div></form>" + "<form action=\"../RemoveIndirizzo\" method=\"get\">  </div>\n<div class=\"productPage-btn\"><input type=\"submit\" class=\"cancella\" value=\"Rimuovi\"></div></div>" +
-                                    "                    </div></form>" + "</div></div><br>\n", indirizzo.getNome() + " " + indirizzo.getCognome(), indirizzo.getCitta(), indirizzo.getNome() + " " + indirizzo.getCognome(), indirizzo.getVia(), indirizzo.getCitta(), indirizzo.getCap(), indirizzo.getProvincia(), indirizzo.getCellulare());
+                                    "                                <input type=\"text\" name=\"Cellulare\" class=\"form-control\" value=\"%s\"></div>" +
+                                    "</div>" + "<input type=\"submit\" class=\"modifica\" value=\"Salva Modifica\">" + "</form></div></div><div class=\"productPage-btn\"><a href=\"../rimuoviindirizzo?idIndirizzo=%s\" class=\"rimuovi\">Rimuovi</a></div>\n",
+                            nomeCognome, indirizzo.getCitta(), indirizzo.getCodice(), indirizzo.getNome(), indirizzo.getCognome(), indirizzo.getVia(), indirizzo.getCitta(), indirizzo.getCap(), indirizzo.getProvincia(), indirizzo.getCellulare(), indirizzo.getCodice());
                 }
                 break;
             case "3":
@@ -110,31 +115,40 @@ public class UserPageServlet extends HttpServlet {
                     html += String.format(
                             "<button class=\"accordion\">%s %s</button>" +
                                     "<div class=\"panel\">" +
+                                    "<form action=\"../modificametodo\" method=\"get\">" +
                                     "      <div class=\"tab-pane fade active show\" id=\"account-metodi\">\n" +
                                     "                        <div class=\"card-body pb-2\">\n" +
                                     "\n" +
                                     "                            <div class=\"form-group\">\n" +
-                                    "                                <label class=\"form-label\">Intestatario</label>\n" +
-                                    "                                <input type=\"text\" name=\"nome\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <label class=\"form-label\">Nome</label>\n" +
+                                    "                                <input type=\"text\" name=\"Nome\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                            </div>\n" +
+                                    "                            <div class=\"form-group\">\n" +
+                                    "                                <label class=\"form-label\">Cognome</label>\n" +
+                                    "                                <input type=\"text\" name=\"Cognome\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Numero sulla carta</label>\n" +
-                                    "                                <input type=\"text\" name=\"carta\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input type=\"text\" name=\"Numerocarta\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Scadenza</label>\n" +
-                                    "                                <input type=\"text\" name=\"scadenza\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input type=\"text\" name=\"Scadenza\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                            </div>\n" +
+                                    "<div class=\"form-group\">\n" +
+                                    "                                <label class=\"form-label\">CVV</label>\n" +
+                                    "                                <input type=\"text\" name=\"Cvv\" class=\"form-control\" value=\"\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Tipo</label>\n" +
-                                    "                                <input type=\"text\" name=\"cap\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input type=\"text\" name=\"Tipo\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Email</label>\n" +
                                     "                                <input type=\"text\" name=\"email\" class=\"form-control\" value=\"%s\">\n" +
-                                    "                            </div>" + "<form action=\"../ModificaMetodo\" method=\"get\">  </div>\n<div class=\"productPage-btn\"><input type=\"submit\" class=\"modifica\" value=\"Salva Modifica\"></div></div>" +
-                                    "                    </div></form>" + "<form action=\"../RemoveMetodo\" method=\"get\">  </div>\n<div class=\"productPage-btn\"><input type=\"submit\" class=\"cancella\" value=\"Rimuovi\"></div></div>" +
-                                    "                    </div></form>" + "</div></div><br>\n", metodo.getTipo(), metodo.getNumeroCarta().replace(" ", "").replaceAll("(?<!^..).(?=.{4})", "*"), metodo.getNome() + " " + metodo.getCognome(), metodo.getNumeroCarta().replace(" ", "").replaceAll("(?<!^..).(?=.{4})", "*"), metodo.getScadenza(), metodo.getTipo(), metodo.getEmail());
+                                    "                            </div>" + "</div>\n<div class=\"productPage-btn\"><input type=\"submit\" class=\"modifica\" value=\"Salva Modifica\"></div></div>" +
+                                    "                    </div></form>" + "</div>\n<div class=\"productPage-btn\"><a href=\"../rimuovimetodo?Numerocarta=%s\" class=\"rimuovi\" value=\"Rimuovi\">Rimuovi</a></div></div>" +
+                                    "                    </div>" + "</div></div><br>\n", metodo.getTipo(), metodo.getNumeroCarta().replace(" ", "").replaceAll("(?<!^..).(?=.{4})", "*"), metodo.getNome() ,metodo.getCognome(), metodo.getNumeroCarta().replace(" ", "").replaceAll("(?<!^..).(?=.{4})", "*"), metodo.getScadenza(), metodo.getTipo(), metodo.getEmail(),metodo.getNumeroCarta());
                 }
                 break;
             case "4":
@@ -165,7 +179,7 @@ public class UserPageServlet extends HttpServlet {
                             "                                </tbody>\n" +
                             "                            </table>\n" +
                             "                        </div>\n" +
-                            "                    </div>",ordine.getNumeroOrdine(),String.valueOf(ordine.getTotale()),ordine.getUtente(),ordine.getStato(),""+ordine.getData());
+                            "                    </div>", ordine.getNumeroOrdine(), String.valueOf(ordine.getTotale()), ordine.getUtente(), ordine.getStato(), "" + ordine.getData());
                 }
         }
         return html;

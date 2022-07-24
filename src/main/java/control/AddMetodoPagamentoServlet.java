@@ -31,18 +31,15 @@ public class AddMetodoPagamentoServlet extends HttpServlet {
             bean.setCvv(Integer.parseInt(req.getParameter("Cvv")));
             bean.setNome(req.getParameter("Nome"));
             bean.setCognome(req.getParameter("Cognome"));
-            bean.setEmail(utente.getEmail());
+            bean.setEmail(req.getParameter("Email"));
             try{
                 if(dao.doInsertMetodo(bean)){
                     session.setAttribute("alertMsg","Metodo di pagamento inserito con successo");
-                    resp.sendRedirect("view/AddMetodo.jsp");
+                    resp.sendRedirect("view/AddMetodoPage.jsp");
                 }
-            } catch (SQLException e) {
+            } catch (SQLException | ClassNotFoundException e) {
                 session.setAttribute("alertMsg","Errore inserimento metodo di pagamento!");
-                resp.sendRedirect("view/AddMetodo.jsp");
-            } catch (ClassNotFoundException e) {
-                session.setAttribute("alertMsg","Errore inserimento metodo di pagamento!");
-                resp.sendRedirect("view/AddMetodo.jsp");
+                resp.sendRedirect("view/AddMetodoPage.jsp");
             }
         }else {
             session.setAttribute("alertMsg", "Accesso non effettuato");

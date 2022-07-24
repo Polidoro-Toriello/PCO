@@ -52,36 +52,36 @@
                 </div>
             </div>
             <div class="col-sm-4 col-2">
-                <div class="tab-content" id="selezione">
-                    <div class="tab-pane fade active show" id="account-general">
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label class="form-label">Username</label>
-                                <p class="form-control mb-1"><%=utente.getUsername()%>
-                                </p>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Nome</label>
-                                <p class="form-control mb-1"><%=utente.getNome()%>
-                                </p>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Cognome</label>
-                                <p class="form-control mb-1"><%=utente.getCognome()%>
-                                </p>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Email</label>
-                                <p class="form-control mb-1"><%=utente.getEmail()%>
-                                </p>
+                    <div class="tab-content" id="selezione">
+                        <div class="tab-pane fade active show" id="account-general">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="form-label">Username</label>
+                                    <p class="form-control mb-1"><%=utente.getUsername()%>
+                                    </p>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Nome</label>
+                                    <p class="form-control mb-1"><%=utente.getNome()%>
+                                    </p>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Cognome</label>
+                                    <p class="form-control mb-1"><%=utente.getCognome()%>
+                                    </p>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <p class="form-control mb-1"><%=utente.getEmail()%>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 </div>
 <jsp:include page="fragment/footer.jsp"></jsp:include>
