@@ -20,8 +20,8 @@ public class MetodoPagamentoDao {
             stmt = conn.prepareStatement(query);
             stmt.setString(1, email);
             ResultSet rs = stmt.executeQuery();
-            MetodoBean metodoBean = new MetodoBean();
             while (rs.next()) {
+            MetodoBean metodoBean = new MetodoBean();
                 metodoBean.setCognome(rs.getString("cognome"));
                 metodoBean.setEmail(rs.getString("email"));
                 metodoBean.setNome(rs.getString("nome"));
@@ -127,4 +127,5 @@ public class MetodoPagamentoDao {
 
         return check;
     }
+
 }

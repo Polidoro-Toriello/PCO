@@ -112,6 +112,7 @@ public class UserPageServlet extends HttpServlet {
             case "3":
                 Collection<MetodoBean> metodi = MetodoPagamentoDao.doRetrieveAll(bean.getEmail());
                 for (MetodoBean metodo : metodi) {
+                    System.out.println(metodo.getNome());
                     html += String.format(
                             "<button class=\"accordion\">%s %s</button>" +
                                     "<div class=\"panel\">" +
@@ -148,7 +149,7 @@ public class UserPageServlet extends HttpServlet {
                                     "                                <input type=\"text\" name=\"email\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>" + "</div>\n<div class=\"productPage-btn\"><input type=\"submit\" class=\"modifica\" value=\"Salva Modifica\"></div></div>" +
                                     "                    </div></form>" + "</div>\n<div class=\"productPage-btn\"><a href=\"../rimuovimetodo?Numerocarta=%s\" class=\"rimuovi\" value=\"Rimuovi\">Rimuovi</a></div></div>" +
-                                    "                    </div>" + "</div></div><br>\n", metodo.getTipo(), metodo.getNumeroCarta().replace(" ", "").replaceAll("(?<!^..).(?=.{4})", "*"), metodo.getNome() ,metodo.getCognome(), metodo.getNumeroCarta().replace(" ", "").replaceAll("(?<!^..).(?=.{4})", "*"), metodo.getScadenza(), metodo.getTipo(), metodo.getEmail(),metodo.getNumeroCarta());
+                                    "                    </div>" + "</div></div><br>\n", metodo.getTipo(), metodo.getNumeroCarta().replace(" ", "").replaceAll("(?<!^..).(?=.{4})", "*"), metodo.getNome(), metodo.getCognome(), metodo.getNumeroCarta().replace(" ", "").replaceAll("(?<!^..).(?=.{4})", "*"), metodo.getScadenza(), metodo.getTipo(), metodo.getEmail(), metodo.getNumeroCarta());
                 }
                 break;
             case "4":
@@ -181,6 +182,58 @@ public class UserPageServlet extends HttpServlet {
                             "                        </div>\n" +
                             "                    </div>", ordine.getNumeroOrdine(), String.valueOf(ordine.getTotale()), ordine.getUtente(), ordine.getStato(), "" + ordine.getData());
                 }
+                break;
+            case "5":
+                html = "<div class=\"tab-pane fade active show\" id=\"account-general\">\n" +
+                        "                        <div class=\"card-body\">\n" +
+                        "                            <div class=\"riga\">\n" +
+                        "                                <div class=\"col-75\">\n" +
+                        "                                    <form action=\"../aggiungimetodo\" method=\"get\">\n" +
+                        "                                        <div class=\"row\">\n" +
+                        "                                            <div class=\"col-50\">\n" +
+                        "                                                <h3>Aggiungi Metodo</h3>\n" +
+                        "                                                <br>\n" +
+                        "                                                <div class=\"row\">\n" +
+                        "                                                    <div class=\"col-50\">\n" +
+                        "                                                        <label for=\"fname\"><i class=\"fa fa-user\"></i>&nbsp;Nome</label>\n" +
+                        "                                                        <input type=\"text\" id=\"fname\" name=\"Nome\" placeholder=\"Mario\">\n" +
+                        "                                                    </div>\n" +
+                        "                                                    <div class=\"col-50\">\n" +
+                        "                                                        <label for=\"lname\"><i\n" +
+                        "                                                                class=\"fa fa-user\"></i>&nbsp;Cognome</label>\n" +
+                        "                                                        <input type=\"text\" id=\"lname\" name=\"Cognome\"\n" +
+                        "                                                               placeholder=\"Rossi\">\n" +
+                        "                                                    </div>\n" +
+                        "                                                </div>\n" +
+                        "                                                <label for=\"card\"><i class=\"fa fa-credit-card\" aria-hidden=\"true\"></i>&nbsp;Numero\n" +
+                        "                                                    sulla\n" +
+                        "                                                    carta</label>\n" +
+                        "                                                <input type=\"text\" id=\"card\" name=\"Numerocarta\"\n" +
+                        "                                                       placeholder=\"5101 **** **** **** 0121\">\n" +
+                        "                                                        <label for=\"scadenza\"><i class=\"fa fa-calendar-check-o\"\n" +
+                        "                                                                                 aria-hidden=\"true\"></i>&nbsp;Scadenza</label>\n" +
+                        "                                                        <input type=\"text\" id=\"scadenza\" name=\"Scadenza\"\n" +
+                        "                                                               placeholder=\"10/25\">\n" +
+                        "                                                        <label for=\"cvv\"><i class=\"fa fa-key\" aria-hidden=\"true\"></i>&nbsp;CVV</label>\n" +
+                        "<input type=\"text\" id=\"cvv\" name=\"Cvv\"\n placeholder=\"670\">\n" +
+                        "                                                <label for=\"tipo\"><i class=\"fa fa-institution\"></i>&nbsp;Circuito\n" +
+                        "                                                    Carta</label>\n" +
+                        "                                                <select name=\"Tipo\" id=\"tipo\">\n" +
+                        "                                                    <option>Seleziona</option>\n" +
+                        "                                                    <option value=\"Mastercard\">Mastercard</option>\n" +
+                        "                                                    <option value=\"Visa\">Visa</option>\n" +
+                        "                                                    <option value=\"Amex\">American Express</option>\n" +
+                        "                                                    <option value=\"Maestro\">Maestro</option>\n" +
+                        "                                                </select>\n" +
+                        "                                                <label for=\"hidden\"></label>\n" +
+                        "                                                <input type=\"hidden\" id=\"hiddien\" name=\"hidden\" placeholder=\"670\">\n" +
+                        "                                            <input type=\"submit\" value=\"Salva\" class=\"btnAdd\">\n" +
+                        "                                    </form>\n" +
+                        "                                </div>\n" +
+                        "                            </div>\n" +
+                        "                        </div>\n" +
+                        "                    </div>";
+                break;
         }
         return html;
     }

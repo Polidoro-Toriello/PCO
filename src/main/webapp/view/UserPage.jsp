@@ -42,6 +42,8 @@
                        data-toggle="list" href="#account-metodo">Metodo di Pagamento</a>
                     <a onclick="sezione(4)" value="Ordine" class="list-group-item list-group-item-action"
                        data-toggle="list" href="#account-social-links">Ordine</a>
+                    <a onclick="sezione(5)" value="Aggiungi Metodo" class="list-group-item list-group-item-action"
+                       data-toggle="list" href="#account-addMetodo">Aggiungi Metodo di Pagamento</a>
                     <script>
                         const linkSelect = document.querySelectorAll(".list-group-item list-group-item-action")
                         $("a").click(function () {
