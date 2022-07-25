@@ -7,7 +7,7 @@
 
 <% UserBean utente = (UserBean) session.getAttribute("utente"); %>
 <% UserBean manager = (UserBean) session.getAttribute("manager"); %>
-<% String alert = (String) session.getAttribute("alertMsg"); %>
+<% String aggiunto = (String) session.getAttribute("alertMsg"); %>
 <% Random rand = new Random();%>
 
 <%
@@ -18,7 +18,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;500&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,8 +25,9 @@
     <title>Title</title>
 </head>
 <body>
+
 <%
-    if (alert != null && alert.equals("true")) {
+    if (aggiunto != null && aggiunto.equals("true")) {
 %>
 <div id="aggiunto" class="modal">
     <div class="modal-content">
@@ -46,7 +46,7 @@
 <script>
     // When the user clicks on <span> (x), close the modal
     var span = document.getElementsByClassName("close")[0];
-    var modal = document.getElementById("alert")
+    var modal = document.getElementById("aggiunto")
     span.onclick = function () {
         modal.style.display = "none";
     }
@@ -58,16 +58,10 @@
         }
     }
 </script>
-<% //possibilità di mettere anchore per farlo apparire centrale
+<%  //possibilità di mettere anchore per farlo apparire centrale
     session.removeAttribute("alertMsg");
 }%>
 <%@include file="./fragment/navbar.jsp" %>
-<%if (alert != null && !alert.equals("true")) {%>
-<div class="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    <%=alert%>
-</div>
-<%session.removeAttribute("alertMsg");}%>
 <div class="hero">
     <div class="hero_content">
         <div class="row">
@@ -104,32 +98,32 @@
     <div class="box-container">
         <%for (ArticoloBean articolo : articoli) {%>
         <div class="box">
-            <%if (articolo.getCategoria().equalsIgnoreCase("gpu")) {%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("gpu")){%>
             <div class="image">
                 <img src="<%="../immagini/gpu1.jpg"%>" alt="gpu">
             </div>
             <%}%>
-            <%if (articolo.getCategoria().equalsIgnoreCase("pc")) {%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("pc")){%>
             <div class="image">
                 <img src="<%="../immagini/pc1.jpg"%>" alt="pc">
             </div>
             <%}%>
-            <%if (articolo.getCategoria().equalsIgnoreCase("cpu")) {%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("cpu")){%>
             <div class="image">
                 <img src="<%="../immagini/cpu1.jpg"%>" alt="cpu">
             </div>
             <%}%>
-            <%if (articolo.getCategoria().equalsIgnoreCase("ram")) {%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("ram")){%>
             <div class="image">
                 <img src="<%="../immagini/ram1.jpg"%>" alt="ram">
             </div>
             <%}%>
-            <%if (articolo.getCategoria().equalsIgnoreCase("ssd")) {%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("ssd")){%>
             <div class="image">
                 <img src="<%="../immagini/ssd1.jpg"%>" alt="ssd">
             </div>
             <%}%>
-            <%if (articolo.getCategoria().equalsIgnoreCase("hdd")) {%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("hdd")){%>
             <div class="image">
                 <img src="<%="../immagini/hdd1.jpg"%>" alt="hdd">
             </div>
@@ -170,6 +164,7 @@
         </div>
     </div>
 </div>
+
 <%@include file="./fragment/footer.jsp" %>
 </body>
 </html>

@@ -43,26 +43,40 @@
                             <input type="text" id="lname" name="Cognome" placeholder="Rossi">
                         </div>
                     </div>
-
-                    <label for="Via"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Indirizzo</label>
-                    <input type="text" id="Via" name="Via" placeholder="Via Roma 11">
-
-                    <label for="Citta"><i class="fa fa-city" aria-hidden="true"></i>&nbsp;Citta'</label>
-                    <input type="text" id="Citta" name="Citta" placeholder="Salerno">
-
+                    <label for="email"><i class="fa fa-envelope"></i>&nbsp;Email</label>
+                    <input type="text" id="Email" name="email"
+                           placeholder="mariorossi@example.com">
+                    <label for="card"><i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;Numero
+                        sulla
+                        carta</label>
+                    <input type="text" id="card" name="Numerocarta"
+                           placeholder="5101 **** **** **** 0121">
                 </div>
                 <div class="col-50">
-                    <label for="Provincia"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Provincia</label>
-                    <input type="text" id="Provincia" name="Provincia" placeholder="Salerno">
-
-                    <label for="Cap"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Cap</label>
-                    <input type="text" id="Cap" name="Cap" placeholder="84121">
-
-                    <label for="Cellulare"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;Cellulare</label>
-                    <input type="text" id="Cellulare" name="Cellulare"
-                           placeholder="350 6780929">
+                    <div class="row">
+                        <div class="col-50">
+                            <label for="scadenza"><i class="fa fa-calendar-check-o"
+                                                     aria-hidden="true"></i>&nbsp;Scadenza</label>
+                            <input type="text" id="scadenza" name="Scadenza"
+                                   placeholder="27/08">
+                        </div>
+                        <div class="col-50">
+                            <label for="cvv"><i class="fa fa-key" aria-hidden="true"></i>&nbsp;CVV</label>
+                            <input type="text" id="cvv" name="Cvv" placeholder="670">
+                        </div>
+                    </div>
+                    <label for="tipo"><i class="fa fa-institution"></i>&nbsp;Circuito
+                        Carta</label>
+                    <select name="Tipo" id="tipo">
+                        <option value="Mastercard">Mastercard</option>
+                        <option value="Visa">Visa</option>
+                        <option value="Amex">American Express</option>
+                        <option value="Maestro">Maestro</option>
+                    </select>
+                    <label for="cvv"></label>
+                    <input type="hidden" id="hiddien" name="Cvv" placeholder="670">
+                    <input type="submit" value="Salva" class="btnAdd">
                 </div>
-                <input type="submit" value="Salva" class="modifica">
             </div>
         </form>
     </div>

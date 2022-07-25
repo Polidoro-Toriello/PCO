@@ -26,6 +26,8 @@ if(articoloBean==null){
 <html>
 <head>
     <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/igorlino/elevatezoom-plus@1.2.3/src/jquery.ez-plus.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;500&display=swap" rel="stylesheet">
@@ -76,11 +78,11 @@ if(articoloBean==null){
 <div class="small-container single-product" style="width: 100%">
     <div class="row">
         <div class="col-2">
-            <img src="../immagini/<%=articoloBean.getCategoria().toLowerCase()%>1.jpg" id="product-img">
+            <img src="../immagini/<%=articoloBean.getCategoria().toLowerCase()%>1.jpg" data-zoom-img="../immagini/<%=articoloBean.getCategoria().toLowerCase()%>1.jpg" width="500px" height="500px" id="product-img">
             <div class="small-img-row">
                 <% for (int i = 1; i <= 4; i++) {%>
                 <div class="small-img-col">
-                    <img src="../immagini/<%=articoloBean.getCategoria().toLowerCase()+i%>.jpg" class="small-img">
+                    <img  src="../immagini/<%=articoloBean.getCategoria().toLowerCase()+i%>.jpg" class="small-img">
                 </div>
                 <%}%>
             </div>
@@ -186,19 +188,25 @@ if(articoloBean==null){
 <script>
     var product = document.getElementById("product-img");
     var smallImg = document.getElementsByClassName("small-img");
+    $('#product-img').ezPlus();
     smallImg[0].onclick = function () {
         product.src = smallImg[0].src;
+        $('#product-img').ezPlus();
     }
 
     smallImg[1].onclick = function () {
         product.src = smallImg[1].src;
+        $('#product-img').ezPlus();
     }
     smallImg[2].onclick = function () {
         product.src = smallImg[2].src;
+        $('#product-img').ezPlus();
     }
     smallImg[3].onclick = function () {
         product.src = smallImg[3].src;
+        $('#product-img').ezPlus();
     }
+
 </script>
 </body>
 </html>

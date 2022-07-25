@@ -1,3 +1,4 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="model.bean.UserBean" %>
 <%@ page import="model.bean.ArticoloBean" %>
@@ -5,8 +6,9 @@
 <%@ page import="java.util.Collection" %>
 <%String alert = (String) session.getAttribute("alertMsg");%>
 <% UserBean manager = (UserBean) session.getAttribute("manager");
-    if (manager == null) {
-        request.getSession().setAttribute("alertMsg", "Errore!Accesso non consentito!");
+    if(manager == null)
+    {
+        request.getSession().setAttribute("alertMsg","Errore!Accesso non consentito!");
         response.sendRedirect("./LoginPage.jsp");
     }
 
@@ -29,15 +31,6 @@
 </head>
 <body>
 <%@include file="./fragment/adminnavbar.jsp" %>
-<%if (alert != null) {%>
-<div class="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    <%=alert%>
-</div>
-<%
-    }
-    session.removeAttribute("alertMsg");
-%>
 <div class="small-container single-product" style="width: 100%">
     <div class="row">
         <div class="col-2">
@@ -51,7 +44,7 @@
             </div>
         </div>
         <div class="col-2">
-            <%if (alert != null) {%>
+            <%if(alert != null){%>
             <div id="aggiunto" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
@@ -66,19 +59,17 @@
                 <br>
                 <label for="descrizione">Descrizione:</label>
                 <br>
-                <textarea class="textarea mb-2" placeholder="descrizione" id="descrizione" name="Descrizione"
-                          maxlength="2000"></textarea>
+                <textarea class="textarea mb-2" placeholder="descrizione" id="descrizione" name="Descrizione" maxlength="2000"></textarea>
                 <br>
                 <label for="iva">IVA:</label>
                 <input type="number" class="mb-2" name="IVA" id="iva" min="1" value="1" style="width: 50px;">
                 <br>
                 <label for="prezzo">Prezzo:</label>
-                <input type="number" id="prezzo" class="mb-2" name="Prezzo" min="1" value="1" step="0.01"
-                       style="width: 80px;">
+                <input type="number" id="prezzo" class="mb-2" name="Prezzo" min="1" value="1" step="0.01" style="width: 80px;">
                 <br>
                 <label for="categoria">Categoria:</label>
-                <select name="Categoria" onchange="changeimages()" class="selectinput mb-2" id="categoria">
-                    <option value="ram">RAM</option>
+                <select name="Categoria"  onchange="changeimages()" class="selectinput mb-2" id="categoria">
+                    <option  value="ram">RAM</option>
                     <option value="cpu">CPU</option>
                     <option selected value="gpu">GPU</option>
                     <option value="ssd">SSD</option>
@@ -87,7 +78,7 @@
                 </select>
                 <br>
                 <label for="qta">Quantità disponibile:</label>
-                <input type="number" class="mb-2" id="qta" name="Qta" value="1" min="1">
+                <input type="number" class="mb-2" id="qta" name="Qta" value="1" min="1" >
                 <br>
                 <button class="btn" type="submit">Inserisci</button>
             </form>
@@ -101,32 +92,32 @@
     <div class="box-container">
         <%for (ArticoloBean articolo : articoli) {%>
         <div class="box">
-            <%if (articolo.getCategoria().equalsIgnoreCase("gpu")) {%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("gpu")){%>
             <div class="image">
                 <img src="<%="../immagini/gpu1.jpg"%>" alt="gpu">
             </div>
             <%}%>
-            <%if (articolo.getCategoria().equalsIgnoreCase("pc")) {%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("pc")){%>
             <div class="image">
                 <img src="<%="../immagini/pc1.jpg"%>" alt="pc">
             </div>
             <%}%>
-            <%if (articolo.getCategoria().equalsIgnoreCase("cpu")) {%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("cpu")){%>
             <div class="image">
                 <img src="<%="../immagini/cpu1.jpg"%>" alt="cpu">
             </div>
             <%}%>
-            <%if (articolo.getCategoria().equalsIgnoreCase("ram")) {%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("ram")){%>
             <div class="image">
                 <img src="<%="../immagini/ram1.jpg"%>" alt="ram">
             </div>
             <%}%>
-            <%if (articolo.getCategoria().equalsIgnoreCase("ssd")) {%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("ssd")){%>
             <div class="image">
                 <img src="<%="../immagini/ssd1.jpg"%>" alt="ssd">
             </div>
             <%}%>
-            <%if (articolo.getCategoria().equalsIgnoreCase("hdd")) {%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("hdd")){%>
             <div class="image">
                 <img src="<%="../immagini/hdd1.jpg"%>" alt="hdd">
             </div>
@@ -163,43 +154,43 @@
             </div>
         </div>
     </div>
-    <script>
-        var product = document.getElementById("product-img");
-        var smallImg = document.getElementsByClassName("small-img");
-        smallImg[0].onclick = function () {
-            product.src = smallImg[0].src;
-        }
+<script>
+    var product = document.getElementById("product-img");
+    var smallImg = document.getElementsByClassName("small-img");
+    smallImg[0].onclick = function () {
+        product.src = smallImg[0].src;
+    }
 
-        smallImg[1].onclick = function () {
-            product.src = smallImg[1].src;
-        }
-        smallImg[2].onclick = function () {
-            product.src = smallImg[2].src;
-        }
-        smallImg[3].onclick = function () {
-            product.src = smallImg[3].src;
-        }
-    </script>
+    smallImg[1].onclick = function () {
+        product.src = smallImg[1].src;
+    }
+    smallImg[2].onclick = function () {
+        product.src = smallImg[2].src;
+    }
+    smallImg[3].onclick = function () {
+        product.src = smallImg[3].src;
+    }
+</script>
 
-    <script>
-        // When the user clicks on <span> (x), close the modal
-        var span = document.getElementsByClassName("close")[0];
-        var modal = document.getElementById("aggiunto")
-        span.onclick = function () {
+<script>
+    // When the user clicks on <span> (x), close the modal
+    var span = document.getElementsByClassName("close")[0];
+    var modal = document.getElementById("aggiunto")
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
             modal.style.display = "none";
         }
+    }
+</script>
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-
-    <script src="${pageContext.request.contextPath}/js/changeimages.js"></script>
-        <% request.getSession().removeAttribute("alertMsg"); %>
+<script src="${pageContext.request.contextPath}/js/changeimages.js"></script>
+<% request.getSession().removeAttribute("alertMsg"); %>
 
 </body>
-<%@include file="./fragment/footer.jsp" %>
+<%@include file="./fragment/footer.jsp"%>
 </html>

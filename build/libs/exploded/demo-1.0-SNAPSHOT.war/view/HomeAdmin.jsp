@@ -5,11 +5,11 @@
 <%@ page import="model.dao.ArticoloDao" %>
 
 <% UserBean manager = (UserBean) session.getAttribute("manager");
-    String alert = (String) session.getAttribute("alertMsg");
-    if (manager == null) {
-        request.getSession().setAttribute("alertMsg", "Errore!Accesso non consentito!");
-        response.sendRedirect("./LoginPage.jsp");
-    }
+if(manager == null)
+{
+    request.getSession().setAttribute("alertMsg","Errore!Accesso non consentito!");
+    response.sendRedirect("./LoginPage.jsp");
+}
 
 %>
 
@@ -33,12 +33,6 @@
 <body>
 
 <%@include file="./fragment/adminnavbar.jsp" %>
-    <%if (alert != null) {%>
-<div class="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    <%=alert%>
-</div>
-    <%}session.removeAttribute("alertMsg");%>
 <div class="hero">
     <div class="hero_content">
         <div class="row">
@@ -75,32 +69,32 @@
     <div class="box-container">
         <%for (ArticoloBean articolo : articoli) {%>
         <div class="box">
-            <%if (articolo.getCategoria().equalsIgnoreCase("gpu")) {%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("gpu")){%>
             <div class="image">
                 <img src="<%="../immagini/gpu1.jpg"%>" alt="gpu">
             </div>
             <%}%>
-            <%if (articolo.getCategoria().equalsIgnoreCase("pc")) {%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("pc")){%>
             <div class="image">
                 <img src="<%="../immagini/pc1.jpg"%>" alt="pc">
             </div>
             <%}%>
-            <%if (articolo.getCategoria().equalsIgnoreCase("cpu")) {%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("cpu")){%>
             <div class="image">
                 <img src="<%="../immagini/cpu1.jpg"%>" alt="cpu">
             </div>
             <%}%>
-            <%if (articolo.getCategoria().equalsIgnoreCase("ram")) {%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("ram")){%>
             <div class="image">
                 <img src="<%="../immagini/ram1.jpg"%>" alt="ram">
             </div>
             <%}%>
-            <%if (articolo.getCategoria().equalsIgnoreCase("ssd")) {%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("ssd")){%>
             <div class="image">
                 <img src="<%="../immagini/ssd1.jpg"%>" alt="ssd">
             </div>
             <%}%>
-            <%if (articolo.getCategoria().equalsIgnoreCase("hdd")) {%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("hdd")){%>
             <div class="image">
                 <img src="<%="../immagini/hdd1.jpg"%>" alt="hdd">
             </div>
@@ -137,5 +131,5 @@
         </div>
     </div>
 </div>
-<%@include file="./fragment/footer.jsp" %>
+<%@include file="./fragment/footer.jsp"%>
 </html>

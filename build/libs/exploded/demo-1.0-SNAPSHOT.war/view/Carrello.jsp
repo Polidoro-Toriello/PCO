@@ -12,7 +12,6 @@
 <% UserBean utente = (UserBean) session.getAttribute("utente"); %>
 <% UserBean manager = (UserBean) session.getAttribute("manager");
     Carrello c = (Carrello) session.getAttribute("carrello");
-    String alert = (String) session.getAttribute("alertMsg");
 %>
 
 <html>
@@ -30,12 +29,6 @@
 </head>
 <body>
 <%@include file="./fragment/navbar.jsp" %>
-<%if (alert != null) {%>
-<div class="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    <%=alert%>
-</div>
-<%}session.removeAttribute("alertMsg");%>
 <!--Dettagli del Carrello---->
 
 <div class="small-container cart-page">

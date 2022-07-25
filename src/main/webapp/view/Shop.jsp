@@ -10,19 +10,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/igorlino/elevatezoom-plus@1.2.3/src/jquery.ez-plus.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script src="${pageContext.request.contextPath}/js/jquery.zoom.js"></script>
     <title>Title</title>
 </head>
 <body>
-<%
-    Collection<ArticoloBean> articoli = ArticoloDao.doRetrieveAll();
-    //Collection<ArticoloBean> articoli = session.getAttribute("articoli");
-    for (ArticoloBean articolo : articoli) {
-%>
-<p><%=articolo.getNome()%>
-</p>
-<a href="../articolo?idArticolo=<%=articolo.getIdArticolo()%>">scegli</a>
-<%}%>
+    <img src="../immagini/RTX_3090_TI1.jpg" class="photo" id="zoom_04" width="500px" height="500px">
+<script>
+    $("#zoom_04").ezPlus();
 
-<a href="Carrello.jsp">Visualizza carrello</a>
+</script>
 </body>
 </html>
