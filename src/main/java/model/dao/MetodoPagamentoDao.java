@@ -29,6 +29,7 @@ public class MetodoPagamentoDao {
                 metodoBean.setScadenza(rs.getString("scadenza"));
                 metodoBean.setTipo(rs.getString("tipo"));
                 metodoBean.setNumeroCarta(rs.getString("numerocarta"));
+                metodoBean.setId(rs.getInt("id"));
                 metodi.add(metodoBean);
             }
         } catch (SQLException e) {
@@ -99,7 +100,7 @@ public class MetodoPagamentoDao {
         boolean check = false;
         Connection conn = null;
         PreparedStatement stmt = null;
-        String sql = "UPDATE indirizzo SET numerocarta=?,tipo=?,scadenza=?,cvv=?,nome=?,cognome=? WHERE email=?";
+        String sql = "UPDATE indirizzo SET numerocarta=?,tipo=?,scadenza=?,cvv=?,nome=?,cognome=? WHERE email=? AND id=?";
         try {
             conn = ConnectionPool.conn();
             stmt = conn.prepareStatement(sql);
@@ -110,7 +111,7 @@ public class MetodoPagamentoDao {
             stmt.setString(5, bean.getNome());
             stmt.setString(6, bean.getCognome());
             stmt.setString(7, bean.getEmail());
-
+            stmt.setInt(8,bean.getId());
             check = stmt.executeUpdate() == 1;
             conn.commit();
         } catch (SQLException e) {

@@ -396,6 +396,20 @@ small {
     background-color: #0b0f13;
 }
 
+.acquista {
+    display: flex;
+    background: #007cc7;
+    color: #fff;
+    width: 100%;
+    justify-content: center;
+    margin: auto;
+    border-radius: 30px;
+}
+
+.acquista:hover {
+    background-color: #0b0f13;
+}
+
 .btn:hover {
     background: #fff;
 }
@@ -433,7 +447,8 @@ table {
     width: 100%;
     border-collapse: collapse;
 }
-.tableOrdini{
+
+.tableOrdini {
     margin: auto;
 }
 
@@ -890,6 +905,7 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
     margin: 12px 0;
     border-radius: 30px;
 }
+
 .rimuovi {
     text-decoration: none;
     display: flex;
@@ -899,10 +915,12 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
     margin: 12px 0 0 11%;
     border-radius: 30px;
 }
-.rimuovi:hover{
+
+.rimuovi:hover {
     background: #0b0f13;
     color: #fff;
 }
+
 .modifica:hover {
     background-color: #0b0f13;
 }
@@ -910,7 +928,7 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
 
 .accordion {
     border-radius: 10px;
-    background-color:#0b0f13;
+    background-color: #0b0f13;
     color: #fff;
     cursor: pointer;
     padding: 18px;
@@ -934,31 +952,37 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
     display: none;
     overflow: hidden;
 }
+
 #table-wrapper {
     height: 450px;
     width: auto;
     margin-top: 5%;
 }
+
 #table-scroll {
-    height:100%;
-    overflow:auto;
-    margin-top:20px;
+    height: 100%;
+    overflow: auto;
+    margin-top: 20px;
 }
+
 #table-wrapper table {
-    width:100%;
+    width: 100%;
 
 }
+
 #table-wrapper table * {
-    color:black;
+    color: black;
 }
+
 #table-wrapper table thead th .text {
-    position:absolute;
-    top:-20px;
-    z-index:2;
-    height:20px;
-    width:35%;
-    border:1px solid red;
+    position: absolute;
+    top: -20px;
+    z-index: 2;
+    height: 20px;
+    width: 35%;
+    border: 1px solid red;
 }
+
 .riga {
     display: -ms-flexbox; /* IE10 */
     display: flex;
@@ -1059,19 +1083,56 @@ span.price {
 .closebtn:hover {
     color: black;
 }
-/* Shrink wrap strategy 1 */
-.zoomImmagine {
-    float: left;
-}
-.zoomImmagine img {
-    display: block;
+
+.col h2 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+    font-weight: 100;
+    margin-bottom: 30px;
 }
 
 
-/* Shrink wrap strategy 2 */
-.easyzoom {
-    display: inline-block;
+.customer-order, .customer-pay, .customer-info {
+    padding: 20px;
+    margin-top: 30px;
+    background-color: #ffffff;
+    border: .5px solid #cccccc;
 }
-.easyzoom img {
-    vertical-align: bottom;
+
+span {
+    color: #cccccc;
 }
+
+.customer-order {
+    position: fixed;
+    margin-right: 100px;
+}
+
+.fa {
+    padding: 5px;
+    margin: 0px 0px 30px 0px;
+    text-align: left;
+    color: #555555;
+}
+
+#accept, label {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #555555;
+    letter-spacing: .1em;
+}
+
+.wrapper h1, .wrapper {
+    background-color: #fcfbfa;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.wrapper h1 {
+    text-align: center;
+}
+

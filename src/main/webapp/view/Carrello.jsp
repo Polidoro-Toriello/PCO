@@ -88,8 +88,8 @@
         </table>
     </div>
     <div class="carrelloButton">
-        <form action="../confirmAcquisto" method="get">
-            <input type="submit" class="confirmBtn" id="confirmBtn" value="Conferma Ordine">
+        <form action="../checkout" method="get">
+            <input type="submit" class="confirmBtn" id="confirmBtn" value="Procedi al Pagamento">
         </form>
         <a class="returnBtn" id="returnBtn" href="Catalogo.jsp">Torna al catalogo</a>
 

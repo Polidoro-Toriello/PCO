@@ -1,16 +1,96 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: nucle
-  Date: 19/07/2022
-  Time: 08:44
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="model.dao.MetodoPagamentoDao" %>
+<%@ page import="java.util.Collection" %>
+<%@ page import="model.dao.IndirizzoDao" %>
+<%@ page import="model.bean.*" %>
 <html>
 <head>
-    <title>Title</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    </title>
 </head>
+<%
+    UserBean user = (UserBean) session.getAttribute("utente");
+    Collection<MetodoBean> metodi = (Collection<MetodoBean>) session.getAttribute("metodiPagamento");
+    Collection<IndirizzoBean> indirizzi = (Collection<IndirizzoBean>) session.getAttribute("indirizzi");
+    Carrello carrello = (Carrello) session.getAttribute("carrello");
+%>
 <body>
+<form method="get" action="../confirmAcquisto">
+    <div class="wrapper">
+        <div class="left col col-md-6">
+            <div class="customer-info">
+                <h2>Informazioni Utente</h2>
+                <p>Nome: <%=user.getNome()%>
+                </p>
+                <p>Cognome: <%=user.getCognome()%>
+                </p>
+                <p>Username: <%=user.getUsername()%>
+                </p>
+                <p>Email: <%=user.getEmail()%>
+                </p>
+            </div>
 
+
+            <div class="customer-pay">
+                <h2>Metodo di Pagamento</h2>
+
+
+                <p id="accept">Metodi Accettati</p>
+                <i aria-hidden="true" class="fa fa-cc-mastercard"></i> <i aria-hidden="true"
+                                                                          class="fa fa-cc-discover"></i>
+                <i aria-hidden="true" class="fa fa-cc-visa"></i> <i aria-hidden="true" class="fa fa-cc-amex"></i>
+                <%for (MetodoBean metodo : metodi) {%>
+                <div class="form-group">
+                    <input required type="radio"
+                           value="<%=metodo.getNumeroCarta()%>">&nbsp;&nbsp;<%=metodo.getNome() + " " + metodo.getCognome() + " - " + metodo.getTipo() + " " + metodo.getNumeroCarta().replace(" ", "").replaceAll("(?<!^..).(?=.{4})", "*")%>
+                </div>
+                <%}%>
+            </div>
+
+
+            <div class="customer-info">
+                <h2>Indirizzo di spedizione</h2>
+                <i aria-hidden="true" class="fa fa-cc-mastercard"></i> <i aria-hidden="true"
+                                                                          class="fa fa-cc-discover"></i>
+                <i aria-hidden="true" class="fa fa-cc-visa"></i> <i aria-hidden="true" class="fa fa-cc-amex"></i>
+                <%for (IndirizzoBean indirizzo : indirizzi) {%>
+                <div class="form-group">
+                    <input required type="radio"
+                           value="<%=indirizzo.getCodice()%>">&nbsp;&nbsp;<%=indirizzo.getNome() + " " + indirizzo.getCognome() + ", " + indirizzo.getVia() + ", " + indirizzo.getCitta()%>
+                </div>
+                <%}%>
+            </div>
+        </div>
+
+
+        <div class="right col col-md-6">
+            <div class="customer-order">
+                <h2>Riepilogo Ordine</h2>
+                <br>
+                <%for (ArticoloCarrello articolo : carrello.getArticoli()) {%>
+                <p><span><%=articolo.getProduct().getNome().toUpperCase()%></span>
+                </p>
+
+
+                <p><%=articolo.getProduct().getPrezzo()%>&euro;&nbsp;x<%=articolo.getQta()%>
+                </p>
+                <br>
+                <%}%>
+                <hr>
+                <p><b>TOTAL:</b><%=carrello.getTotale()%>&euro;</p>
+                <br>
+              <input type="submit" class="acquista" value="Conferma">
+            </div>
+        </div>
+    </div>
+</form>
 </body>
 </html>

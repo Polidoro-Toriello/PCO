@@ -23,13 +23,14 @@ public class OrdineDao {
             stmt = conn.prepareStatement(sql);
             ResultSet set = stmt.executeQuery();
             while (set.next()) {
-
                 int id = set.getInt("idordine");
                 String stato = set.getString("stato");
                 float totale = set.getFloat("totale");
                 String email = set.getString("email");
+                int idIndirizzo = set.getInt("idIndirizzo");
+                int idMetodo = set.getInt("idMetodo");
                 Date data = set.getDate("data");
-                risultato.add(new OrdineBean(id, totale, stato, email, data));
+                risultato.add(new OrdineBean(id, totale, stato, email, data, idIndirizzo, idMetodo));
             }
 
         } catch (SQLException e) {
@@ -59,8 +60,10 @@ public class OrdineDao {
                 String stato = set.getString("stato");
                 float totale = set.getFloat("totale");
                 String email = set.getString("email");
+                int idIndirizzo = set.getInt("idIndirizzo");
+                int idMetodo = set.getInt("idMetodo");
                 Date data = set.getDate("data");
-                risultato = new OrdineBean(id, totale, stato, email, data);
+                risultato = new OrdineBean(id, totale, stato, email, data, idIndirizzo, idMetodo);
             }
 
         } catch (SQLException e) {
@@ -92,8 +95,10 @@ public class OrdineDao {
                 int id = set.getInt("idordine");
                 String stato = set.getString("stato");
                 float totale = set.getFloat("totale");
+                int idIndirizzo = set.getInt("idIndirizzo");
+                int idMetodo = set.getInt("idMetodo");
                 Date data = set.getDate("data");
-                risultato.add(new OrdineBean(id, totale, stato, email, data));
+                risultato.add(new OrdineBean(id, totale, stato, email, data, idIndirizzo, idMetodo));
             }
 
         } catch (SQLException e) {
@@ -113,7 +118,7 @@ public class OrdineDao {
     public static synchronized boolean doInsertOrdine(OrdineBean b) throws SQLException {
         Connection conn = null;
         PreparedStatement stmt = null;
-        String sql = "INSERT INTO ordine (stato,totale,email,data) VALUES(?, ?, ?, ?)";
+        String sql = "INSERT INTO ordine (stato,totale,email,data,idIndirzzo,idMetodo) VALUES(?, ?, ?, ?,?,?)";
         boolean check = false;
         try {
             conn = ConnectionPool.conn();
@@ -122,6 +127,8 @@ public class OrdineDao {
             stmt.setFloat(2, b.getTotale());
             stmt.setString(3, b.getUtente());
             stmt.setDate(4, new java.sql.Date(b.getData().getTime()));
+            stmt.setInt(5,b.getIdIndirizzo());
+            stmt.setInt(6,b.getIdMetodo());
             check = stmt.executeUpdate() == 1;
             conn.commit();
 

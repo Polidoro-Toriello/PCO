@@ -12,6 +12,7 @@
 <% UserBean manager = (UserBean) session.getAttribute("manager");%>
 <% Collection<ArticoloBean> articoli = (Collection<ArticoloBean>) session.getAttribute("articoli");%>
 <% String title = (String) session.getAttribute("title");
+String alert = (String) session.getAttribute("alertMsg");%>
     if (articoli == null) {
         response.sendRedirect(request.getContextPath() + "/catalogoarticoli?categoria=tutti");
         return;
@@ -32,6 +33,15 @@
 </head>
 <body>
 <%@include file="./fragment/navbar.jsp" %>
+<%if (alert != null) {%>
+<div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <%=alert%>>
+</div>
+<%
+        session.removeAttribute("alertMsg");
+    }
+%>
     <section class="shop container">
         <h2 class="section-tit1e" id="title"><%=title%>
         </h2>

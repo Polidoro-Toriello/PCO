@@ -2,7 +2,7 @@ package model.bean;
 
 public class MetodoBean {
     private String nome, cognome, tipo, scadenza, email, numeroCarta;
-    private int cvv;
+    private int id, cvv;
 
     public MetodoBean() {
     }
@@ -71,5 +71,13 @@ public class MetodoBean {
 
     public void setCvv(int cvv) {
         this.cvv = cvv;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

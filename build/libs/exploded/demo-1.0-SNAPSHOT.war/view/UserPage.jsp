@@ -26,6 +26,15 @@
 <% String alert = (String) session.getAttribute("alertMsg");%>
 <body>
 <%@include file="./fragment/navbar.jsp" %>
+<%if (alert != null) {%>
+<div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <%=alert%>>
+</div>
+<%
+        session.removeAttribute("alertMsg");
+    }
+%>
 <div class="container light-style flex-grow-1 container-p-y">
 
     <h4 class="font-weight-bold py-3 mb-4">
@@ -55,32 +64,32 @@
                 </div>
             </div>
             <div class="col-sm-4 col-2">
-                    <div class="tab-content" id="selezione">
-                        <div class="tab-pane fade active show" id="account-general">
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label class="form-label">Username</label>
-                                    <p class="form-control mb-1"><%=utente.getUsername()%>
-                                    </p>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Nome</label>
-                                    <p class="form-control mb-1"><%=utente.getNome()%>
-                                    </p>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Cognome</label>
-                                    <p class="form-control mb-1"><%=utente.getCognome()%>
-                                    </p>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Email</label>
-                                    <p class="form-control mb-1"><%=utente.getEmail()%>
-                                    </p>
-                                </div>
+                <div class="tab-content" id="selezione">
+                    <div class="tab-pane fade active show" id="account-general">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="form-label">Username</label>
+                                <p class="form-control mb-1"><%=utente.getUsername()%>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Nome</label>
+                                <p class="form-control mb-1"><%=utente.getNome()%>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Cognome</label>
+                                <p class="form-control mb-1"><%=utente.getCognome()%>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <p class="form-control mb-1"><%=utente.getEmail()%>
+                                </p>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
     </div>
