@@ -23,6 +23,7 @@
 </head>
 <% UserBean utente = (UserBean) session.getAttribute("utente"); %>
 <% UserBean manager = (UserBean) session.getAttribute("manager");%>
+<% String alert = (String) session.getAttribute("alertMsg");%>
 <body>
 <%@include file="./fragment/navbar.jsp" %>
 <div class="container light-style flex-grow-1 container-p-y">
@@ -31,7 +32,7 @@
         Impostazioni Account
     </h4>
     <div class="card overflow-hidden">
-        <div class="row no-gutters row-bordered row-border-light">
+        <div class="riga">
             <div class="col-md-3 pt-0">
                 <div class="list-group list-group-flush account-settings-links">
                     <a onclick="sezione(1)" value="Profilo" class="list-group-item list-group-item-action active"
