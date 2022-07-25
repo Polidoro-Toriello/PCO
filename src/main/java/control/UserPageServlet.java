@@ -80,31 +80,31 @@ public class UserPageServlet extends HttpServlet {
                                     "                        <div class=\"card-body pb-2\">\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Nome</label>\n" +
-                                    "                                <input type=\"text\" name=\"Nome\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input required type=\"text\" name=\"Nome\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Cognome</label>\n" +
-                                    "                                <input type=\"text\" name=\"Cognome\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input required type=\"text\" name=\"Cognome\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Via di Domicilio</label>\n" +
-                                    "                                <input type=\"text\" name=\"Via\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input required type=\"text\" name=\"Via\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Citta'</label>\n" +
-                                    "                                <input type=\"text\" name=\"Citta\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input required type=\"text\" name=\"Citta\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Cap</label>\n" +
-                                    "                                <input type=\"text\" name=\"Cap\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input required type=\"text\" name=\"Cap\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Provincia</label>\n" +
-                                    "                                <input type=\"text\" name=\"Provincia\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input required type=\"text\" name=\"Provincia\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Cellulare</label>\n" +
-                                    "                                <input type=\"text\" name=\"Cellulare\" class=\"form-control\" value=\"%s\"></div>" +
+                                    "                                <input required type=\"text\" name=\"Cellulare\" class=\"form-control\" value=\"%s\"></div>" +
                                     "</div>" + "<input type=\"submit\" class=\"modifica\" value=\"Salva Modifica\">" + "</form></div></div><div class=\"productPage-btn\"><a href=\"../rimuoviindirizzo?idIndirizzo=%s\" class=\"rimuovi\">Rimuovi</a></div>\n",
                             nomeCognome, indirizzo.getCitta(), indirizzo.getCodice(), indirizzo.getNome(), indirizzo.getCognome(), indirizzo.getVia(), indirizzo.getCitta(), indirizzo.getCap(), indirizzo.getProvincia(), indirizzo.getCellulare(), indirizzo.getCodice());
                 }
@@ -122,31 +122,31 @@ public class UserPageServlet extends HttpServlet {
                                     "\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Nome</label>\n" +
-                                    "                                <input type=\"text\" name=\"Nome\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input required type=\"text\" name=\"Nome\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Cognome</label>\n" +
-                                    "                                <input type=\"text\" name=\"Cognome\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input required type=\"text\" name=\"Cognome\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Numero sulla carta</label>\n" +
-                                    "                                <input type=\"text\" name=\"Numerocarta\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input required type=\"text\" name=\"Numerocarta\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Scadenza</label>\n" +
-                                    "                                <input type=\"text\" name=\"Scadenza\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input required type=\"text\" name=\"Scadenza\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>\n" +
                                     "<div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">CVV</label>\n" +
-                                    "                                <input type=\"text\" name=\"Cvv\" class=\"form-control\" value=\"\">\n" +
+                                    "                                <input required type=\"text\" name=\"Cvv\" class=\"form-control\" value=\"\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Tipo</label>\n" +
-                                    "                                <input type=\"text\" name=\"Tipo\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input required type=\"text\" name=\"Tipo\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>\n" +
                                     "                            <div class=\"form-group\">\n" +
                                     "                                <label class=\"form-label\">Email</label>\n" +
-                                    "                                <input type=\"text\" name=\"email\" class=\"form-control\" value=\"%s\">\n" +
+                                    "                                <input required type=\"text\" name=\"email\" class=\"form-control\" value=\"%s\">\n" +
                                     "                            </div>" + "</div>\n<div class=\"productPage-btn\"><input type=\"submit\" class=\"modifica\" value=\"Salva Modifica\"></div></div>" +
                                     "                    </div></form>" + "</div>\n<div class=\"productPage-btn\"><a href=\"../rimuovimetodo?Numerocarta=%s\" class=\"rimuovi\" value=\"Rimuovi\">Rimuovi</a></div></div>" +
                                     "                    </div>" + "</div></div><br>\n", metodo.getTipo(), metodo.getNumeroCarta().replace(" ", "").replaceAll("(?<!^..).(?=.{4})", "*"), metodo.getNome(), metodo.getCognome(), metodo.getNumeroCarta().replace(" ", "").replaceAll("(?<!^..).(?=.{4})", "*"), metodo.getScadenza(), metodo.getTipo(), metodo.getEmail(), metodo.getNumeroCarta());
@@ -156,7 +156,7 @@ public class UserPageServlet extends HttpServlet {
                 Collection<OrdineBean> ordini = OrdineDao.doRetrieveAllByUtente(bean.getEmail());
                 html = "<div id=\"table-wrapper\">\n" +
                         "                        <div id=\"table-scroll\">\n" +
-                        "                            <table>\n" +
+                        "                            <table class=\"tableOrdini\">\n" +
                         "                                <thead>\n" +
                         "                                <tr>\n" +
                         "                                <tr>\n" +
@@ -191,31 +191,30 @@ public class UserPageServlet extends HttpServlet {
                         "                                    <form action=\"../aggiungimetodo\" method=\"get\">\n" +
                         "                                        <div class=\"row\">\n" +
                         "                                            <div class=\"col-50\">\n" +
-                        "                                                <h3>Aggiungi Metodo</h3>\n" +
                         "                                                <br>\n" +
                         "                                                <div class=\"row\">\n" +
                         "                                                    <div class=\"col-50\">\n" +
                         "                                                        <label for=\"fname\"><i class=\"fa fa-user\"></i>&nbsp;Nome</label>\n" +
-                        "                                                        <input type=\"text\" id=\"fname\" name=\"Nome\" placeholder=\"Mario\">\n" +
+                        "                                                        <input required type=\"text\" id=\"fname\" name=\"Nome\" placeholder=\"Mario\">\n" +
                         "                                                    </div>\n" +
                         "                                                    <div class=\"col-50\">\n" +
                         "                                                        <label for=\"lname\"><i\n" +
                         "                                                                class=\"fa fa-user\"></i>&nbsp;Cognome</label>\n" +
-                        "                                                        <input type=\"text\" id=\"lname\" name=\"Cognome\"\n" +
+                        "                                                        <input required type=\"text\" id=\"lname\" name=\"Cognome\"\n" +
                         "                                                               placeholder=\"Rossi\">\n" +
                         "                                                    </div>\n" +
                         "                                                </div>\n" +
                         "                                                <label for=\"card\"><i class=\"fa fa-credit-card\" aria-hidden=\"true\"></i>&nbsp;Numero\n" +
                         "                                                    sulla\n" +
                         "                                                    carta</label>\n" +
-                        "                                                <input type=\"text\" id=\"card\" name=\"Numerocarta\"\n" +
+                        "                                                <input required type=\"text\" id=\"card\" name=\"Numerocarta\"\n" +
                         "                                                       placeholder=\"5101 **** **** **** 0121\">\n" +
                         "                                                        <label for=\"scadenza\"><i class=\"fa fa-calendar-check-o\"\n" +
                         "                                                                                 aria-hidden=\"true\"></i>&nbsp;Scadenza</label>\n" +
-                        "                                                        <input type=\"text\" id=\"scadenza\" name=\"Scadenza\"\n" +
+                        "                                                        <input required type=\"text\" id=\"scadenza\" name=\"Scadenza\"\n" +
                         "                                                               placeholder=\"10/25\">\n" +
                         "                                                        <label for=\"cvv\"><i class=\"fa fa-key\" aria-hidden=\"true\"></i>&nbsp;CVV</label>\n" +
-                        "<input type=\"text\" id=\"cvv\" name=\"Cvv\"\n placeholder=\"670\">\n" +
+                        "<input required type=\"text\" id=\"cvv\" name=\"Cvv\"\n placeholder=\"670\">\n" +
                         "                                                <label for=\"tipo\"><i class=\"fa fa-institution\"></i>&nbsp;Circuito\n" +
                         "                                                    Carta</label>\n" +
                         "                                                <select name=\"Tipo\" id=\"tipo\">\n" +
@@ -226,7 +225,49 @@ public class UserPageServlet extends HttpServlet {
                         "                                                    <option value=\"Maestro\">Maestro</option>\n" +
                         "                                                </select>\n" +
                         "                                                <label for=\"hidden\"></label>\n" +
-                        "                                                <input type=\"hidden\" id=\"hiddien\" name=\"hidden\" placeholder=\"670\">\n" +
+                        "                                                <input required type=\"hidden\" id=\"hiddien\" name=\"hidden\" placeholder=\"670\">\n" +
+                        "                                            <input type=\"submit\" value=\"Salva\" class=\"btnAdd\">\n" +
+                        "                                    </form>\n" +
+                        "                                </div>\n" +
+                        "                            </div>\n" +
+                        "                        </div>\n" +
+                        "                    </div>";
+                break;
+            case "6":
+                html = "<div class=\"tab-pane fade active show formIndirizzo\" id=\"account-general\">\n" +
+                        "                        <div class=\"card-body\">\n" +
+                        "                            <div class=\"riga\">\n" +
+                        "                                <div class=\"col-75\">\n" +
+                        "                                    <form action=\"../aggiungiindirizzo\" method=\"get\">\n" +
+                        "                                        <div class=\"row\">\n" +
+                        "                                            <div class=\"col-50\">\n" +
+                        "                                                <br>\n" +
+                        "                                                <div class=\"row\">\n" +
+                        "                                                    <div class=\"col-50\">\n" +
+                        "                                                        <label for=\"fname\"><i class=\"fa fa-user\"></i>&nbsp;Nome</label>\n" +
+                        "                                                        <input required type=\"text\" id=\"fname\" name=\"Nome\" placeholder=\"Mario\">\n" +
+                        "                                                    </div>\n" +
+                        "                                                    <div class=\"col-50\">\n" +
+                        "                                                        <label for=\"lname\"><i\n" +
+                        "                                                                class=\"fa fa-user\"></i>&nbsp;Cognome</label>\n" +
+                        "                                                        <input required type=\"text\" id=\"lname\" name=\"Cognome\"\n" +
+                        "                                                               placeholder=\"Rossi\">\n" +
+                        "                                                    </div>\n" +
+                        "                                                </div>\n" +
+                        "                                                <label for=\"Via\"><i class=\"fa fa-home\" aria-hidden=\"true\"></i>&nbsp;Indirizzo</label>\n" +
+                        "                    <input required type=\"text\" id=\"Via\" name=\"Via\" placeholder=\"Via Roma 11\">\n"+
+                        "                 \n" +
+                        "                    <label for=\"Citta\"><i class=\"fa fa-city\" aria-hidden=\"true\"></i>&nbsp;Citta'</label>\n" +
+                        "                    <input required type=\"text\" id=\"Citta\" name=\"Citta\" placeholder=\"Salerno\">                                       "+
+                        "\n" +
+                        "                    <label for=\"Provincia\"><i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i>&nbsp;Provincia</label>\n" +
+                        "                    <input required type=\"text\" id=\"Provincia\" name=\"Provincia\" placeholder=\"Salerno\">"+
+                        " <label for=\"Cap\"><i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i>&nbsp;Cap</label>\n" +
+                        "                    <input required type=\"text\" id=\"Cap\" name=\"Cap\" placeholder=\"84121\">\n"+
+                        "\n" +
+                        "                    <label for=\"Cellulare\"><i class=\"fa fa-phone\" aria-hidden=\"true\"></i>&nbsp;Cellulare</label>\n" +
+                        "                    <input required type=\"text\" id=\"Cellulare\" name=\"Cellulare\"\n" +
+                        "                           placeholder=\"350 6780929\">"+
                         "                                            <input type=\"submit\" value=\"Salva\" class=\"btnAdd\">\n" +
                         "                                    </form>\n" +
                         "                                </div>\n" +

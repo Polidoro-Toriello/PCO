@@ -23,27 +23,35 @@
 </head>
 <% UserBean utente = (UserBean) session.getAttribute("utente"); %>
 <% UserBean manager = (UserBean) session.getAttribute("manager");%>
+<% String alert = (String) session.getAttribute("alertMsg");%>
 <body>
 <%@include file="./fragment/navbar.jsp" %>
 <div class="container light-style flex-grow-1 container-p-y">
-
+    <%if (alert != null) {%>
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <%=alert%>
+    </div>
+    <%}session.removeAttribute("alertMsg");%>
     <h4 class="font-weight-bold py-3 mb-4">
         Impostazioni Account
     </h4>
     <div class="card overflow-hidden">
-        <div class="row no-gutters row-bordered row-border-light">
+        <div class="riga">
             <div class="col-md-3 pt-0">
                 <div class="list-group list-group-flush account-settings-links">
                     <a onclick="sezione(1)" value="Profilo" class="list-group-item list-group-item-action active"
-                       data-toggle="list" href="#account-general">Profilo</a>
+                       data-toggle="list" href="#account-general">Profilo Utente</a>
                     <a onclick="sezione(2)" value="Indirizzi" class="list-group-item list-group-item-action"
-                       data-toggle="list" href="#account-indirizzi">Indirizzi</a>
+                       data-toggle="list" href="#account-indirizzi">Indirizzi di Spedizione</a>
                     <a onclick="sezione(3)" value="Metodo" class="list-group-item list-group-item-action"
                        data-toggle="list" href="#account-metodo">Metodo di Pagamento</a>
                     <a onclick="sezione(4)" value="Ordine" class="list-group-item list-group-item-action"
-                       data-toggle="list" href="#account-social-links">Ordine</a>
+                       data-toggle="list" href="#account-social-links">I tuoi Ordini</a>
                     <a onclick="sezione(5)" value="Aggiungi Metodo" class="list-group-item list-group-item-action"
                        data-toggle="list" href="#account-addMetodo">Aggiungi Metodo di Pagamento</a>
+                    <a onclick="sezione(6)" value="Aggiungi Metodo" class="list-group-item list-group-item-action"
+                       data-toggle="list" href="#account-addMetodo">Aggiungi Indirizzo di Spedizione</a>
                     <script>
                         const linkSelect = document.querySelectorAll(".list-group-item list-group-item-action")
                         $("a").click(function () {
@@ -54,32 +62,32 @@
                 </div>
             </div>
             <div class="col-sm-4 col-2">
-                    <div class="tab-content" id="selezione">
-                        <div class="tab-pane fade active show" id="account-general">
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label class="form-label">Username</label>
-                                    <p class="form-control mb-1"><%=utente.getUsername()%>
-                                    </p>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Nome</label>
-                                    <p class="form-control mb-1"><%=utente.getNome()%>
-                                    </p>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Cognome</label>
-                                    <p class="form-control mb-1"><%=utente.getCognome()%>
-                                    </p>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Email</label>
-                                    <p class="form-control mb-1"><%=utente.getEmail()%>
-                                    </p>
-                                </div>
+                <div class="tab-content" id="selezione">
+                    <div class="tab-pane fade active show" id="account-general">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="form-label">Username</label>
+                                <p class="form-control mb-1"><%=utente.getUsername()%>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Nome</label>
+                                <p class="form-control mb-1"><%=utente.getNome()%>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Cognome</label>
+                                <p class="form-control mb-1"><%=utente.getCognome()%>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <p class="form-control mb-1"><%=utente.getEmail()%>
+                                </p>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
     </div>

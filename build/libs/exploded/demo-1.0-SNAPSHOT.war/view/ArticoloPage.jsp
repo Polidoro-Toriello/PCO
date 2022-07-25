@@ -15,19 +15,24 @@
 %>
 <% UserBean utente = (UserBean) session.getAttribute("utente");%>
 <% session.setAttribute("paginaCorrente", "ArticoloPage.jsp");%>
-<% String aggiunto = (String) session.getAttribute("alertMsg"); %>
+<% String alert = (String) session.getAttribute("alertMsg"); %>
 <% UserBean manager = (UserBean) session.getAttribute("manager"); %>
-<%ArticoloBean articoloBean = (ArticoloBean) session.getAttribute("articolo");
-if(articoloBean==null){
-    response.sendRedirect(request.getContextPath()+"/home");
-    return;
-}%>
+<%
+    ArticoloBean articoloBean = (ArticoloBean) session.getAttribute("articolo");
+    if (articoloBean == null) {
+        response.sendRedirect(request.getContextPath() + "/home");
+        return;
+    }
+%>
 
 <html>
 <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="jquery.elevatezoom.js" type="text/javascript"></script>
     <title>Title</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script type="text/javascript" src="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/src/jquery.ez-plus.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;500&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -39,7 +44,7 @@ if(articoloBean==null){
 <body>
 <%@include file="./fragment/navbar.jsp" %>
 <%
-    if (aggiunto != null && aggiunto.equals("true")) {
+    if (alert != null && alert.equals("true")) {
 %>
 <div id="aggiunto" class="modal">
     <div class="modal-content">
@@ -56,10 +61,20 @@ if(articoloBean==null){
     </div>
 </div>
 <%}%>
+<%
+    if (alert != null && !alert.equals("true")) {%>
+<div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <%=alert%>
+</div>
+<%
+    }
+    session.removeAttribute("alertMsg");
+%>
 <script>
     // When the user clicks on <span> (x), close the modal
     var span = document.getElementsByClassName("close")[0];
-    var modal = document.getElementById("aggiunto")
+    var modal = document.getElementById("alert")
     span.onclick = function () {
         modal.style.display = "none";
     }
@@ -76,13 +91,15 @@ if(articoloBean==null){
 <div class="small-container single-product" style="width: 100%">
     <div class="row">
         <div class="col-2">
-            <img src="../immagini/<%=articoloBean.getCategoria().toLowerCase()%>1.jpg" id="product-img">
-            <div class="small-img-row">
-                <% for (int i = 1; i <= 4; i++) {%>
-                <div class="small-img-col">
-                    <img src="../immagini/<%=articoloBean.getCategoria().toLowerCase()+i%>.jpg" class="small-img">
+            <div class="zoomImmagine">
+                <img src="../immagini/<%=articoloBean.getCategoria().toLowerCase()%>1.jpg" id="product-img">
+                <div class="small-img-row">
+                    <% for (int i = 1; i <= 4; i++) {%>
+                    <div class="small-img-col">
+                        <img src="../immagini/<%=articoloBean.getCategoria().toLowerCase()+i%>.jpg" class="small-img">
+                    </div>
+                    <%}%>
                 </div>
-                <%}%>
             </div>
         </div>
         <div class="col-2">
@@ -105,6 +122,13 @@ if(articoloBean==null){
         </div>
     </div>
 </div>
+<script>
+    // Instantiate EasyZoom instances
+    var $easyzoom = $('.zoomImmagine').elevateZoom()
+
+    // Get an instance API
+    var api = $easyzoom.data('zoomImmagine');
+</script>
 <br>
 <section class="articoliHome" id="articoliHome">
 

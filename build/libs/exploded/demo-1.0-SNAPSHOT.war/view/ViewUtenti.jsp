@@ -25,6 +25,13 @@
 </head>
 <body>
 <%@include file="./fragment/adminnavbar.jsp" %>
+<%String alert = (String) session.getAttribute("alertMsg");
+    if (alert != null) {%>
+<div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <%=alert%>
+</div>
+<%}session.removeAttribute("alertMsg");%>
 <h1 class="text-center">Lista utenti</h1>
     <table class="table-responsive-sm">
         <thead >

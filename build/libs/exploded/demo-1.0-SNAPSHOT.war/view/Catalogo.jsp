@@ -36,7 +36,7 @@
         <h2 class="section-tit1e" id="title"><%=title%>
         </h2>
         <div class="filtro">
-            <input type="text" placeholder="Rtx 3090 Ti" name="cercaProdotto">
+            <input onchange="searchProduct()" type="text" id="cercaProdotto" placeholder="Rtx 3090 Ti" name="cercaProdotto">
             <select onchange="ajaxFilter()" id="filterProdotto">
                 <option>Seleziona Categoria</option>
                 <option name="tutti" value="tutti">Tutti</option>
@@ -54,7 +54,7 @@
             <%for (ArticoloBean articolo : articoli) {%>
             <div class="product-box" >
                 <img src="../immagini/RTX_3090_TI1.jpg" alt="" class="product-img">
-                <h2 class="product-title"><%=articolo.getNome().toUpperCase()%> &nbsp;
+                <h2 id="titoloProdotto" class="product-title"><%=articolo.getNome().toUpperCase()%> &nbsp;
                     &nbsp;Prezzo:&nbsp;<%=articolo.getPrezzo()%>&euro;</h2>
                 <a class="btn" href="../articolo?idArticolo=<%=articolo.getIdArticolo()%>">Vai al Prodotto</a>
                 <a class="btn" id="aggiungiCarrello"

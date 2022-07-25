@@ -34,11 +34,11 @@ public class AddIndirizzoServlet extends HttpServlet {
                 indirizzo.setVia(req.getParameter("Via"));
                 if (dao.doInsertIndirizzo(indirizzo)) {
                     session.setAttribute("alertMsg", "Indirizzo inserito con successo");
-                    resp.sendRedirect("view/AddIndirizzo.jsp");
+                    resp.sendRedirect("view/UserPage.jsp");
                 }
             } catch (Exception e) {
                 session.setAttribute("alertMsg", "Errore nell'inserimento dell'indirizzo");
-                resp.sendRedirect("view/AddIndirizzo.jsp");
+                resp.sendRedirect("view/UserPage.jsp");
             }
         } else {
             session.setAttribute("alertMsg", "Accesso non effettuato");

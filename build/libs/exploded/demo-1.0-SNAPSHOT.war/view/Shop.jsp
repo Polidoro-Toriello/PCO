@@ -1,28 +1,32 @@
-<%@ page import="java.util.Collection" %>
-<%@ page import="model.bean.ArticoloBean" %>
-<%@ page import="model.dao.ArticoloDao" %><%--
-  Created by IntelliJ IDEA.
-  User: G.TORIELLO
-  Date: 06/03/2022
-  Time: 10:57
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-<%
-    Collection<ArticoloBean> articoli = ArticoloDao.doRetrieveAll();
-    //Collection<ArticoloBean> articoli = session.getAttribute("articoli");
-    for (ArticoloBean articolo : articoli) {
-%>
-<p><%=articolo.getNome()%>
-</p>
-<a href="../articolo?idArticolo=<%=articolo.getIdArticolo()%>">scegli</a>
-<%}%>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
-<a href="Carrello.jsp">Visualizza carrello</a>
-</body>
-</html>
+<script type="text/javascript" src="ddpowerzoomer.js">
+
+    /***********************************************
+     * Image Power Zoomer- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+     * Please keep this notice intact
+     * Visit Dynamic Drive at http://www.dynamicdrive.com/ for this script and 100s more
+     ***********************************************/
+
+</script>
+
+<script type="text/javascript">
+
+    jQuery(document).ready(function($){ //fire on DOM ready
+
+        /*
+        EXAMPLE 1:
+        $('#myimage').addpowerzoom()
+
+        EXAMPLE 2:
+        $('img.vacation').addpowerzoom({
+            defaultpower: 2,
+            powerrange: [2,5],
+            largeimage: null,
+            magnifiersize: [100,100] //<--no comma following last option!
+        })
+        */
+
+    })
+
+</script>

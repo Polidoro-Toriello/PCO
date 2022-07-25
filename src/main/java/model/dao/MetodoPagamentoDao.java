@@ -21,7 +21,7 @@ public class MetodoPagamentoDao {
             stmt.setString(1, email);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-            MetodoBean metodoBean = new MetodoBean();
+                MetodoBean metodoBean = new MetodoBean();
                 metodoBean.setCognome(rs.getString("cognome"));
                 metodoBean.setEmail(rs.getString("email"));
                 metodoBean.setNome(rs.getString("nome"));
@@ -72,20 +72,20 @@ public class MetodoPagamentoDao {
         return insert;
     }
 
-    public synchronized boolean doDeleteByNumero(String numerocarta) throws  SQLException{
+    public synchronized boolean doDeleteByNumero(String numerocarta) throws SQLException {
         boolean delete = false;
         Connection conn = null;
         PreparedStatement stmt = null;
         String sql = "DELETE FROM metodopagamento WHERE numerocarta=?";
-        try{
+        try {
             conn = ConnectionPool.conn();
             stmt = conn.prepareStatement(sql);
-            stmt.setString(1,numerocarta);
+            stmt.setString(1, numerocarta);
             delete = stmt.executeUpdate() == 1;
             conn.commit();
-        } catch(SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
-        }  finally {
+        } finally {
             if (stmt != null)
                 stmt.close();
             if (conn != null)
@@ -95,30 +95,27 @@ public class MetodoPagamentoDao {
         return delete;
     }
 
-    public synchronized boolean doModifyMetodo(MetodoBean bean) throws SQLException
-    {
+    public synchronized boolean doModifyMetodo(MetodoBean bean) throws SQLException {
         boolean check = false;
         Connection conn = null;
         PreparedStatement stmt = null;
         String sql = "UPDATE indirizzo SET numerocarta=?,tipo=?,scadenza=?,cvv=?,nome=?,cognome=? WHERE email=?";
-        try{
+        try {
             conn = ConnectionPool.conn();
             stmt = conn.prepareStatement(sql);
-            stmt.setString(1,bean.getNumeroCarta());
-            stmt.setString(2,bean.getTipo());
+            stmt.setString(1, bean.getNumeroCarta());
+            stmt.setString(2, bean.getTipo());
             stmt.setString(3, bean.getScadenza());
             stmt.setInt(4, bean.getCvv());
             stmt.setString(5, bean.getNome());
             stmt.setString(6, bean.getCognome());
-            stmt.setString(7,bean.getEmail());
+            stmt.setString(7, bean.getEmail());
 
             check = stmt.executeUpdate() == 1;
             conn.commit();
-        }
-        catch (SQLException e)
-        {
+        } catch (SQLException e) {
             e.printStackTrace();
-        }  finally {
+        } finally {
             if (stmt != null)
                 stmt.close();
             if (conn != null)
