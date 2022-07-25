@@ -13,9 +13,10 @@ if(manager == null)
 
 %>
 
+<%ArticoloDao dao =  new ArticoloDao(); %>
 
 <%
-    Collection<ArticoloBean> articoli = (Collection<ArticoloBean>) ArticoloDao.doRetrieveAll();
+    Collection<ArticoloBean> articoli = (Collection<ArticoloBean>) dao.doRetrieveAll();
 %>
 <html>
 <head>
@@ -107,7 +108,7 @@ if(manager == null)
                     <a class="btn"
                        href="../rimuovicatalogo?idArticolo=<%=articolo.getIdArticolo()%>">
                         Rimuovi Prodotto</a>
-                    <a class="btn" href="#">Modifica</a>
+                    <a class="btn" href="../viewmodifica?idArticolo=<%=articolo.getIdArticolo()%>">Modifica</a>
                 </div>
             </div>
         </div>

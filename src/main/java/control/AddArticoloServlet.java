@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 @WebServlet("/addArticolo")
 public class AddArticoloServlet extends HttpServlet {
+
+    private ArticoloDao dao =  new ArticoloDao();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -27,7 +30,7 @@ public class AddArticoloServlet extends HttpServlet {
                 articolo.setPrezzo(Float.parseFloat(req.getParameter("Prezzo")));
                 articolo.setCategoria(req.getParameter("Categoria"));
                 articolo.setQtaDisponibile(Integer.parseInt(req.getParameter("Qta")));
-                if(ArticoloDao.doInsertArticolo(articolo)){
+                if(dao.doInsertArticolo(articolo)){
                     session.setAttribute("alertMsg","Articolo Inserito");
                     resp.sendRedirect("view/AddArticolo.jsp");
                 }

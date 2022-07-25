@@ -12,7 +12,7 @@ import java.util.Collection;
 import static other.Utils.generatePwd;
 
 public class ArticoloDao {
-    public static Collection<ArticoloBean> doRetrieveAll() throws SQLException, ClassNotFoundException {
+    public Collection<ArticoloBean> doRetrieveAll() throws SQLException, ClassNotFoundException {
         Connection conn = null;
         PreparedStatement stmt = null;
         Collection<ArticoloBean> articoli = new ArrayList<ArticoloBean>();
@@ -45,7 +45,7 @@ public class ArticoloDao {
         return articoli;
     }
 
-    public static synchronized ArticoloBean doRetrieveById(int id) throws SQLException, ClassNotFoundException {
+    public synchronized ArticoloBean doRetrieveById(int id) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         PreparedStatement stmt = null;
         String query = "SELECT * FROM articolo where idarticolo = ?";
@@ -78,7 +78,7 @@ public class ArticoloDao {
         return articoloBean;
     }
 
-    public static Collection<ArticoloBean> doRetrieveCategoria(String categoria) throws SQLException, ClassNotFoundException {
+    public Collection<ArticoloBean> doRetrieveCategoria(String categoria) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         PreparedStatement stmt = null;
         Collection<ArticoloBean> articoli = new ArrayList<ArticoloBean>();
@@ -111,7 +111,7 @@ public class ArticoloDao {
         return articoli;
     }
 
-    public static boolean doInsertArticolo(ArticoloBean articolo) throws SQLException {
+    public boolean doInsertArticolo(ArticoloBean articolo) throws SQLException {
         Connection conn = null;
         String sql = "INSERT INTO articolo (`nome`, `descrizione`, `prezzo`, `iva`, `categoria`, `qtadisponibile`) VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement stmt = null;
@@ -137,7 +137,7 @@ public class ArticoloDao {
         }
         return check;
     }
-    public static Collection<ArticoloBean> doRetrieveLastArrive() throws SQLException, ClassNotFoundException {
+    public  Collection<ArticoloBean> doRetrieveLastArrive() throws SQLException, ClassNotFoundException {
         Connection conn = null;
         PreparedStatement stmt = null;
         Collection<ArticoloBean> articoli = new ArrayList<ArticoloBean>();
@@ -192,4 +192,34 @@ public class ArticoloDao {
         return check;
     }
 
+    public boolean doModifyArticolo(ArticoloBean bean) throws SQLException{
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        String sql = "UPDATE articolo SET nome=?,descrizione=?,prezzo=?,iva=?,categoria=?,qtadisponibile=? WHERE idarticolo=?";
+        try {
+            conn = ConnectionPool.conn();
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, bean.getNome());
+            stmt.setString(2, bean.getDescrizione());
+            stmt.setFloat(3, bean.getPrezzo());
+            stmt.setInt(4, bean.getIva());
+            stmt.setString(5, bean.getCategoria());
+            stmt.setInt(6, bean.getQtaDisponibile());
+            stmt.setInt(7,bean.getIdArticolo());
+            check = stmt.executeUpdate() == 1;
+            conn.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stmt != null)
+                stmt.close();
+            if (conn != null)
+                conn.close();
+        }
+
+        return check;
+
+
+    }
 }

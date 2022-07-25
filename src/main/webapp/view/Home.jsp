@@ -8,10 +8,11 @@
 <% UserBean utente = (UserBean) session.getAttribute("utente"); %>
 <% UserBean manager = (UserBean) session.getAttribute("manager"); %>
 <% String aggiunto = (String) session.getAttribute("alertMsg"); %>
+<% ArticoloDao dao =  new ArticoloDao(); %>
 <% Random rand = new Random();%>
 
 <%
-    Collection<ArticoloBean> articoli = ArticoloDao.doRetrieveAll();
+    Collection<ArticoloBean> articoli = dao.doRetrieveAll();
 %>
 <html>
 <head>

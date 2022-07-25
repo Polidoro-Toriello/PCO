@@ -14,7 +14,8 @@
 
 %>
 <%
-    Collection<ArticoloBean> articoli = ArticoloDao.doRetrieveAll();
+    ArticoloDao dao =  new ArticoloDao();
+    Collection<ArticoloBean> articoli = dao.doRetrieveAll();
 %>
 <html>
 <head>
@@ -131,7 +132,7 @@
                     <a class="btn"
                        href="../rimuovicatalogo?idArticolo=<%=articolo.getIdArticolo()%>">
                         Rimuovi Prodotto</a>
-                    <a class="btn" href="">Modifica</a>
+                    <a class="btn" href="../viewmodifica?idArticolo=<%=articolo.getIdArticolo()%>">Modifica</a>
                 </div>
             </div>
         </div>

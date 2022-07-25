@@ -18,6 +18,9 @@ import java.util.Collection;
 
 @WebServlet("/catalogoarticoli")
 public class CatalogoArticoliServlet extends HttpServlet {
+
+    private ArticoloDao dao = new ArticoloDao();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -28,7 +31,7 @@ public class CatalogoArticoliServlet extends HttpServlet {
         if (categoria != null) {
             if (categoria.equals("tutti")) {
                 try {
-                    articoli = ArticoloDao.doRetrieveAll();
+                    articoli = dao.doRetrieveAll();
                 } catch (SQLException | ClassNotFoundException e) {
                     throw new RuntimeException(e);
                 }
@@ -43,7 +46,7 @@ public class CatalogoArticoliServlet extends HttpServlet {
                 }
             } else if (!categoria.equals("tutti")) {
                 try {
-                    articoli = ArticoloDao.doRetrieveCategoria(categoria);
+                    articoli = dao.doRetrieveCategoria(categoria);
                 } catch (SQLException | ClassNotFoundException e) {
                     throw new RuntimeException(e);
                 }
@@ -84,7 +87,7 @@ public class CatalogoArticoliServlet extends HttpServlet {
                     }
                 } else {
                     try {
-                        articoli = ArticoloDao.doRetrieveAll();
+                        articoli = dao.doRetrieveAll();
                     } catch (SQLException | ClassNotFoundException e) {
                         throw new RuntimeException(e);
                     }

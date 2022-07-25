@@ -17,6 +17,8 @@ import java.sql.SQLException;
 @WebServlet("/aggiungicarrello")
 public class AggiungiCarrelloServlet extends HttpServlet {
 
+    private ArticoloDao dao = new ArticoloDao();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -28,7 +30,7 @@ public class AggiungiCarrelloServlet extends HttpServlet {
         }
         if (articolo == null) {
             try {
-                articolo = ArticoloDao.doRetrieveById(Integer.parseInt(req.getParameter("idArticolo")));
+                articolo = dao.doRetrieveById(Integer.parseInt(req.getParameter("idArticolo")));
             } catch (SQLException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {

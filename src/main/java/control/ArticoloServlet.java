@@ -13,12 +13,15 @@ import java.io.IOException;
 import java.sql.SQLException;
 @WebServlet("/articolo")
 public class ArticoloServlet extends HttpServlet {
+
+    private ArticoloDao dao = new ArticoloDao();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         if (req.getParameter("idArticolo") != null) {
             try {
-                ArticoloBean articolo = ArticoloDao.doRetrieveById(Integer.parseInt(req.getParameter("idArticolo")));
+                ArticoloBean articolo = dao.doRetrieveById(Integer.parseInt(req.getParameter("idArticolo")));
                 if (articolo != null) {
                     session.setAttribute("articolo", articolo);
                     resp.sendRedirect("view/ArticoloPage.jsp");

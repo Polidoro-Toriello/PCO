@@ -9,8 +9,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% ArticoloDao dao =  new ArticoloDao(); %>
 <%
-    Collection<ArticoloBean> articoli = ArticoloDao.doRetrieveAll();
+    Collection<ArticoloBean> articoli = dao.doRetrieveAll();
     //Collection<ArticoloBean> articoli = session.getAttribute("articoli");
 %>
 <% UserBean utente = (UserBean) session.getAttribute("utente");%>
