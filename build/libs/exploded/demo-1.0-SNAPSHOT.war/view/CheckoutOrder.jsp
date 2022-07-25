@@ -50,7 +50,7 @@
                 <%for (MetodoBean metodo : metodi) {%>
                 <div class="form-group">
                     <input required type="radio"
-                           value="<%=metodo.getNumeroCarta()%>">&nbsp;&nbsp;<%=metodo.getNome() + " " + metodo.getCognome() + " - " + metodo.getTipo() + " " + metodo.getNumeroCarta().replace(" ", "").replaceAll("(?<!^..).(?=.{4})", "*")%>
+                          name="idMetodo" value="<%=metodo.getId()%>">&nbsp;&nbsp;<%=metodo.getNome() + " " + metodo.getCognome() + " - " + metodo.getTipo() + " " + metodo.getNumeroCarta().replace(" ", "").replaceAll("(?<!^..).(?=.{4})", "*")%>
                 </div>
                 <%}%>
             </div>
@@ -64,7 +64,7 @@
                 <%for (IndirizzoBean indirizzo : indirizzi) {%>
                 <div class="form-group">
                     <input required type="radio"
-                           value="<%=indirizzo.getCodice()%>">&nbsp;&nbsp;<%=indirizzo.getNome() + " " + indirizzo.getCognome() + ", " + indirizzo.getVia() + ", " + indirizzo.getCitta()%>
+                           name="idIndirizzo" value="<%=indirizzo.getCodice()%>">&nbsp;&nbsp;<%=indirizzo.getNome() + " " + indirizzo.getCognome() + ", " + indirizzo.getVia() + ", " + indirizzo.getCitta()%>
                 </div>
                 <%}%>
             </div>

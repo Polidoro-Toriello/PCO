@@ -29,7 +29,7 @@ public class MetodoPagamentoDao {
                 metodoBean.setScadenza(rs.getString("scadenza"));
                 metodoBean.setTipo(rs.getString("tipo"));
                 metodoBean.setNumeroCarta(rs.getString("numerocarta"));
-                metodoBean.setId(rs.getInt("id"));
+                metodoBean.setId(rs.getInt("idMetodo"));
                 metodi.add(metodoBean);
             }
         } catch (SQLException e) {
@@ -48,7 +48,7 @@ public class MetodoPagamentoDao {
         boolean insert = false;
         Connection conn = null;
         PreparedStatement stmt = null;
-        String query = "INSERT INTO metodopagamento VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO metodopagamento VALUES (0,?, ?, ?, ?, ?, ?, ?)";
         try {
             conn = ConnectionPool.conn();
             stmt = conn.prepareStatement(query);

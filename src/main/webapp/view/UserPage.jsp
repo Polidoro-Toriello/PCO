@@ -26,17 +26,17 @@
 <% String alert = (String) session.getAttribute("alertMsg");%>
 <body>
 <%@include file="./fragment/navbar.jsp" %>
-<%if (alert != null) {%>
-<div class="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    <%=alert%>>
-</div>
-<%
-        session.removeAttribute("alertMsg");
-    }
-%>
-<div class="container light-style flex-grow-1 container-p-y">
 
+<div class="container light-style flex-grow-1 container-p-y">
+    <%if (alert != null) {%>
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <%=alert%>
+    </div>
+    <%
+            session.removeAttribute("alertMsg");
+        }
+    %>
     <h4 class="font-weight-bold py-3 mb-4">
         Impostazioni Account
     </h4>
@@ -54,6 +54,8 @@
                        data-toggle="list" href="#account-social-links">Ordine</a>
                     <a onclick="sezione(5)" value="Aggiungi Metodo" class="list-group-item list-group-item-action"
                        data-toggle="list" href="#account-addMetodo">Aggiungi Metodo di Pagamento</a>
+                    <a onclick="sezione(6)" value="Aggiungi Metodo" class="list-group-item list-group-item-action"
+                       data-toggle="list" href="#account-addMetodo">Aggiungi Indirizzo di Spedizione</a>
                     <script>
                         const linkSelect = document.querySelectorAll(".list-group-item list-group-item-action")
                         $("a").click(function () {

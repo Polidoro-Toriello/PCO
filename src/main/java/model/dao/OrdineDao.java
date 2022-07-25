@@ -118,7 +118,7 @@ public class OrdineDao {
     public static synchronized boolean doInsertOrdine(OrdineBean b) throws SQLException {
         Connection conn = null;
         PreparedStatement stmt = null;
-        String sql = "INSERT INTO ordine (stato,totale,email,data,idIndirzzo,idMetodo) VALUES(?, ?, ?, ?,?,?)";
+        String sql = "INSERT INTO ordine (stato,totale,email,data,idIndirizzo,idMetodo) VALUES(?, ?, ?, ?,?,?)";
         boolean check = false;
         try {
             conn = ConnectionPool.conn();

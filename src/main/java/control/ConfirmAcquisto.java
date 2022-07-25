@@ -31,6 +31,8 @@ public class ConfirmAcquisto extends HttpServlet {
             try {
                 ordine.setTotale(carrello.getTotale());
                 ordine.setStato("confermato");
+                ordine.setIdIndirizzo(Integer.parseInt(req.getParameter("idIndirizzo")));
+                ordine.setIdMetodo(Integer.parseInt(req.getParameter("idMetodo")));
                 ordine.setUtente(userBean.getEmail());
                 if (OrdineDao.doInsertOrdine(ordine)) {
                     System.out.println("Fatto!");
