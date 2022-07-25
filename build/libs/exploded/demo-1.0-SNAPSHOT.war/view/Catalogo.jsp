@@ -12,7 +12,7 @@
 <% UserBean manager = (UserBean) session.getAttribute("manager");%>
 <% Collection<ArticoloBean> articoli = (Collection<ArticoloBean>) session.getAttribute("articoli");%>
 <% String title = (String) session.getAttribute("title");
-String alert = (String) session.getAttribute("alertMsg");%>
+    String alert = (String) session.getAttribute("alertMsg");
     if (articoli == null) {
         response.sendRedirect(request.getContextPath() + "/catalogoarticoli?categoria=tutti");
         return;
@@ -42,42 +42,42 @@ String alert = (String) session.getAttribute("alertMsg");%>
         session.removeAttribute("alertMsg");
     }
 %>
-    <section class="shop container">
-        <h2 class="section-tit1e" id="title"><%=title%>
-        </h2>
-        <div class="filtro">
-            <input type="text" placeholder="Rtx 3090 Ti" name="cercaProdotto">
-            <select onchange="ajaxFilter()" id="filterProdotto">
-                <option>Seleziona Categoria</option>
-                <option name="tutti" value="tutti">Tutti</option>
-                <option name="RAM">RAM</option>
-                <option name="GPU">GPU</option>
-                <option name="CPU">CPU</option>
-                <option name="HDD">HDD</option>
-                <option name="SSD">SSD</option>
-                <option name="PC">PC</option>
-                <option name="tastiera" value="tastiera">Tastiera</option>
-                <option name="mouse" value="mouse">Mouse</option>
-            </select>
+<section class="shop container">
+    <h2 class="section-tit1e" id="title"><%=title%>
+    </h2>
+    <div class="filtro">
+        <input type="text" placeholder="Rtx 3090 Ti" name="cercaProdotto">
+        <select onchange="ajaxFilter()" id="filterProdotto">
+            <option>Seleziona Categoria</option>
+            <option name="tutti" value="tutti">Tutti</option>
+            <option name="RAM">RAM</option>
+            <option name="GPU">GPU</option>
+            <option name="CPU">CPU</option>
+            <option name="HDD">HDD</option>
+            <option name="SSD">SSD</option>
+            <option name="PC">PC</option>
+            <option name="tastiera" value="tastiera">Tastiera</option>
+            <option name="mouse" value="mouse">Mouse</option>
+        </select>
+    </div>
+    <div class="shop-content" id="shopping">
+        <%for (ArticoloBean articolo : articoli) {%>
+        <div class="product-box">
+            <img src="../immagini/RTX_3090_TI1.jpg" alt="" class="product-img">
+            <h2 class="product-title"><%=articolo.getNome().toUpperCase()%> &nbsp;
+                &nbsp;Prezzo:&nbsp;<%=articolo.getPrezzo()%>&euro;</h2>
+            <a class="btn" href="../articolo?idArticolo=<%=articolo.getIdArticolo()%>">Vai al Prodotto</a>
+            <a class="btn" id="aggiungiCarrello"
+               href="../aggiungicarrello?idArticolo=<%=articolo.getIdArticolo()%>&qta=1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" fill="currentColor"
+                     class="bi bi-bag" viewBox="0 0 16 16">
+                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                </svg>
+                Aggiungi al Carrello</a>
         </div>
-        <div class="shop-content" id="shopping">
-            <%for (ArticoloBean articolo : articoli) {%>
-            <div class="product-box" >
-                <img src="../immagini/RTX_3090_TI1.jpg" alt="" class="product-img">
-                <h2 class="product-title"><%=articolo.getNome().toUpperCase()%> &nbsp;
-                    &nbsp;Prezzo:&nbsp;<%=articolo.getPrezzo()%>&euro;</h2>
-                <a class="btn" href="../articolo?idArticolo=<%=articolo.getIdArticolo()%>">Vai al Prodotto</a>
-                <a class="btn" id="aggiungiCarrello"
-                   href="../aggiungicarrello?idArticolo=<%=articolo.getIdArticolo()%>&qta=1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" fill="currentColor"
-                         class="bi bi-bag" viewBox="0 0 16 16">
-                        <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
-                    </svg>
-                    Aggiungi al Carrello</a>
-            </div>
-            <%}%>
-        </div>
-    </section>
+        <%}%>
+    </div>
+</section>
 </div>
 <%@include file="./fragment/footer.jsp" %>
 </body>

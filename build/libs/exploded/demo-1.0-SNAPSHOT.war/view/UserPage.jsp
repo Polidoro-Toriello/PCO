@@ -26,17 +26,17 @@
 <% String alert = (String) session.getAttribute("alertMsg");%>
 <body>
 <%@include file="./fragment/navbar.jsp" %>
-<%if (alert != null) {%>
-<div class="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    <%=alert%>>
-</div>
-<%
-        session.removeAttribute("alertMsg");
-    }
-%>
-<div class="container light-style flex-grow-1 container-p-y">
 
+<div class="container light-style flex-grow-1 container-p-y">
+    <%if (alert != null) {%>
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <%=alert%>
+    </div>
+    <%
+            session.removeAttribute("alertMsg");
+        }
+    %>
     <h4 class="font-weight-bold py-3 mb-4">
         Impostazioni Account
     </h4>
