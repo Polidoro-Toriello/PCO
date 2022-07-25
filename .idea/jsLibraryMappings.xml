@@ -2,6 +2,6 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{jquery-3.6.0}" />
-    <file url="file://$PROJECT_DIR$/src/main" libraries="{jquery, jquery.ez-plus}" />
+    <file url="file://$PROJECT_DIR$/src/main" libraries="{html2canvas, jquery, jquery.ez-plus, jspdf}" />
   </component>
 </project>

@@ -9,9 +9,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <% UserBean utente = (UserBean) session.getAttribute("utente"); %>
+<% session.setAttribute("paginaCorrente", "Catalogo.jsp");%>
 <% UserBean manager = (UserBean) session.getAttribute("manager");%>
 <% Collection<ArticoloBean> articoli = (Collection<ArticoloBean>) session.getAttribute("articoli");%>
-<% String title = (String) session.getAttribute("title");
+<%
+
+    String title = (String) session.getAttribute("title");
     String alert = (String) session.getAttribute("alertMsg");
     if (articoli == null) {
         response.sendRedirect(request.getContextPath() + "/catalogoarticoli?categoria=tutti");
@@ -33,10 +36,45 @@
 </head>
 <body>
 <%@include file="./fragment/navbar.jsp" %>
-<%if (alert != null) {%>
+<%
+    if (alert != null && alert.equals("true")) {
+%>
+<div id="aggiunto" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>L'articolo è stato aggiunto al carrello</p>
+        <div class="modal-content-btn">
+            <a class="btn" href="Carrello.jsp" id="btnPiccolo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" fill="currentColor"
+                     class="bi bi-bag" viewBox="0 0 16 16">
+                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                </svg>
+                Vai al Carrello </a>
+        </div>
+    </div>
+</div>
+<script>
+    // When the user clicks on <span> (x), close the modal
+    var span = document.getElementsByClassName("close")[0];
+    var modal = document.getElementById("aggiunto")
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+<%  //possibilità di mettere anchore per farlo apparire centrale
+    session.removeAttribute("alertMsg");
+}%>
+<%if (alert != null && !alert.equals("true")) {%>
 <div class="alert">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    <%=alert%>>
+    <%=alert%>
 </div>
 <%
         session.removeAttribute("alertMsg");

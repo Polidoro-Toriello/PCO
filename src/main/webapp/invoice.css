@@ -1,0 +1,29 @@
+.invoice-title h2, .invoice-title h3 {
+    display: inline-block;
+}
+
+.table > tbody > tr > .no-line {
+    border-top: none;
+}
+
+.table > thead > tr > .no-line {
+    border-bottom: none;
+}
+
+.table > tbody > tr > .thick-line {
+    border-top: 2px solid;
+}
+
+.btnAdd {
+    background-color: #0b0f13;
+    display: inline-block;
+    color: #fff;
+    padding: 8px 30px;
+    margin-left: 50%;
+    border-radius: 5px;
+
+}
+
+.btnAdd:hover {
+    background-color: #007cc7;
+}

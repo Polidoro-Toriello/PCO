@@ -1,14 +1,8 @@
 package model.dao;
 
-import model.bean.ArticoloCarrello;
-import model.bean.ComposizioneOrdine;
-import model.bean.OrdineBean;
-import model.bean.UserBean;
+import model.bean.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -68,7 +62,6 @@ public class ComposizioneDao {
                 composizioneOrdine.setNome(rs.getString("nome"));
                 composizioneOrdine.setDescrizione("descrizione");
                 composizioni.add(composizioneOrdine);
-                System.out.println(composizioneOrdine);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -82,28 +75,29 @@ public class ComposizioneDao {
         return composizioni;
     }
 
-    public boolean insertComposizioneOrdine(ArticoloCarrello articolo, OrdineBean ordine) {
+    public boolean insertComposizioneOrdine(Carrello carrello, int id) {
         boolean check = false;
         Connection conn = null;
         PreparedStatement stmt = null;
-        String sql = "INSERT INTO composizione (quantita ,nome,prezzo,descrizione,iva,idArticolo,idOrdine) VALUES (?,?,?,?,?,?,?)";
+        for (ArticoloCarrello articolo : carrello.getArticoli()) {
+            String sql = "INSERT INTO composizione (quantita ,nome,prezzo,descrizione,iva,idArticolo,idOrdine) VALUES (?,?,?,?,?,?,?)";
 
-        try {
-            conn = ConnectionPool.conn();
-            stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, articolo.getQta());
-            stmt.setString(2, articolo.getProduct().getNome());
-            stmt.setFloat(3, articolo.getProduct().getPrezzo());
-            stmt.setString(4, articolo.getProduct().getDescrizione());
-            stmt.setInt(5, articolo.getProduct().getIva());
-            stmt.setInt(6, articolo.getProduct().getIdArticolo());
-            stmt.setInt(7, ordine.getNumeroOrdine());
+            try {
+                conn = ConnectionPool.conn();
+                stmt = conn.prepareStatement(sql);
+                stmt.setInt(1, articolo.getQta());
+                stmt.setString(2, articolo.getProduct().getNome());
+                stmt.setFloat(3, articolo.getProduct().getPrezzo());
+                stmt.setString(4, articolo.getProduct().getDescrizione());
+                stmt.setInt(5, articolo.getProduct().getIva());
+                stmt.setInt(6, articolo.getProduct().getIdArticolo());
+                stmt.setInt(7, id);
+                check = stmt.executeUpdate() == 1;
+                conn.commit();
 
-            check = stmt.executeUpdate() == 1;
-            conn.commit();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
         return check;

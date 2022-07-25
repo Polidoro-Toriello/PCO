@@ -89,15 +89,14 @@ public class IndirizzoDao {
     public synchronized IndirizzoBean doRetrieveById(int id) throws SQLException {
         Connection conn = null;
         PreparedStatement stmt = null;
-        String sql = "SELECT * FROM indirizzo WHERE utente = ?";
+        String sql = "SELECT * FROM indirizzo WHERE codice = ?";
         IndirizzoBean risultato = new IndirizzoBean();
-
         try {
             conn = ConnectionPool.conn();
             stmt = conn.prepareStatement(sql);
             stmt.setInt(1, id);
             ResultSet set = stmt.executeQuery();
-            while (set.next()) {
+            if (set.next()) {
                 String utente = set.getString("utente");
                 String nome = set.getString("nome");
                 String cognome = set.getString("cognome");
@@ -106,6 +105,7 @@ public class IndirizzoDao {
                 String citta = set.getString("citta");
                 String cap = set.getString("cap");
                 String via = set.getString("via");
+                risultato = new IndirizzoBean(id, utente, nome, cognome, cellulare, provincia, citta, cap, via);
             }
 
         } catch (SQLException e) {

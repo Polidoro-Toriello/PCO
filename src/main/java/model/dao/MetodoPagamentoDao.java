@@ -111,7 +111,7 @@ public class MetodoPagamentoDao {
             stmt.setString(5, bean.getNome());
             stmt.setString(6, bean.getCognome());
             stmt.setString(7, bean.getEmail());
-            stmt.setInt(8,bean.getId());
+            stmt.setInt(8, bean.getId());
             check = stmt.executeUpdate() == 1;
             conn.commit();
         } catch (SQLException e) {
@@ -125,5 +125,38 @@ public class MetodoPagamentoDao {
 
         return check;
     }
+
+    public MetodoBean doRetrieveById(int id) throws SQLException, ClassNotFoundException {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        String query = "SELECT * FROM metodopagamento where idMetodo = ?";
+        MetodoBean metodoBean = new MetodoBean();
+        try {
+            conn = ConnectionPool.conn();
+            stmt = conn.prepareStatement(query);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                metodoBean.setId(id);
+                metodoBean.setCognome(rs.getString("cognome"));
+                metodoBean.setEmail(rs.getString("email"));
+                metodoBean.setNome(rs.getString("nome"));
+                metodoBean.setCvv(Integer.parseInt(rs.getString("cvv")));
+                metodoBean.setScadenza(rs.getString("scadenza"));
+                metodoBean.setTipo(rs.getString("tipo"));
+                metodoBean.setNumeroCarta(rs.getString("numerocarta"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (stmt != null)
+                stmt.close();
+            if (conn != null)
+                conn.close();
+        }
+        return metodoBean;
+    }
+
 
 }

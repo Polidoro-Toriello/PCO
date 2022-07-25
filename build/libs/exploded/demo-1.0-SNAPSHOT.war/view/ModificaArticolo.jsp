@@ -16,6 +16,7 @@
 <%
     ArticoloDao dao =  new ArticoloDao();
     Collection<ArticoloBean> articoli = dao.doRetrieveAll();
+    ArticoloBean articolomod = (ArticoloBean) session.getAttribute("articolo");
 %>
 <html>
 <head>
@@ -35,11 +36,11 @@
 <div class="small-container single-product" style="width: 100%">
     <div class="row">
         <div class="col-2">
-            <img src="../immagini/gpu1.jpg" id="product-img">
+            <img src="../immagini/<%=articolomod.getCategoria().toLowerCase()+"1"%>.jpg" id="product-img">
             <div class="small-img-row">
                 <% for (int i = 1; i <= 4; i++) {%>
                 <div class="small-img-col">
-                    <img src="../immagini/<%="gpu"+i%>.jpg" class="small-img">
+                    <img src="../immagini/<%=articolomod.getCategoria().toLowerCase()+i%>.jpg" class="small-img">
                 </div>
                 <%}%>
             </div>
@@ -53,35 +54,35 @@
                 </div>
             </div>
             <%}%>
-            <h3>Inserisci un nuovo prodotto</h3>
-            <form action="../addArticolo" method="get">
+            <h3>Modifica il prodotto</h3>
+            <form action="../modificaarticolo" method="get">
                 <label for="nome">Nome prodotto:</label>
-                <input class="mb-2" type="text" id="nome" name="Nome" placeholder="nome" style="width: 200px;">
+                <input class="mb-2" type="text" id="nome" name="Nome" placeholder="nome" value="<%=articolomod.getNome()%>" style="width: 200px;">
                 <br>
                 <label for="descrizione">Descrizione:</label>
                 <br>
-                <textarea class="textarea mb-2" placeholder="descrizione" id="descrizione" name="Descrizione" maxlength="2000"></textarea>
+                <textarea class="textarea mb-2" placeholder="descrizione" id="descrizione"  name="Descrizione" maxlength="2000"><%=articolomod.getDescrizione()%>"</textarea>
                 <br>
                 <label for="iva">IVA:</label>
-                <input type="number" class="mb-2" name="IVA" id="iva" min="1" value="1" style="width: 50px;">
+                <input type="number" class="mb-2" name="IVA" id="iva" min="1" value="<%=articolomod.getIva()%>" style="width: 50px;">
                 <br>
                 <label for="prezzo">Prezzo:</label>
-                <input type="number" id="prezzo" class="mb-2" name="Prezzo" min="1" value="1" step="0.01" style="width: 80px;">
+                <input type="number" id="prezzo" class="mb-2" name="Prezzo" min="1" value="<%=articolomod.getPrezzo()%>" step="0.01" style="width: 80px;">
                 <br>
                 <label for="categoria">Categoria:</label>
-                <select name="Categoria"  onchange="changeimages()" class="selectinput mb-2" id="categoria">
+                <select name="Categoria" value="<%=articolomod.getCategoria()%>" onchange="changeimages()" class="selectinput mb-2" id="categoria">
                     <option  value="ram">RAM</option>
                     <option value="cpu">CPU</option>
-                    <option selected value="gpu">GPU</option>
+                    <option value="gpu">GPU</option>
                     <option value="ssd">SSD</option>
                     <option value="hdd">HDD</option>
                     <option value="pc">PC</option>
                 </select>
                 <br>
                 <label for="qta">Quantità disponibile:</label>
-                <input type="number" class="mb-2" id="qta" name="Qta" value="1" min="1" >
+                <input type="number" class="mb-2" id="qta" name="Qta" value="<%=articolomod.getQtaDisponibile()%>" min="1" >
                 <br>
-                <button class="btn" type="submit">Inserisci</button>
+                <button class="btn" type="submit">Modifica</button>
             </form>
         </div>
     </div>
@@ -155,42 +156,42 @@
             </div>
         </div>
     </div>
-<script>
-    var product = document.getElementById("product-img");
-    var smallImg = document.getElementsByClassName("small-img");
-    smallImg[0].onclick = function () {
-        product.src = smallImg[0].src;
-    }
+    <script>
+        var product = document.getElementById("product-img");
+        var smallImg = document.getElementsByClassName("small-img");
+        smallImg[0].onclick = function () {
+            product.src = smallImg[0].src;
+        }
 
-    smallImg[1].onclick = function () {
-        product.src = smallImg[1].src;
-    }
-    smallImg[2].onclick = function () {
-        product.src = smallImg[2].src;
-    }
-    smallImg[3].onclick = function () {
-        product.src = smallImg[3].src;
-    }
-</script>
+        smallImg[1].onclick = function () {
+            product.src = smallImg[1].src;
+        }
+        smallImg[2].onclick = function () {
+            product.src = smallImg[2].src;
+        }
+        smallImg[3].onclick = function () {
+            product.src = smallImg[3].src;
+        }
+    </script>
 
-<script>
-    // When the user clicks on <span> (x), close the modal
-    var span = document.getElementsByClassName("close")[0];
-    var modal = document.getElementById("aggiunto")
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target == modal) {
+    <script>
+        // When the user clicks on <span> (x), close the modal
+        var span = document.getElementsByClassName("close")[0];
+        var modal = document.getElementById("aggiunto")
+        span.onclick = function () {
             modal.style.display = "none";
         }
-    }
-</script>
 
-<script src="${pageContext.request.contextPath}/js/changeimages.js"></script>
-<% request.getSession().removeAttribute("alertMsg"); %>
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+    <script src="${pageContext.request.contextPath}/js/changeimages.js"></script>
+        <% request.getSession().removeAttribute("alertMsg"); %>
 
 </body>
 <%@include file="./fragment/footer.jsp"%>

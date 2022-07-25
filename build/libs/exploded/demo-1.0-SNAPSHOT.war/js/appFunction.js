@@ -1,3 +1,5 @@
+import {jsPDF} from "jspdf";
+
 function validateReg() {
     const pass_valid = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d[\]{};.:=<>_+^#$@!%*?&]{8,30}$/;
     const email_valid = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
@@ -125,3 +127,4 @@ function searchProduct() {
         }
     }
 }
+

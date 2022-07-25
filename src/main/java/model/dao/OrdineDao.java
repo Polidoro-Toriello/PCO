@@ -115,21 +115,26 @@ public class OrdineDao {
     }
 
 
-    public static synchronized boolean doInsertOrdine(OrdineBean b) throws SQLException {
+    public static synchronized int doInsertOrdine(OrdineBean b) throws SQLException {
         Connection conn = null;
         PreparedStatement stmt = null;
-        String sql = "INSERT INTO ordine (stato,totale,email,data,idIndirizzo,idMetodo) VALUES(?, ?, ?, ?,?,?)";
-        boolean check = false;
+        String sql = "INSERT INTO ordine (stato,totale,email,data,idIndirizzo,idMetodo) VALUES(?,?,?,?,?,?)";
+        int check = 0;
         try {
             conn = ConnectionPool.conn();
-            stmt = conn.prepareStatement(sql);
+            stmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             stmt.setString(1, b.getStato());
             stmt.setFloat(2, b.getTotale());
             stmt.setString(3, b.getUtente());
             stmt.setDate(4, new java.sql.Date(b.getData().getTime()));
-            stmt.setInt(5,b.getIdIndirizzo());
-            stmt.setInt(6,b.getIdMetodo());
-            check = stmt.executeUpdate() == 1;
+            stmt.setInt(5, b.getIdIndirizzo());
+            stmt.setInt(6, b.getIdMetodo());
+            stmt.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+            if (rs.next()) {
+                check = rs.getInt(1);
+            }
+            rs.close();
             conn.commit();
 
         } catch (SQLException e) {

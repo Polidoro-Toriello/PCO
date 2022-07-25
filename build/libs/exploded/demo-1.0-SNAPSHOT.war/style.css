@@ -400,9 +400,9 @@ small {
     display: flex;
     background: #007cc7;
     color: #fff;
-    width: 100%;
+    width: 30%;
     justify-content: center;
-    margin: auto;
+    margin: auto auto auto 30%;
     border-radius: 30px;
 }
 
@@ -1092,11 +1092,19 @@ span.price {
 }
 
 
-.customer-order, .customer-pay, .customer-info {
+.customer-pay, .customer-info {
     padding: 20px;
     margin-top: 30px;
+    margin-left: 50%;
     background-color: #ffffff;
     border: .5px solid #cccccc;
+}
+.customer-order{
+    padding: 20px;
+    width: 40%;
+    margin-top: 30px;
+    background-color: #ffffff;
+    border: 0.5px solid #cccccc;
 }
 
 span {
