@@ -176,12 +176,12 @@ public class UserPageServlet extends HttpServlet {
                             "                                    <td class=\"col-xs-6\">%s</td>\n" +
                             "                                    <td>%s</td>\n" +
                             "                                    <td>%s</td>\n" +
-                            "                                </tr>\n" +
-                            "                                </tbody>\n" +
-                            "                            </table>\n" +
-                            "                        </div>\n" +
-                            "                    </div>", ordine.getNumeroOrdine(), String.valueOf(ordine.getTotale()), ordine.getUtente(), ordine.getStato(), "" + ordine.getData());
+                            "                                </tr>\n", ordine.getNumeroOrdine(), String.valueOf(ordine.getTotale()), ordine.getUtente(), ordine.getStato(), "" + ordine.getData());
                 }
+                html += "</tbody>\n" +
+                        "                            </table>\n" +
+                        "                        </div>\n" +
+                        "                    </div>";
                 break;
             case "5":
                 html = "<div class=\"tab-pane fade active show\" id=\"account-general\">\n" +
@@ -255,19 +255,19 @@ public class UserPageServlet extends HttpServlet {
                         "                                                    </div>\n" +
                         "                                                </div>\n" +
                         "                                                <label for=\"Via\"><i class=\"fa fa-home\" aria-hidden=\"true\"></i>&nbsp;Indirizzo</label>\n" +
-                        "                    <input required type=\"text\" id=\"Via\" name=\"Via\" placeholder=\"Via Roma 11\">\n"+
+                        "                    <input required type=\"text\" id=\"Via\" name=\"Via\" placeholder=\"Via Roma 11\">\n" +
                         "                 \n" +
                         "                    <label for=\"Citta\"><i class=\"fa fa-city\" aria-hidden=\"true\"></i>&nbsp;Citta'</label>\n" +
-                        "                    <input required type=\"text\" id=\"Citta\" name=\"Citta\" placeholder=\"Salerno\">                                       "+
+                        "                    <input required type=\"text\" id=\"Citta\" name=\"Citta\" placeholder=\"Salerno\">                                       " +
                         "\n" +
                         "                    <label for=\"Provincia\"><i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i>&nbsp;Provincia</label>\n" +
-                        "                    <input required type=\"text\" id=\"Provincia\" name=\"Provincia\" placeholder=\"Salerno\">"+
+                        "                    <input required type=\"text\" id=\"Provincia\" name=\"Provincia\" placeholder=\"Salerno\">" +
                         " <label for=\"Cap\"><i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i>&nbsp;Cap</label>\n" +
-                        "                    <input required type=\"text\" id=\"Cap\" name=\"Cap\" placeholder=\"84121\">\n"+
+                        "                    <input required type=\"text\" id=\"Cap\" name=\"Cap\" placeholder=\"84121\">\n" +
                         "\n" +
                         "                    <label for=\"Cellulare\"><i class=\"fa fa-phone\" aria-hidden=\"true\"></i>&nbsp;Cellulare</label>\n" +
                         "                    <input required type=\"text\" id=\"Cellulare\" name=\"Cellulare\"\n" +
-                        "                           placeholder=\"350 6780929\">"+
+                        "                           placeholder=\"350 6780929\">" +
                         "                                            <input type=\"submit\" value=\"Salva\" class=\"btnAdd\">\n" +
                         "                                    </form>\n" +
                         "                                </div>\n" +

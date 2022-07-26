@@ -28,8 +28,8 @@
 <body>
 <%@include file="./fragment/navbar.jsp" %>
 <form method="get" action="../confirmAcquisto">
-    <div class="wrapper">
-        <div class="left col col-md-6">
+    <div class="riga">
+        <div class="col-md-6">
             <div class="customer-info">
                 <h2>Informazioni Utente</h2>
                 <p>Nome: <%=utente.getNome()%>
@@ -77,7 +77,7 @@
         </div>
 
 
-        <div class="right col col-md-6">
+        <div class="col-md-6">
             <div class="customer-order">
                 <h2>Riepilogo Ordine</h2>
                 <br>
@@ -96,9 +96,6 @@
         </div>
     </div>
 </form>
-<%for (int i = 0;i<45;i++){%>
-<br>
-<%}%>
 <%@include file="./fragment/footer.jsp" %>
 </body>
 </html>

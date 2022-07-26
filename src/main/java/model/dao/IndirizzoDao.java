@@ -135,7 +135,7 @@ public class IndirizzoDao {
             stmt.setString(4, b.getCellulare());
             stmt.setString(5, b.getProvincia());
             stmt.setString(6, b.getCitta());
-            stmt.setString(7, b.getCitta());
+            stmt.setString(7, b.getCap());
             stmt.setString(8, b.getVia());
             check = stmt.executeUpdate() == 1;
             conn.commit();

@@ -84,7 +84,7 @@
     <h2 class="section-tit1e" id="title"><%=title%>
     </h2>
     <div class="filtro">
-        <input type="text" placeholder="Rtx 3090 Ti" name="cercaProdotto">
+        <input type="text" onchange="searchProduct()" placeholder="Rtx 3090 Ti" id="cercaProdotto">
         <select onchange="ajaxFilter()" id="filterProdotto">
             <option>Seleziona Categoria</option>
             <option name="tutti" value="tutti">Tutti</option>
