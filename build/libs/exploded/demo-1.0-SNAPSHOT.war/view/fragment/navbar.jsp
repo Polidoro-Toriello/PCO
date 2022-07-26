@@ -19,7 +19,6 @@
                 Ciao <%=utente.getNome()%>
             </a>
                 <ul class="dropdown">
-                    <li><a href="UserPage.jsp">Impostazioni</a></li>
                     <li><a href="../logout">Logout</a></li>
                 </ul>
             </li>
