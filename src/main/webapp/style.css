@@ -1196,4 +1196,36 @@ span {
     .profile ul li ul li{
         margin: auto 10% 15%;
     }
+
+}
+@media screen and (max-width: 360px){
+    .hero{
+        height: 50%;
+        width: 100%;
+    }
+    .small-container{
+        display: none;
+    }
+    .col-2 p{
+        font-size: 20px;
+    }
+    .col-2 h1{
+        margin-bottom: 0%;
+        font-size: 35px;
+    }
+    .col-2 img {
+        margin: auto;
+        width: 100%;
+        padding: 13%;
+    }
+    .menu, .navigation-bar {
+        font-size: 7px;
+
+    }
+    .menu li{
+        border-left: 0;
+        padding: 0 28px;
+        margin: -4%;
+    }
+
 }
