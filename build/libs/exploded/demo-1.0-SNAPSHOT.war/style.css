@@ -1196,4 +1196,64 @@ span {
     .profile ul li ul li{
         margin: auto 10% 15%;
     }
+
+}
+@media screen and (max-width: 360px){
+    .hero{
+        height: 50%;
+        width: 100%;
+    }
+    .small-container{
+        display: none;
+    }
+    .col-2 p{
+        font-size: 20px;
+    }
+    .col-2 h1{
+        margin-bottom: 0%;
+        font-size: 35px;
+    }
+    .col-2 img {
+        margin: auto;
+        width: 100%;
+        padding: 13%;
+    }
+    .menu, .navigation-bar {
+        font-size: 7px;
+
+    }
+    .menu li{
+        border-left: 0;
+        padding: 0 28px;
+        margin: -4%;
+    }
+    .head a{
+        font-size: 12px;
+        margin-right: -13px;
+        margin-left: 41px;
+    }
+    .logo img{
+        margin-top: 9.5%;
+        margin-left: 133%;
+        object-fit: cover;
+        width: 150px;
+        height: 50%;
+    }
+    .head li {
+        margin-right: -75%;
+        padding-right: 280px;
+    }
+    .profile ul li:hover > ul, ul li ul:hover {
+        visibility: visible;
+        opacity: 1;
+        font-family: 'IBM Plex Sans', sans-serif;
+        display: block;
+        padding: 10px;
+        margin-bottom: 48%;
+        min-width: 19px;
+        text-align: right;
+    }
+    .menu li .navigation-bar {
+        margin-bottom: 3px;
+    }
 }

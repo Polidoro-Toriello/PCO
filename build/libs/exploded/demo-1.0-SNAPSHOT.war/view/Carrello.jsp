@@ -82,7 +82,7 @@
                 <%if (c != null) {%>
                 <td><%=c.getTotale()%>&euro;</td>
                 <%} else {%>
-                <td>0.0 &euro;</td>
+                <td>0.0 &euro;</td>\
                 <%}%>
             </tr>
         </table>
