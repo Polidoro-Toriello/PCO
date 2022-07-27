@@ -167,16 +167,17 @@ public class UserPageServlet extends HttpServlet {
                         "                                    <td>Data</td>\n" +
                         "                                </tr>\n" +
                         "                                </tr>\n" +
-                        "                                </thead>\n";
+                        "                                </thead>\n" +
+                        "<tbody>\n";
                 for (OrdineBean ordine : ordini) {
-                    html += String.format("<tbody>\n" +
+                    html += String.format(
                             "                                <tr>\n" +
-                            "                                    <td class=\"col-xs-3\">%s</td>\n" +
-                            "                                    <td class=\"col-xs-3\">%s&euro;</td>\n" +
-                            "                                    <td class=\"col-xs-6\">%s</td>\n" +
-                            "                                    <td>%s</td>\n" +
-                            "                                    <td>%s</td>\n" +
-                            "                                </tr>\n", ordine.getNumeroOrdine(), String.valueOf(ordine.getTotale()), ordine.getUtente(), ordine.getStato(), "" + ordine.getData());
+                                    "                                    <td class=\"col-xs-3\">%s</td>\n" +
+                                    "                                    <td class=\"col-xs-3\">%s&euro;</td>\n" +
+                                    "                                    <td class=\"col-xs-6\">%s</td>\n" +
+                                    "                                    <td>%s</td>\n" +
+                                    "                                    <td>%s</td>\n" +
+                                    "                                </tr>\n", ordine.getNumeroOrdine(), String.valueOf(ordine.getTotale()), ordine.getUtente(), ordine.getStato(), "" + ordine.getData());
                 }
                 html += "</tbody>\n" +
                         "                            </table>\n" +
