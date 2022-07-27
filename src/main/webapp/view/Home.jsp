@@ -9,7 +9,7 @@
 <% UserBean manager = (UserBean) session.getAttribute("manager"); %>
 <% session.setAttribute("paginaCorrente", "Home.jsp");%>
 <% String aggiunto = (String) session.getAttribute("alertMsg"); %>
-<% ArticoloDao dao =  new ArticoloDao(); %>
+<% ArticoloDao dao = new ArticoloDao(); %>
 <% Random rand = new Random();%>
 
 <%
@@ -62,7 +62,7 @@
         }
     }
 </script>
-<%  //possibilità di mettere anchore per farlo apparire centrale
+<% //possibilità di mettere anchore per farlo apparire centrale
     session.removeAttribute("alertMsg");
 }%>
 <%@include file="./fragment/navbar.jsp" %>
@@ -98,57 +98,58 @@
 <section class="articoliHome" id="articoliHome">
 
     <h2 class="title">Ultimi Arrivi</h2>
-
-    <div class="box-container">
-        <%for (ArticoloBean articolo : articoli) {%>
-        <div class="box">
-            <%if(articolo.getCategoria().equalsIgnoreCase("gpu")){%>
-            <div class="image">
-                <img src="<%="../immagini/gpu1.jpg"%>" alt="gpu">
-            </div>
-            <%}%>
-            <%if(articolo.getCategoria().equalsIgnoreCase("pc")){%>
-            <div class="image">
-                <img src="<%="../immagini/pc1.jpg"%>" alt="pc">
-            </div>
-            <%}%>
-            <%if(articolo.getCategoria().equalsIgnoreCase("cpu")){%>
-            <div class="image">
-                <img src="<%="../immagini/cpu1.jpg"%>" alt="cpu">
-            </div>
-            <%}%>
-            <%if(articolo.getCategoria().equalsIgnoreCase("ram")){%>
-            <div class="image">
-                <img src="<%="../immagini/ram1.jpg"%>" alt="ram">
-            </div>
-            <%}%>
-            <%if(articolo.getCategoria().equalsIgnoreCase("ssd")){%>
-            <div class="image">
-                <img src="<%="../immagini/ssd1.jpg"%>" alt="ssd">
-            </div>
-            <%}%>
-            <%if(articolo.getCategoria().equalsIgnoreCase("hdd")){%>
-            <div class="image">
-                <img src="<%="../immagini/hdd1.jpg"%>" alt="hdd">
-            </div>
-            <%}%>
-            <div class="info">
-                <h3><%=articolo.getNome()%>
-                </h3>
-                <div class="subInfo">
-                    <strong class="price"><%=articolo.getPrezzo()%>&euro;</strong>
-                    <a class="btn" href="../articolo?idArticolo=<%=articolo.getIdArticolo()%>">Vai al Prodotto</a>
-                    <a class="btn" id="aggiungiCarrello"
-                       href="../aggiungicarrello?idArticolo=<%=articolo.getIdArticolo()%>&qta=1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" fill="currentColor"
-                             class="bi bi-bag" viewBox="0 0 16 16">
-                            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
-                        </svg>
-                        Aggiungi al Carrello</a>
+    <div class="wrapper">
+        <div class="box-container">
+            <%for (ArticoloBean articolo : articoli) {%>
+            <div class="box">
+                <%if (articolo.getCategoria().equalsIgnoreCase("gpu")) {%>
+                <div class="image">
+                    <img src="<%="../immagini/gpu1.jpg"%>" alt="gpu">
+                </div>
+                <%}%>
+                <%if (articolo.getCategoria().equalsIgnoreCase("pc")) {%>
+                <div class="image">
+                    <img src="<%="../immagini/pc1.jpg"%>" alt="pc">
+                </div>
+                <%}%>
+                <%if (articolo.getCategoria().equalsIgnoreCase("cpu")) {%>
+                <div class="image">
+                    <img src="<%="../immagini/cpu1.jpg"%>" alt="cpu">
+                </div>
+                <%}%>
+                <%if (articolo.getCategoria().equalsIgnoreCase("ram")) {%>
+                <div class="image">
+                    <img src="<%="../immagini/ram1.jpg"%>" alt="ram">
+                </div>
+                <%}%>
+                <%if (articolo.getCategoria().equalsIgnoreCase("ssd")) {%>
+                <div class="image">
+                    <img src="<%="../immagini/ssd1.jpg"%>" alt="ssd">
+                </div>
+                <%}%>
+                <%if (articolo.getCategoria().equalsIgnoreCase("hdd")) {%>
+                <div class="image">
+                    <img src="<%="../immagini/hdd1.jpg"%>" alt="hdd">
+                </div>
+                <%}%>
+                <div class="info">
+                    <h3><%=articolo.getNome()%>
+                    </h3>
+                    <div class="subInfo">
+                        <strong class="price"><%=articolo.getPrezzo()%>&euro;</strong>
+                        <a class="btn" href="../articolo?idArticolo=<%=articolo.getIdArticolo()%>">Vai al Prodotto</a>
+                        <a class="btn" id="aggiungiCarrello"
+                           href="../aggiungicarrello?idArticolo=<%=articolo.getIdArticolo()%>&qta=1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" fill="currentColor"
+                                 class="bi bi-bag" viewBox="0 0 16 16">
+                                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                            </svg>
+                            Aggiungi al Carrello</a>
+                    </div>
                 </div>
             </div>
+            <%}%>
         </div>
-        <%}%>
     </div>
 </section>
 <div class="offer">
