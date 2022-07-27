@@ -1144,7 +1144,7 @@ span {
     text-align: center;
 }
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 1023px) {
     .menu, .navigation-bar {
         font-size: 15px;
 
@@ -1195,8 +1195,10 @@ span {
     .profile ul li:hover > ul, ul li ul:hover {
         visibility: visible;
         opacity: 1;
+        z-index: 2;
         font-family: 'IBM Plex Sans', sans-serif;
         display: block;
+        z-index: 2;
         margin-bottom: 50%;
         min-width: 130px;
         text-align: right;
@@ -1207,8 +1209,137 @@ span {
     }
 
 }
+@media screen and (max-width: 1024px) {
+    .menu, .navigation-bar {
+        font-size: 15px;
 
-@media screen and (max-width: 360px) {
+    }
+
+    nav {
+        padding: 0;
+        margin: 0 -10% 0 -19%;
+    }
+
+    .head .logo {
+        padding-right: 0;
+        margin-right: 23%;
+    }
+
+    .head li {
+        margin-right: -60%;
+        padding-right: 250px;
+    }
+
+    .filtro {
+        margin: 50px 0px 5% 50%;
+    }
+
+    .btnCarrello {
+        padding: 0% 110%;
+    }
+
+    #btnPiccolo {
+        background-color: #007cc7;
+        font-size: 8px;
+        width: 90%;
+        margin: 10px 0 0 -20%;
+    }
+
+    .carrelloButton {
+        margin: 0 auto 0 50%;
+    }
+
+    .customer-pay, .customer-info {
+        padding: 20px;
+        margin-top: 30px;
+        margin-left: auto;
+        background-color: #ffffff;
+        border: 0.5px solid #cccccc;
+    }
+
+    .profile ul li:hover > ul, ul li ul:hover {
+        visibility: visible;
+        opacity: 1;
+        z-index: 2;
+        font-family: 'IBM Plex Sans', sans-serif;
+        display: block;
+        z-index: 2;
+        margin-bottom: 50%;
+        min-width: 130px;
+        text-align: right;
+    }
+
+    .profile ul li ul li {
+        margin: auto 10% 15%;
+    }
+
+}
+@media screen and (max-width: 1280px) {
+    .menu, .navigation-bar {
+        font-size: 15px;
+
+    }
+
+    nav {
+        padding: 0;
+        margin: 8px -31% 0px -34%;
+    }
+
+    .head .logo {
+        padding-right: 0;
+        margin-right: 23%;
+    }
+
+    .head li {
+        margin-right: -60%;
+        padding-right: 250px;
+    }
+
+    .filtro {
+        margin: 50px 0px 5% 50%;
+    }
+
+    .btnCarrello {
+        padding: 0% 110%;
+    }
+
+    #btnPiccolo {
+        background-color: #007cc7;
+        font-size: 8px;
+        width: 90%;
+        margin: 10px 0 0 -20%;
+    }
+
+    .carrelloButton {
+        margin: 0 auto 0 50%;
+    }
+
+    .customer-pay, .customer-info {
+        padding: 20px;
+        margin-top: 30px;
+        margin-left: auto;
+        background-color: #ffffff;
+        border: 0.5px solid #cccccc;
+    }
+
+    .profile ul li:hover > ul, ul li ul:hover {
+        visibility: visible;
+        opacity: 1;
+        z-index: 2;
+        font-family: 'IBM Plex Sans', sans-serif;
+        display: block;
+        z-index: 2;
+        margin-bottom: 50%;
+        min-width: 130px;
+        text-align: right;
+    }
+
+    .profile ul li ul li {
+        margin: auto 10% 15%;
+    }
+
+}
+@media screen and (max-width: 414px) {
     .hero {
         height: 50%;
         width: 100%;
@@ -1230,7 +1361,7 @@ span {
     }
 
     .menu, .navigation-bar {
-        font-size: 7px;
+        font-size: 68%;
 
     }
 
