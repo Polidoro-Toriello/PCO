@@ -26,11 +26,20 @@
 <body>
 <%@include file="./fragment/adminnavbar.jsp" %>
 <h1 class="text-center">Lista utenti</h1>
-    <table class="table-responsive-sm">
+<div class="input-group">
+    <div class="form-group">
+        <label for="formutente">Cerca un utente:</label>
+        <input onchange="searchuser()" placeholder="Cerca utente per email" type="search" id="formutente" class="form-control" />
+    </div>
+</div>
+    <table class="table-responsive-sm" id="tabellautenti">
         <thead >
         <tr>
-            <th class="text-center">Profilo</th>
-            <th class="text-center">Info utente</th>
+            <th>Profilo</th>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Email </th>
+            <th >Username</th>
         </tr>
         </thead>
         <tbody>
@@ -39,32 +48,23 @@
             <td class="text-center">
                 <img src="../immagini/iconaprofilo.png" class="image" alt="icona">
             </td>
-            <td colspan="2">
-                <div class="small-container">
-                    <div class="row">
-                        <div>
-                            <label>Nome:</label>
-                            <p><%=user.getNome()%></p>
-                            <br>
-                            <label>Cognome:</label>
-                            <p><%=user.getCognome()%></p>
-                        </div>
-                        <div>
-                            <br>
-                            <label>Email:</label>
-                            <p><%=user.getEmail()%></p>
-                            <br>
-                            <label>Username:</label>
-                            <p><%=user.getUsername()%></p>
-                        </div>
-                    </div>
-                </div>
+            <td>
+                <p><%=user.getNome()%></p>
+            </td>
+            <td>
+                <p><%=user.getCognome()%></p>
+            </td>
+            <td>
+                <p><%=user.getEmail()%></p>
+            </td>
+            <td>
+                <p><%=user.getUsername()%></p>
             </td>
         </tr>
         <%}%>
         </tbody>
     </table>
-
+    <script src="${pageContext.request.contextPath}/js/appFunction.js"></script>
 <%@include file="./fragment/footer.jsp" %>
 </body>
 </html>
