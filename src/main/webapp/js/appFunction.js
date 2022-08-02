@@ -126,3 +126,16 @@ function searchProduct() {
     }
 }
 
+
+function searchuser() {
+    var input = document.getElementById("formutente")
+    var value = input.value;
+    var xmlhttprequest = new XMLHttpRequest();
+    xmlhttprequest.open("GET", "../ricercautente?utente=" + value.toString(), true)
+    xmlhttprequest.onreadystatechange = function () {
+        if (xmlhttprequest.status == 4 || xmlhttprequest.status == 200) {
+            document.getElementById("tabellautenti").innerHTML = this.responseText;
+        }
+    }
+    xmlhttprequest.send();
+}

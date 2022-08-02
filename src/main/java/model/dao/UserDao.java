@@ -56,15 +56,15 @@ public class UserDao {
     public synchronized UserBean doRetrieveByEmail(String email) throws SQLException {
 
         Connection conn = null;
-        UserBean risultato = new UserBean();
-        String sql = "SELECT * FROM utente WHERE email = ?";
+        UserBean risultato = null;
+        String sql = "SELECT * FROM utente WHERE email LIKE ? ";
         PreparedStatement stmt = null;
 
         try {
 
             conn = ConnectionPool.conn();
             stmt = conn.prepareStatement(sql);
-            stmt.setString(1, email);
+            stmt.setString(1, "%"+email+"%");
             ResultSet set = stmt.executeQuery();
             if (set.next()) {
 
