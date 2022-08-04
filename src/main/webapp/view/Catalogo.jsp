@@ -101,7 +101,24 @@
         <div class="shop-content" id="shopping">
             <%for (ArticoloBean articolo : articoli) {%>
             <div class="product-box">
-                <img src="../immagini/RTX_3090_TI1.jpg" alt="" class="product-img">
+                <%if (articolo.getCategoria().equalsIgnoreCase("gpu")) {%>
+                    <img src="<%="../immagini/gpu1.jpg"%>" alt="gpu" class="product-img">
+                <%}%>
+                <%if (articolo.getCategoria().equalsIgnoreCase("pc")) {%>
+                    <img src="<%="../immagini/pc1.jpg"%>" alt="pc" class="product-img">
+                <%}%>
+                <%if (articolo.getCategoria().equalsIgnoreCase("cpu")) {%>
+                    <img src="<%="../immagini/cpu1.jpg"%>" alt="cpu" class="product-img">
+                <%}%>
+                <%if (articolo.getCategoria().equalsIgnoreCase("ram")) {%>
+                    <img src="<%="../immagini/ram1.jpg"%>" alt="ram" class="product-img">
+                <%}%>
+                <%if (articolo.getCategoria().equalsIgnoreCase("ssd")) {%>
+                    <img src="<%="../immagini/ssd1.jpg"%>" alt="ssd" class="product-img">
+                <%}%>
+                <%if (articolo.getCategoria().equalsIgnoreCase("hdd")) {%>
+                    <img src="<%="../immagini/hdd1.jpg"%>" alt="hdd" class="product-img">
+                <%}%>
                 <h2 class="product-title"><%=articolo.getNome().toUpperCase()%> &nbsp;
                     &nbsp;Prezzo:&nbsp;<%=articolo.getPrezzo()%>&euro;</h2>
                 <a class="btn" href="../articolo?idArticolo=<%=articolo.getIdArticolo()%>">Vai al Prodotto</a>

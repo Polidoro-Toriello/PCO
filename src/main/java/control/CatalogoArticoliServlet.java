@@ -122,17 +122,86 @@ public class CatalogoArticoliServlet extends HttpServlet {
         }
         if (catalogo != null) {
             for (ArticoloBean articoloBean : catalogo) {
-                html += String.format(" <div class=\"product-box\">\n" +
-                        "                <img src=\"../immagini/RTX_3090_TI1.jpg\" alt=\"\" class=\"product-img\">\n" +
-                        "                <h2 class=\"product-title\">%s &nbsp;\n" +
-                        "                    &nbsp;Prezzo:&nbsp;%s&euro;</h2>\n" +
-                        "                <a class=\"btn\" href=\"../articolo?idArticolo=%s\">Vai al Prodotto</a>\n" +
-                        "                <a class=\"btn\" id=\"aggiungiCarrello\" href=\"../aggiungicarrello?idArticolo=%s&amp;qta=1\">\n" +
-                        "                    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"25\" height=\"20\" fill=\"currentColor\" class=\"bi bi-bag\" viewBox=\"0 0 16 16\">\n" +
-                        "                        <path d=\"M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z\"></path>\n" +
-                        "                    </svg>\n" +
-                        "                    Aggiungi al Carrello</a>\n" +
-                        "            </div>\n", articoloBean.getNome().toUpperCase(), articoloBean.getPrezzo(), articoloBean.getIdArticolo(), articoloBean.getIdArticolo());
+                switch(articoloBean.getCategoria()) {
+                    case "gpu":
+                        html += String.format(" <div class=\"product-box\">\n" +
+                                "                <img src=\"../immagini/gpu1.jpg\" alt=\"\" class=\"product-img\">\n" +
+                                "                <h2 class=\"product-title\">%s &nbsp;\n" +
+                                "                    &nbsp;Prezzo:&nbsp;%s&euro;</h2>\n" +
+                                "                <a class=\"btn\" href=\"../articolo?idArticolo=%s\">Vai al Prodotto</a>\n" +
+                                "                <a class=\"btn\" id=\"aggiungiCarrello\" href=\"../aggiungicarrello?idArticolo=%s&amp;qta=1\">\n" +
+                                "                    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"25\" height=\"20\" fill=\"currentColor\" class=\"bi bi-bag\" viewBox=\"0 0 16 16\">\n" +
+                                "                        <path d=\"M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z\"></path>\n" +
+                                "                    </svg>\n" +
+                                "                    Aggiungi al Carrello</a>\n" +
+                                "            </div>\n", articoloBean.getNome().toUpperCase(), articoloBean.getPrezzo(), articoloBean.getIdArticolo(), articoloBean.getIdArticolo());
+                        break;
+                    case "pc":
+                        html += String.format(" <div class=\"product-box\">\n" +
+                                "                <img src=\"../immagini/pc1.jpg\" alt=\"\" class=\"product-img\">\n" +
+                                "                <h2 class=\"product-title\">%s &nbsp;\n" +
+                                "                    &nbsp;Prezzo:&nbsp;%s&euro;</h2>\n" +
+                                "                <a class=\"btn\" href=\"../articolo?idArticolo=%s\">Vai al Prodotto</a>\n" +
+                                "                <a class=\"btn\" id=\"aggiungiCarrello\" href=\"../aggiungicarrello?idArticolo=%s&amp;qta=1\">\n" +
+                                "                    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"25\" height=\"20\" fill=\"currentColor\" class=\"bi bi-bag\" viewBox=\"0 0 16 16\">\n" +
+                                "                        <path d=\"M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z\"></path>\n" +
+                                "                    </svg>\n" +
+                                "                    Aggiungi al Carrello</a>\n" +
+                                "            </div>\n", articoloBean.getNome().toUpperCase(), articoloBean.getPrezzo(), articoloBean.getIdArticolo(), articoloBean.getIdArticolo());
+                        break;
+                    case "cpu":
+                        html += String.format(" <div class=\"product-box\">\n" +
+                                "                <img src=\"../immagini/cpu1.jpg\" alt=\"\" class=\"product-img\">\n" +
+                                "                <h2 class=\"product-title\">%s &nbsp;\n" +
+                                "                    &nbsp;Prezzo:&nbsp;%s&euro;</h2>\n" +
+                                "                <a class=\"btn\" href=\"../articolo?idArticolo=%s\">Vai al Prodotto</a>\n" +
+                                "                <a class=\"btn\" id=\"aggiungiCarrello\" href=\"../aggiungicarrello?idArticolo=%s&amp;qta=1\">\n" +
+                                "                    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"25\" height=\"20\" fill=\"currentColor\" class=\"bi bi-bag\" viewBox=\"0 0 16 16\">\n" +
+                                "                        <path d=\"M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z\"></path>\n" +
+                                "                    </svg>\n" +
+                                "                    Aggiungi al Carrello</a>\n" +
+                                "            </div>\n", articoloBean.getNome().toUpperCase(), articoloBean.getPrezzo(), articoloBean.getIdArticolo(), articoloBean.getIdArticolo());
+                        break;
+                    case "ram":
+                        html += String.format(" <div class=\"product-box\">\n" +
+                                "                <img src=\"../immagini/ram1.jpg\" alt=\"\" class=\"product-img\">\n" +
+                                "                <h2 class=\"product-title\">%s &nbsp;\n" +
+                                "                    &nbsp;Prezzo:&nbsp;%s&euro;</h2>\n" +
+                                "                <a class=\"btn\" href=\"../articolo?idArticolo=%s\">Vai al Prodotto</a>\n" +
+                                "                <a class=\"btn\" id=\"aggiungiCarrello\" href=\"../aggiungicarrello?idArticolo=%s&amp;qta=1\">\n" +
+                                "                    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"25\" height=\"20\" fill=\"currentColor\" class=\"bi bi-bag\" viewBox=\"0 0 16 16\">\n" +
+                                "                        <path d=\"M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z\"></path>\n" +
+                                "                    </svg>\n" +
+                                "                    Aggiungi al Carrello</a>\n" +
+                                "            </div>\n", articoloBean.getNome().toUpperCase(), articoloBean.getPrezzo(), articoloBean.getIdArticolo(), articoloBean.getIdArticolo());
+                        break;
+                    case "ssd":
+                        html += String.format(" <div class=\"product-box\">\n" +
+                                "                <img src=\"../immagini/ssd1.jpg\" alt=\"\" class=\"product-img\">\n" +
+                                "                <h2 class=\"product-title\">%s &nbsp;\n" +
+                                "                    &nbsp;Prezzo:&nbsp;%s&euro;</h2>\n" +
+                                "                <a class=\"btn\" href=\"../articolo?idArticolo=%s\">Vai al Prodotto</a>\n" +
+                                "                <a class=\"btn\" id=\"aggiungiCarrello\" href=\"../aggiungicarrello?idArticolo=%s&amp;qta=1\">\n" +
+                                "                    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"25\" height=\"20\" fill=\"currentColor\" class=\"bi bi-bag\" viewBox=\"0 0 16 16\">\n" +
+                                "                        <path d=\"M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z\"></path>\n" +
+                                "                    </svg>\n" +
+                                "                    Aggiungi al Carrello</a>\n" +
+                                "            </div>\n", articoloBean.getNome().toUpperCase(), articoloBean.getPrezzo(), articoloBean.getIdArticolo(), articoloBean.getIdArticolo());
+                        break;
+                    case "hdd":
+                        html += String.format(" <div class=\"product-box\">\n" +
+                                "                <img src=\"../immagini/hdd1.jpg\" alt=\"\" class=\"product-img\">\n" +
+                                "                <h2 class=\"product-title\">%s &nbsp;\n" +
+                                "                    &nbsp;Prezzo:&nbsp;%s&euro;</h2>\n" +
+                                "                <a class=\"btn\" href=\"../articolo?idArticolo=%s\">Vai al Prodotto</a>\n" +
+                                "                <a class=\"btn\" id=\"aggiungiCarrello\" href=\"../aggiungicarrello?idArticolo=%s&amp;qta=1\">\n" +
+                                "                    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"25\" height=\"20\" fill=\"currentColor\" class=\"bi bi-bag\" viewBox=\"0 0 16 16\">\n" +
+                                "                        <path d=\"M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z\"></path>\n" +
+                                "                    </svg>\n" +
+                                "                    Aggiungi al Carrello</a>\n" +
+                                "            </div>\n", articoloBean.getNome().toUpperCase(), articoloBean.getPrezzo(), articoloBean.getIdArticolo(), articoloBean.getIdArticolo());
+                        break;
+                }
             }
         }
         return html;
