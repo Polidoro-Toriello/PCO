@@ -141,7 +141,7 @@ public class ArticoloDao {
         Connection conn = null;
         PreparedStatement stmt = null;
         Collection<ArticoloBean> articoli = new ArrayList<ArticoloBean>();
-        String query = "SELECT * FROM articolo order by idarticolo desc limit 9";
+        String query = "SELECT * FROM articolo order by idarticolo desc limit 10";
         try {
             conn = ConnectionPool.conn();
             stmt = conn.prepareStatement(query);
