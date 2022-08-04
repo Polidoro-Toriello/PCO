@@ -16,7 +16,7 @@ if(manager == null)
 <%ArticoloDao dao =  new ArticoloDao(); %>
 
 <%
-    Collection<ArticoloBean> articoli = (Collection<ArticoloBean>) dao.doRetrieveAll();
+    Collection<ArticoloBean> articoli = (Collection<ArticoloBean>) dao.doRetrieveLastArrive();
 %>
 <html>
 <head>

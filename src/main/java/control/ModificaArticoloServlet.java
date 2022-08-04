@@ -35,6 +35,7 @@ public class ModificaArticoloServlet extends HttpServlet {
                 articolo.setIdArticolo(articolosessione.getIdArticolo());
                 if(dao.doModifyArticolo(articolo)){
                     session.setAttribute("alertMsg","Articolo modificato!");
+                    session.setAttribute("articolo",articolo);
                     resp.sendRedirect("view/ModificaArticolo.jsp");
                 }
             }catch (SQLException e) {

@@ -15,7 +15,7 @@
 %>
 <%
     ArticoloDao dao =  new ArticoloDao();
-    Collection<ArticoloBean> articoli = dao.doRetrieveAll();
+    Collection<ArticoloBean> articoli = dao.doRetrieveLastArrive();
     ArticoloBean articolomod = (ArticoloBean) session.getAttribute("articolo");
 %>
 <html>
@@ -36,7 +36,7 @@
 <div class="small-container single-product" style="width: 100%">
     <div class="row">
         <div class="col-2">
-            <img src="../immagini/<%=articolomod.getCategoria().toLowerCase()+"1"%>.jpg" id="product-img">
+            <img src="../immagini/<%=articolomod.getCategoria().toLowerCase()+"1"%>.jpg"  data-zoom-img="../immagini/<%=articolomod.getCategoria().toLowerCase()%>1.jpg" width="500px" height="500px" id="product-img">
             <div class="small-img-row">
                 <% for (int i = 1; i <= 4; i++) {%>
                 <div class="small-img-col">
@@ -50,7 +50,7 @@
             <div id="aggiunto" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
-                    <p>Articolo aggiunto al catalogo</p>
+                    <p><%=alert%></p>
                 </div>
             </div>
             <%}%>
@@ -70,13 +70,13 @@
                 <input type="number" id="prezzo" class="mb-2" name="Prezzo" min="1" value="<%=articolomod.getPrezzo()%>" step="0.01" style="width: 80px;">
                 <br>
                 <label for="categoria">Categoria:</label>
-                <select name="Categoria" value="<%=articolomod.getCategoria()%>" onchange="changeimages()" class="selectinput mb-2" id="categoria">
-                    <option  value="ram">RAM</option>
-                    <option value="cpu">CPU</option>
-                    <option value="gpu">GPU</option>
-                    <option value="ssd">SSD</option>
-                    <option value="hdd">HDD</option>
-                    <option value="pc">PC</option>
+                <select name="Categoria"  onchange="changeimages()" class="selectinput mb-2" id="categoria">
+                    <option  value="ram" <%if(articolomod.getCategoria().equalsIgnoreCase("ram")){%>selected<%}%>>RAM</option>
+                    <option value="cpu" <%if(articolomod.getCategoria().equalsIgnoreCase("cpu")){%>selected<%}%>>CPU</option>
+                    <option value="gpu" <%if(articolomod.getCategoria().equalsIgnoreCase("gpu")){%>selected<%}%>>GPU</option>
+                    <option value="ssd" <%if(articolomod.getCategoria().equalsIgnoreCase("ssd")){%>selected<%}%>>SSD</option>
+                    <option value="hdd" <%if(articolomod.getCategoria().equalsIgnoreCase("hdd")){%>selected<%}%>>HDD</option>
+                    <option value="pc" <%if(articolomod.getCategoria().equalsIgnoreCase("pc")){%>selected<%}%>>PC</option>
                 </select>
                 <br>
                 <label for="qta">Quantità disponibile:</label>
@@ -129,7 +129,6 @@
                 </h3>
                 <div class="subInfo">
                     <strong class="price"><%=articolo.getPrezzo()%>&euro;</strong>
-                    <a class="btn" href="#">Vai al Prodotto</a>
                     <a class="btn"
                        href="../rimuovicatalogo?idArticolo=<%=articolo.getIdArticolo()%>">
                         Rimuovi Prodotto</a>
@@ -156,24 +155,31 @@
             </div>
         </div>
     </div>
-    <script>
-        var product = document.getElementById("product-img");
-        var smallImg = document.getElementsByClassName("small-img");
-        smallImg[0].onclick = function () {
-            product.src = smallImg[0].src;
-        }
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/igorlino/elevatezoom-plus@1.2.3/src/jquery.ez-plus.js"></script>
+<script>
+    var product = document.getElementById("product-img");
+    var smallImg = document.getElementsByClassName("small-img");
+    $('#product-img').ezPlus();
+    smallImg[0].onclick = function () {
+        product.src = smallImg[0].src;
+        $('#product-img').ezPlus();
+    }
 
-        smallImg[1].onclick = function () {
-            product.src = smallImg[1].src;
-        }
-        smallImg[2].onclick = function () {
-            product.src = smallImg[2].src;
-        }
-        smallImg[3].onclick = function () {
-            product.src = smallImg[3].src;
-        }
-    </script>
-
+    smallImg[1].onclick = function () {
+        product.src = smallImg[1].src;
+        $('#product-img').ezPlus();
+    }
+    smallImg[2].onclick = function () {
+        product.src = smallImg[2].src;
+        $('#product-img').ezPlus();
+    }
+    smallImg[3].onclick = function () {
+        product.src = smallImg[3].src;
+        $('#product-img').ezPlus();
+    }
+</script>
     <script>
         // When the user clicks on <span> (x), close the modal
         var span = document.getElementsByClassName("close")[0];
@@ -189,10 +195,8 @@
             }
         }
     </script>
-
-    <script src="${pageContext.request.contextPath}/js/changeimages.js"></script>
         <% request.getSession().removeAttribute("alertMsg"); %>
 
+    <%@include file="./fragment/footer.jsp"%>
 </body>
-<%@include file="./fragment/footer.jsp"%>
 </html>

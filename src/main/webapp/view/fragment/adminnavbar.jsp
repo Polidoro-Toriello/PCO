@@ -40,12 +40,6 @@
                     <li><a class="navigation-bar" href="#">HDD</a></li>
                 </ul>
             </li>
-            <li><a class="navigation-bar" href="#">Accessori</a>
-                <ul class="dropdown">
-                    <li><a class="navigation-bar" href="#">Tastiere</a></li>
-                    <li><a class="navigation-bar" href="#">Mouse</a></li>
-                </ul>
-            </li>
             <li><a class="navigation-bar" href="#">PC Assemblati</a></li>
         </ul>
     </ul>
