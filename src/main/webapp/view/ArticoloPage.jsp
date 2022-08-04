@@ -11,8 +11,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <% ArticoloDao dao =  new ArticoloDao(); %>
 <%
-    Collection<ArticoloBean> articoli = dao.doRetrieveAll();
-    //Collection<ArticoloBean> articoli = session.getAttribute("articoli");
+    Collection<ArticoloBean> articoli = dao.doRetrieveLastArrive();
 %>
 <% UserBean utente = (UserBean) session.getAttribute("utente");%>
 <% session.setAttribute("paginaCorrente", "ArticoloPage.jsp");%>
