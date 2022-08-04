@@ -9,11 +9,10 @@
 <% UserBean manager = (UserBean) session.getAttribute("manager"); %>
 <% session.setAttribute("paginaCorrente", "Home.jsp");%>
 <% String aggiunto = (String) session.getAttribute("alertMsg"); %>
-<% ArticoloDao dao = new ArticoloDao(); %>
 <% Random rand = new Random();%>
 
 <%
-    Collection<ArticoloBean> articoli = dao.doRetrieveAll();
+    Collection<ArticoloBean> articoli = (Collection<ArticoloBean>) session.getAttribute("articoli");
 %>
 <html>
 <head>

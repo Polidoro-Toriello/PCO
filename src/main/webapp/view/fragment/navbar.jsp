@@ -37,7 +37,7 @@
     <img src="" alt="">
     <ul class="menu">
         <ul>
-            <li><a class="navigation-bar" href="Home.jsp">Home</a></li>
+            <li><a class="navigation-bar" href="../home">Home</a></li>
             <li><a class="navigation-bar" href="../catalogoarticoli?categoria=tutti">Shop</a>
             <li><a class="navigation-bar" href="#">Componenti PC</a>
                 <ul class="dropdown">
