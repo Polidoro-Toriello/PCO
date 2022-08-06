@@ -24,23 +24,23 @@
     <img src="" alt="">
     <ul class="menu">
         <ul>
-            <li><a class="navigation-bar" href="#">Home</a></li>
-            <li><a class="navigation-bar" href="#">Shop</a>
+            <li><a class="navigation-bar" href="HomeAdmin.jsp">Home</a></li>
+            <li><a class="navigation-bar" href="../catalogoarticoliadmin?categoria=tutti">Shop</a>
             <li><a class="navigation-bar" href="#">Componenti PC</a>
                 <ul class="dropdown">
-                    <li><a class="navigation-bar" href="#">RAM</a></li>
-                    <li><a class="navigation-bar" href="#">CPU</a></li>
-                    <li><a class="navigation-bar" href="#">GPU</a></li>
+                    <li><a class="navigation-bar" href="../catalogoarticoliadmin?categoria=RAM">RAM</a></li>
+                    <li><a class="navigation-bar" href="../catalogoarticoliadmin?categoria=CPU">CPU</a></li>
+                    <li><a class="navigation-bar" href="../catalogoarticoliadmin?categoria=GPU">GPU</a></li>
 
                 </ul>
             </li>
             <li><a class="navigation-bar" href="#">Periferiche PC</a>
                 <ul class="dropdown">
-                    <li><a class="navigation-bar" href="#">SSD</a></li>
-                    <li><a class="navigation-bar" href="#">HDD</a></li>
+                    <li><a class="navigation-bar" href="../catalogoarticoliadmin?categoria=SSD">SSD</a></li>
+                    <li><a class="navigation-bar" href="../catalogoarticoliadmin?categoria=HDD">HDD</a></li>
                 </ul>
             </li>
-            <li><a class="navigation-bar" href="#">PC Assemblati</a></li>
+            <li><a class="navigation-bar" href="../catalogoarticoliadmin?categoria=PC">PC Assemblati</a></li>
         </ul>
     </ul>
 </nav>
