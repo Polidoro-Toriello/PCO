@@ -107,7 +107,7 @@ public class RicercaUtenteServlet extends HttpServlet {
                         "            <td>\n" +
                         "                <p>%s</p>\n" +
                         "            </td>\n" +
-                        "        </tr>",user.getNome(),user.getCognome(),emailutente,user.getUsername());
+                        "        </tr>",user.getNome(),user.getCognome(),user.getEmail(),user.getUsername());
                 html += " </tbody>\n";
                 break;
         }

@@ -57,7 +57,7 @@ public class UserDao {
 
         Connection conn = null;
         UserBean risultato = null;
-        String sql = "SELECT * FROM utente WHERE email LIKE ? ";
+        String sql = "SELECT * FROM utente WHERE email LIKE ? AND admin = 0";
         PreparedStatement stmt = null;
 
         try {
@@ -72,10 +72,10 @@ public class UserDao {
                 String cognome = set.getString("cognome");
                 String username = set.getString("username");
                 String password = set.getString("password");
-                int admin = set.getInt("admin");
-                boolean isadmin = admin == 0 ? false : true;
+                String userEmail = set.getString("email");
+                boolean isadmin = false;
 
-                risultato = new UserBean(nome, cognome, username, password, email, true, isadmin);
+                risultato = new UserBean(nome, cognome, username, password, userEmail, true, isadmin);
             }
 
         } catch (SQLException e) {
