@@ -128,7 +128,6 @@
                 </h3>
                 <div class="subInfo">
                     <strong class="price"><%=articolo.getPrezzo()%>&euro;</strong>
-                    <a class="btn" href="#">Vai al Prodotto</a>
                     <a class="btn"
                        href="../rimuovicatalogo?idArticolo=<%=articolo.getIdArticolo()%>">
                         Rimuovi Prodotto</a>
@@ -155,6 +154,7 @@
             </div>
         </div>
     </div>
+</div>
 <script>
     var product = document.getElementById("product-img");
     var smallImg = document.getElementsByClassName("small-img");
@@ -191,7 +191,6 @@
 
 <script src="${pageContext.request.contextPath}/js/changeimages.js"></script>
 <% request.getSession().removeAttribute("alertMsg"); %>
-
+    <%@include file="./fragment/footer.jsp"%>
 </body>
-<%@include file="./fragment/footer.jsp"%>
 </html>

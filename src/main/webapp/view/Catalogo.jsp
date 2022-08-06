@@ -93,8 +93,6 @@
             <option name="HDD">HDD</option>
             <option name="SSD">SSD</option>
             <option name="PC">PC</option>
-            <option name="tastiera" value="tastiera">Tastiera</option>
-            <option name="mouse" value="mouse">Mouse</option>
         </select>
     </div>
     <div class="wrapper">

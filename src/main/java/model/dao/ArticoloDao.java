@@ -88,8 +88,9 @@ public class ArticoloDao {
             stmt = conn.prepareStatement(query);
             stmt.setString(1, categoria);
             ResultSet rs = stmt.executeQuery();
-            ArticoloBean articoloBean = new ArticoloBean();
+            ArticoloBean articoloBean = null;
             while (rs.next()) {
+                articoloBean = new ArticoloBean();
                 articoloBean.setIdArticolo(rs.getInt("idarticolo"));
                 articoloBean.setNome(rs.getString("nome"));
                 articoloBean.setCategoria(rs.getString("categoria"));
