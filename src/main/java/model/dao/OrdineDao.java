@@ -201,4 +201,65 @@ public class OrdineDao {
     }
 
 
+    public synchronized Collection<OrdineBean> doRetrieveByUsername(String username) throws SQLException{
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        String sql = "SELECT o.idordine,o.stato,o.totale,o.data FROM ordine o,utente u WHERE o.email = u.email AND u.username = ?";
+        Collection<OrdineBean> ordini = new ArrayList<>();
+        try {
+            conn = ConnectionPool.conn();
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1,username);
+            ResultSet result = stmt.executeQuery();
+            while(result.next()) {
+                int id = result.getInt("idordine");
+                String stato = result.getString("stato");
+                float totale = result.getFloat("totale");
+                Date data = result.getDate("data");
+                ordini.add(new OrdineBean(id,stato,totale,data));
+            }
+        }
+        catch(SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if(stmt != null)
+                stmt.close();
+            if(conn != null)
+                conn.close();
+        }
+
+        return ordini;
+    }
+
+
+    public synchronized Collection<OrdineBean> doRetrieveByDate(String fromDate,String toDate) throws SQLException {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        String sql = "SELECT idordine,stato,totale,data FROM ordine WHERE data >= ? AND data <= ?";
+        Collection<OrdineBean> ordini = new ArrayList<>();
+        try {
+            conn = ConnectionPool.conn();
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1,fromDate);
+            stmt.setString(2,toDate);
+            ResultSet result = stmt.executeQuery();
+            while(result.next()) {
+                int id = result.getInt("idordine");
+                String stato = result.getString("stato");
+                float totale = result.getFloat("totale");
+                Date data = result.getDate("data");
+                ordini.add(new OrdineBean(id,stato,totale,data));
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if(stmt != null)
+                stmt.close();
+            if(conn != null)
+                conn.close();
+        }
+
+        return ordini;
+    }
+
 }

@@ -12,7 +12,7 @@
             </a>
                 <ul class="dropdown">
                     <li><a href="AddArticolo.jsp">Inserisci prodotto</a></li>
-                    <li><a href="#">Visualizza ordini</a></li>
+                    <li><a href="ViewOrdini.jsp">Visualizza ordini</a></li>
                     <li><a href="../visualizzautenti">Visualizza utenti</a></li>
                     <li><a href="../logout">Logout</a></li>
                 </ul>

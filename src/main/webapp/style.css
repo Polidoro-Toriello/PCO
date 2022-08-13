@@ -1144,6 +1144,10 @@ span {
     text-align: center;
 }
 
+#formdata{
+    display:none;
+}
+
 @media screen and (max-width: 1023px) {
     .menu, .navigation-bar {
         font-size: 15px;

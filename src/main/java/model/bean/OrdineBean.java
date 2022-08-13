@@ -52,6 +52,14 @@ public class OrdineBean {
         this.data = data;
     }
 
+    public OrdineBean(int numeroOrdine, String stato, float totale, Date data) {
+        this.numeroOrdine = numeroOrdine;
+        this.stato = stato;
+        this.totale = totale;
+        this.data = data;
+    }
+
+
     public OrdineBean(float totale, String stato, String emailutente, int idIndirizzo, int idMetodo) {
         this.totale = totale;
         this.stato = stato;
