@@ -42,6 +42,8 @@ public class ConfirmAcquisto extends HttpServlet {
                         session.setAttribute("indirizzo", indirizzoDao.doRetrieveById(ordine.getIdIndirizzo()));
                         session.setAttribute("ordine", ordineDao.doRetrieveById(idOrdine));
                         session.setAttribute("metodo", metodoPagamentoDao.doRetrieveById(Integer.parseInt(req.getParameter("idMetodo"))));
+                        session.setAttribute("articoliOrdine",carrello.getArticoli());
+                        session.removeAttribute("carrello");
                         resp.sendRedirect("view/OrdineEffettuato.jsp");
                     }
                 } else {
