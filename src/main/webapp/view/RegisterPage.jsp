@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <title>Title</title>
+    <title>Registrazione PCO</title>
     <!-- Meta Tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,7 +39,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7N7LGGGWT1"></script>
 </head>
-<body>
+<body onload="setFocusRegisterPage()">
 
 <main role="main">
     <section class="p-0 d-flex align-items-center position-relative overflow-hidden">
@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                             <div class="mb-4">
-                                <label for="Nome" class="form-label">Cognome</label>
+                                <label for="Cognome" class="form-label">Cognome</label>
                                 <div class="input-group input-group-lg">
                                         <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3">
                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -183,5 +183,6 @@
 <!-- Template Functions -->
 <script src="../assets/js/functions.js"></script>
 <script src="../js/validazioneInput.js"></script>
+<script src="../js/setFocus.js"></script>
 </body>
 </html>

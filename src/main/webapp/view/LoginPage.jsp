@@ -39,7 +39,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7N7LGGGWT1"></script>
 </head>
-<body>
+<body onload="setFocusLoginPage()">
 
 <main role="main">
     <section class="p-0 d-flex align-items-center position-relative overflow-hidden">
@@ -130,5 +130,6 @@
 <!-- Template Functions -->
 <script src="../assets/js/functions.js"></script>
 <script src="../js/validazioneInput.js"></script>
+<script src="../js/setFocus.js"></script>
 </body>
 </html>

@@ -30,7 +30,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body onload="setFocusAddArticolo()">
 <%@include file="./fragment/adminnavbar.jsp" %>
 <div class="small-container single-product" style="width: 100%">
     <div class="row">
@@ -190,6 +190,7 @@
 </script>
 
 <script src="${pageContext.request.contextPath}/js/changeimages.js"></script>
+<script src="../js/setFocus.js"></script>
 <% request.getSession().removeAttribute("alertMsg"); %>
     <%@include file="./fragment/footer.jsp"%>
 </body>

@@ -1,4 +1,5 @@
-<%@ page import="model.bean.*" %><%--
+<%@ page import="model.bean.*" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: nucle
   Date: 25/07/2022
@@ -14,13 +15,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/appFunction.js"></script>
     <link rel="stylesheet" href="../invoice.css">
-    <title>Title</title>
+    <title>Ordine effettuato</title>
 </head>
 <body>
-<% Carrello carrello = (Carrello) session.getAttribute("carrello");
+<% ArrayList<ArticoloCarrello> carrello = (ArrayList<ArticoloCarrello>) session.getAttribute("articoliOrdine");
     OrdineBean ordineBean = (OrdineBean) session.getAttribute("ordine");
     IndirizzoBean indirizzo = (IndirizzoBean) session.getAttribute("indirizzo");
     MetodoBean metodo = (MetodoBean) session.getAttribute("metodo");
+    float totale = 0;
 %>
 <div class="container" id="container">
     <div class="row">
@@ -82,7 +84,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <% for (ArticoloCarrello articoloCarrello : carrello.getArticoli()) {%>
+                            <% for (ArticoloCarrello articoloCarrello : carrello) {%>
                             <tr>
                                 <td><%=articoloCarrello.getProduct().getNome()%>
                                 </td>
@@ -93,12 +95,13 @@
                                 <td class="text-right">
                                         <%=articoloCarrello.getProduct().getPrezzo() * articoloCarrello.getQta()%>&euro;
                                 </td>
+                                <%totale = totale + articoloCarrello.getQta() * articoloCarrello.getProduct().getPrezzo(); %>
                                     <%}%>
                             <tr>
                                 <td class="no-line"></td>
                                 <td class="no-line"></td>
                                 <td class="no-line text-center"><strong>Totale</strong></td>
-                                <td class="no-line text-right"><%=carrello.getTotale()%>&euro;
+                                <td class="no-line text-right"><%=totale%> &euro;
                                 </td>
                             </tr>
                             </tbody>
