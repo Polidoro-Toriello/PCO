@@ -11,8 +11,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <% ArticoloDao dao =  new ArticoloDao(); %>
 <%
-    Collection<ArticoloBean> articoli = dao.doRetrieveAll();
-    //Collection<ArticoloBean> articoli = session.getAttribute("articoli");
+    Collection<ArticoloBean> articoli = dao.doRetrieveLastArrive();
 %>
 <% UserBean utente = (UserBean) session.getAttribute("utente");%>
 <% session.setAttribute("paginaCorrente", "ArticoloPage.jsp");%>
@@ -26,9 +25,8 @@ if(articoloBean==null){
 
 <html>
 <head>
-    <title>Title</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/igorlino/elevatezoom-plus@1.2.3/src/jquery.ez-plus.js"></script>
+    <title>Dettagli articolo</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;500&display=swap" rel="stylesheet">
@@ -186,6 +184,8 @@ if(articoloBean==null){
 </div>
 <%@include file="./fragment/footer.jsp" %>
 <!--- galleria ---->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/igorlino/elevatezoom-plus@1.2.3/src/jquery.ez-plus.js"></script>
 <script>
     var product = document.getElementById("product-img");
     var smallImg = document.getElementsByClassName("small-img");
@@ -209,5 +209,6 @@ if(articoloBean==null){
     }
 
 </script>
+
 </body>
 </html>

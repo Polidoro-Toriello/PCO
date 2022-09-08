@@ -5,167 +5,145 @@
     padding: 0;
 }
 
-.menu, .navigation-bar {
-    display: inline-block;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 600;
-    font-size: 30px;
-    color: #122325;
+.navbar {
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.navbar a {
     text-decoration: none;
 }
 
-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 10%;
+.navbar li {
+    list-style: none;
 }
 
+.nav-links a {
+    color: #122325;
+}
+
+/* LOGO */
+.logo img {
+    width: 171px;
+    height: 80px;
+}
+
+/* NAVBAR MENU */
 .menu {
-    list-style: none;
+    display: flex;
+    gap: 1em;
+    font-size: 18px;
+}
+
+/* CHECKBOX HACK */
+input[type=checkbox] {
+    display: none;
+}
+
+/*HAMBURGER MENU*/
+.hamburger {
+    display: none;
+    font-size: 24px;
+    user-select: none;
+}
+
+/* APPLYING MEDIA QUERIES */
+@media (max-width: 1169px) {
+    .navbar a {
+        list-style: none;
+        text-decoration: none;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        background-color: #3B5998;
+        right: 0;
+        left: 0;
+        text-align: center;
+        padding: 16px 0;
+    }
+
+    .menu li:hover {
+        display: inline-block;
+        background-color: #4c9e9e;
+        transition: 0.3s ease;
+    }
+
+    .menu li + li {
+        margin-top: 12px;
+    }
+
+    input[type=checkbox]:checked ~ .menu {
+        display: block;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .dropdown {
+        left: 50%;
+        top: 30px;
+        transform: translateX(35%);
+    }
+
+    .dropdown li:hover {
+        background-color: #4c9e9e;
+    }
+}
+
+.menu li:hover {
+    background-color: #007cc7;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.menu a:hover {
+    color: white;
 }
 
 .menu li {
-    list-style: none;
-    margin: 0 auto;
-    border-left: 2px solid #3ca0e7;
-    display: inline-block;
-    padding: 0 30px;
+    padding: 5px 14px;
+}
+
+/* DROPDOWN MENU */
+.services {
     position: relative;
-    text-decoration: none;
+}
+
+.dropdown {
+    background-color: #fff;
+    padding: 1em 0;
+    position: absolute; /*WITH RESPECT TO PARENT*/
+    display: none;
+    top: 35px;
+    border: 1px solid #064f8a;
+}
+
+.dropdown li + li {
+    margin-top: 10px;
+}
+
+.dropdown li {
+    padding: 0.5em 1em;
+    width: 8em;
     text-align: center;
-    font-family: 'IBM Plex Sans', sans-serif;
 }
 
-.menu li .navigation-bar {
-    transition: all .3s ease;
+.dropdown li:hover {
+    background-color: #007cc7;
 }
 
-.menu ul li ul {
-    visibility: hidden;
-    opacity: 0;
-    position: absolute;
-    padding-left: 0;
-    left: 0;
-    display: none;
-    background: white;
-}
-
-.profile li {
-    list-style: none;
-    list-style: none;
-    display: inline-block;
-    position: relative;
-    text-decoration: none;
-    text-align: right;
-    font-family: 'IBM Plex Sans', sans-serif;
-}
-
-.profile ul li ul {
-    visibility: hidden;
-    opacity: 0;
-    position: absolute;
-    display: none;
-    background: white;
-}
-
-.profile ul li:hover > ul,
-ul li ul:hover {
-    visibility: visible;
-    opacity: 1;
-    font-family: 'IBM Plex Sans', sans-serif;
+.services:hover .dropdown {
     display: block;
-    min-width: 250px;
-    text-align: right;
-}
-
-.profile ul li ul li {
-    clear: both;
-    width: 100%;
-    padding: initial;
-    text-align: right;
-    border-style: none;
-}
-
-ul li:hover > ul,
-ul li ul:hover {
-    visibility: visible;
-    opacity: 1;
-    font-family: 'IBM Plex Sans', sans-serif;
-    display: block;
-    min-width: 250px;
-    text-align: right;
-    padding-top: 5px;
-    box-shadow: 0 3px 5px -1px #ccc;
-}
-
-ul li ul li {
-    clear: both;
-    width: 100%;
-    text-align: right;
-    margin-bottom: 20px;
-    border-style: none;
-}
-
-ul li ul li a:hover {
-    padding-right: 10px;
-    color: #122325;
-    transition: all 0.3s ease;
-}
-
-.menu a {
-    text-decoration: none;
-}
-
-.menu .navigation-bar:hover {
-    color: #007cc7;
-}
-
-.head {
-    display: flex;
-    padding: 10px 10%;
-    border-bottom: 1px solid #eee;
-    min-height: 49px;
-    list-style: none;
-    text-align: right;
-    justify-content: flex-end;
-}
-
-.head .logo {
-    justify-content: end;
-    padding-top: -4%;
-    padding-right: 60%;
-
-    font-family: 'Shizuru', cursive;;
-}
-
-.logo img {
-    object-fit: cover;
-}
-
-.head li {
-    display: inline-block;
-    list-style: none;
-    padding-right: 5px;
-    font-family: 'Quicksand', sans-serif;
-}
-
-.head a {
-    color: #D2D2D2;
-    text-decoration: none;
-    margin-right: 20px;
-    margin-top: 25px;
-    display: flex;
-}
-
-.head a:hover {
-    color: black;
-}
-
-.cta {
 }
 
 .hero {
+    margin-top: 56px;
     border-radius: 8px;
     background: #007cc7;
     display: flex;
@@ -767,7 +745,7 @@ input:focus {
     justify-content: space-between;
     max-width: 400px;
     padding: 10px 0;
-    position: relative;
+    position: inherit;
     margin: 0px 0px 5% 90%;
 }
 
@@ -824,6 +802,7 @@ label.btn {
 }
 
 .card {
+    position: inherit;
     background-clip: padding-box;
     box-shadow: 0 1px 4px rgba(24, 28, 33, 0.012);
 }
@@ -1144,95 +1123,12 @@ span {
     text-align: center;
 }
 
-#formdata{
-    display:none;
+#formdata {
+    display: none;
 }
 
-@media screen and (max-width: 1023px) {
-    .menu, .navigation-bar {
-        font-size: 15px;
 
-    }
-
-    nav {
-        padding: 0;
-        margin: 0 -10% 0 -19%;
-    }
-
-    .head .logo {
-        padding-right: 0;
-        margin-right: -20%;
-    }
-
-    .head li {
-        margin-right: -60%;
-        padding-right: 250px;
-    }
-
-    .filtro {
-        margin: 50px 0px 5% 50%;
-    }
-
-    .btnCarrello {
-        padding: 0% 110%;
-    }
-
-    #btnPiccolo {
-        background-color: #007cc7;
-        font-size: 8px;
-        width: 90%;
-        margin: 10px 0 0 -20%;
-    }
-
-    .carrelloButton {
-        margin: 0 auto 0 50%;
-    }
-
-    .customer-pay, .customer-info {
-        padding: 20px;
-        margin-top: 30px;
-        margin-left: auto;
-        background-color: #ffffff;
-        border: 0.5px solid #cccccc;
-    }
-
-    .profile ul li:hover > ul, ul li ul:hover {
-        visibility: visible;
-        opacity: 1;
-        z-index: 2;
-        font-family: 'IBM Plex Sans', sans-serif;
-        display: block;
-        z-index: 2;
-        margin-bottom: 50%;
-        min-width: 130px;
-        text-align: right;
-    }
-
-    .profile ul li ul li {
-        margin: auto 10% 15%;
-    }
-
-}
 @media screen and (max-width: 1024px) {
-    .menu, .navigation-bar {
-        font-size: 15px;
-
-    }
-
-    nav {
-        padding: 0;
-        margin: 0 -10% 0 -19%;
-    }
-
-    .head .logo {
-        padding-right: 0;
-        margin-right: 23%;
-    }
-
-    .head li {
-        margin-right: -60%;
-        padding-right: 250px;
-    }
 
     .filtro {
         margin: 50px 0px 5% 50%;
@@ -1278,27 +1174,8 @@ span {
     }
 
 }
+
 @media screen and (max-width: 1280px) {
-    .menu, .navigation-bar {
-        font-size: 15px;
-
-    }
-
-    nav {
-        padding: 0;
-        margin: 8px -31% 0px -34%;
-    }
-
-    .head .logo {
-        padding-right: 0;
-        margin-right: 23%;
-    }
-
-    .head li {
-        margin-right: -60%;
-        padding-right: 250px;
-    }
-
     .filtro {
         margin: 50px 0px 5% 50%;
     }
@@ -1342,75 +1219,49 @@ span {
         margin: auto 10% 15%;
     }
 
+}
+@media screen and (max-width: 736px) {
+    .brands{
+        display: none;
+    }
+    .hero {
+        height: 71%;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 576px) {
+    .brands{
+        display: none;
+    }
+    .col-2 h1{
+        font-size: 34px;
+    }
+    .col-2 p{
+        font-size: 20px;
+    }
 }
 @media screen and (max-width: 414px) {
+    .brands{
+        display: none;
+    }
     .hero {
         height: 50%;
         width: 100%;
     }
 
     .col-2 p {
-        font-size: 20px;
+        font-size: 15px;
     }
 
     .col-2 h1 {
         margin-bottom: 0%;
-        font-size: 35px;
+        font-size: 25px;
     }
 
     .col-2 img {
         margin: auto;
         width: 100%;
         padding: 13%;
-    }
-
-    .menu, .navigation-bar {
-        font-size: 68%;
-
-    }
-
-    .menu li {
-        border-left: 0;
-        padding: 0 28px;
-        margin: -4%;
-    }
-
-    .head a {
-        font-size: 12px;
-        margin-right: -13px;
-        margin-left: 41px;
-    }
-
-    .logo img {
-        margin-top: 9.5%;
-        margin-left: 0%;
-        object-fit: cover;
-        width: 150px;
-        height: 50%;
-    }
-
-    .head li {
-        display: inline-block;
-        list-style: none;
-        margin-right: 0%;
-        padding-right: 0%;
-        font-family: 'Quicksand', sans-serif;
-    }
-
-    .profile ul li:hover > ul, ul li ul:hover {
-        visibility: visible;
-        opacity: 1;
-        z-index: 2;
-        font-family: 'IBM Plex Sans', sans-serif;
-        display: block;
-        padding: 10px;
-        margin-bottom: 48%;
-        min-width: 19px;
-        text-align: right;
-    }
-
-    .menu li .navigation-bar {
-        margin-bottom: 3px;
     }
 
     .articoliHome .box-container .box .info h3 {
@@ -1468,49 +1319,62 @@ span {
     .profile ul li ul li a {
         margin: auto 0% 2%;
     }
+
     .card-body {
         flex: 1 1 auto;
         padding: 1rem 1rem;
         text-align: center;
         width: 121%;
     }
-    .accordion{
+
+    .accordion {
         margin-left: 12%;
     }
-    .rimuovi{
+
+    .rimuovi {
         margin: 12px 0 0 25%;
     }
-    td{
+
+    td {
         font-size: 8px;
     }
-    .card overflow-hidden .riga .col-sm-4{
+
+    .card overflow-hidden .riga .col-sm-4 {
         min-width: 100%;
     }
-    #table-scroll{
+
+    #table-scroll {
         margin-left: 14px;
     }
+
     #table-wrapper {
         height: 481px;
         width: 351px;
         margin-top: 5%;
     }
-    #title{
+
+    #title {
         text-align: center;
     }
-    .single-product input{
+
+    .single-product input {
         padding-right: 195px;
     }
-    #product-img{
+
+    #product-img {
         height: 50%;
     }
-    .modal-content{
+
+    .modal-content {
         width: 80%;
         margin: 0 22px 0 22px;
     }
-    .carrelloButton{
+
+    .carrelloButton {
         margin: 0%;
     }
-    .customer-order{
+
+    .customer-order {
         position: relative;
         width: 100%;
     }
