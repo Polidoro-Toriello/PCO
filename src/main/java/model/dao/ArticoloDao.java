@@ -143,12 +143,13 @@ public class ArticoloDao {
         PreparedStatement stmt = null;
         Collection<ArticoloBean> articoli = new ArrayList<ArticoloBean>();
         String query = "SELECT * FROM articolo order by idarticolo desc limit 10";
+        ArticoloBean articoloBean;
         try {
             conn = ConnectionPool.conn();
             stmt = conn.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                ArticoloBean articoloBean = new ArticoloBean();
+                articoloBean = new ArticoloBean();
                 articoloBean.setIdArticolo(rs.getInt("idarticolo"));
                 articoloBean.setNome(rs.getString("nome"));
                 articoloBean.setCategoria(rs.getString("categoria"));

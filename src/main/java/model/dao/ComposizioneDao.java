@@ -103,5 +103,38 @@ public class ComposizioneDao {
         return check;
     }
 
+    public Collection<ComposizioneOrdine> doRetrieveByIdOrdine(int idordine) throws SQLException{
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        Collection<ComposizioneOrdine> composizioni = new ArrayList<>();
+        String query = "SELECT * FROM Ordine o,Composizione c where o.idordine=c.idordine and o.idordine = ?";
+        try {
+            conn = ConnectionPool.conn();
+            stmt = conn.prepareStatement(query);
+            stmt.setInt(1, idordine);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                ComposizioneOrdine composizioneOrdine = new ComposizioneOrdine();
+                composizioneOrdine.setQuantita(rs.getInt("quantita"));
+                composizioneOrdine.setPrezzo(rs.getInt("prezzo"));
+                composizioneOrdine.setIva(rs.getInt("iva"));
+                composizioneOrdine.setIdOrdine(rs.getInt("idordine"));
+                composizioneOrdine.setNome(rs.getString("nome"));
+                composizioneOrdine.setDescrizione("descrizione");
+                composizioni.add(composizioneOrdine);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (stmt != null)
+                stmt.close();
+            if (conn != null)
+                conn.close();
+        }
+        return composizioni;
+    }
+
+
 }
 
