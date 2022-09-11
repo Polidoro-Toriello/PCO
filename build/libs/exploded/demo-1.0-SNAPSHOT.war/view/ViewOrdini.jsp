@@ -100,6 +100,7 @@
           <th>Stato</th>
           <th>Totale</th>
           <th>Data</th>
+          <th>Dettaglio</th>
         </tr>
         </thead>
         <tbody>
@@ -116,6 +117,9 @@
           </td>
           <td>
             <p><%=bean.getData()%></p>
+          </td>
+          <td>
+            <a class="link-detail" href="../dettaglioordineadmin?idordine=<%=bean.getNumeroOrdine()%>">Dettaglio</a>
           </td>
         </tr>
         <%}%>

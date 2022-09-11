@@ -11,6 +11,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+    z-index: 300;
 }
 
 .navbar a {
@@ -746,7 +747,7 @@ input:focus {
     max-width: 400px;
     padding: 10px 0;
     position: inherit;
-    margin: 0px 0px 5% 90%;
+    margin: 50% 0px 5% 70%;
 }
 
 .textarea {
@@ -1127,6 +1128,10 @@ span {
     display: none;
 }
 
+.link-detail {
+    color: #007cc7;
+    text-decoration: underline;
+}
 
 @media screen and (max-width: 1024px) {
 
@@ -1220,30 +1225,37 @@ span {
     }
 
 }
+
 @media screen and (max-width: 736px) {
-    .brands{
+    .brands {
         display: none;
     }
+
     .hero {
         height: 71%;
         width: 100%;
     }
 }
+
 @media screen and (max-width: 576px) {
-    .brands{
+    .brands {
         display: none;
     }
-    .col-2 h1{
+
+    .col-2 h1 {
         font-size: 34px;
     }
-    .col-2 p{
+
+    .col-2 p {
         font-size: 20px;
     }
 }
+
 @media screen and (max-width: 414px) {
-    .brands{
+    .brands {
         display: none;
     }
+
     .hero {
         height: 50%;
         width: 100%;
@@ -1377,5 +1389,18 @@ span {
     .customer-order {
         position: relative;
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .filtro {
+        margin: 50px 0px 5% 0%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+
+    .shop-content {
+        grid-template-columns: repeat(2, minmax(22px, auto));
     }
 }
