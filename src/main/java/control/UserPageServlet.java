@@ -165,6 +165,7 @@ public class UserPageServlet extends HttpServlet {
                         "                                    <td>Email</td>\n" +
                         "                                    <td>Stato</td>\n" +
                         "                                    <td>Data</td>\n" +
+                        "                                    <td>Dettaglio</td>\n" +
                         "                                </tr>\n" +
                         "                                </tr>\n" +
                         "                                </thead>\n" +
@@ -177,6 +178,7 @@ public class UserPageServlet extends HttpServlet {
                                     "                                    <td class=\"col-xs-6\">%s</td>\n" +
                                     "                                    <td>%s</td>\n" +
                                     "                                    <td>%s</td>\n" +
+                                    "                                    <td><a class=\"link-detail\" href=\"../dettaglioordine?idordine="+ordine.getNumeroOrdine()+"\">"+"Dettaglio </a></td>\n"+
                                     "                                </tr>\n", ordine.getNumeroOrdine(), String.valueOf(ordine.getTotale()), ordine.getUtente(), ordine.getStato(), "" + ordine.getData());
                 }
                 html += "</tbody>\n" +

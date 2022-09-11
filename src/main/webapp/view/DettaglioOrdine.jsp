@@ -1,14 +1,14 @@
 <%--
   Created by IntelliJ IDEA.
   User: Riccardo
-  Date: 09/09/2022
-  Time: 20:57
+  Date: 11/09/2022
+  Time: 09:32
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="model.bean.ComposizioneOrdine" %>
-<% ArrayList<ComposizioneOrdine> articoli = (ArrayList<ComposizioneOrdine>) session.getAttribute("dettaglioordinead");%>
+<% ArrayList<ComposizioneOrdine> articoli = (ArrayList<ComposizioneOrdine>) session.getAttribute("dettaglioordine");%>
 <html>
 <head>
     <title>Dettaglio ordine</title>
