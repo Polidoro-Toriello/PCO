@@ -33,7 +33,7 @@
             <li><a class="navigation-bar" href="../catalogoarticoli?categoria=PC">PC Assemblati</a></li>
 
 
-            <%if (utente == null && manager == null) {%>
+            <%if(utente == null && manager == null) {%>
             <li><a href="LoginPage.jsp">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" fill="currentColor"
                      class="bi bi-person-fill"
