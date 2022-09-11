@@ -54,19 +54,23 @@
             </div>
             <%}%>
             <h3>Inserisci un nuovo prodotto</h3>
-            <form action="../addArticolo" method="get">
+            <form action="../addArticolo" method="get" onsubmit="return validateregproduct()">
                 <label for="nome">Nome prodotto:</label>
                 <input class="mb-2" type="text" id="nome" name="Nome" placeholder="nome" style="width: 200px;">
+                <div id="errorNome">
+                </div>
                 <br>
                 <label for="descrizione">Descrizione:</label>
                 <br>
                 <textarea class="textarea mb-2" placeholder="descrizione" id="descrizione" name="Descrizione" maxlength="2000"></textarea>
+                <div id="errorDescrizione">
+                </div>
                 <br>
                 <label for="iva">IVA:</label>
-                <input type="number" class="mb-2" name="IVA" id="iva" min="1" value="1" style="width: 50px;">
+                <input type="number" class="mb-2" name="IVA" id="iva" min="1" max="40" value="1" style="width: 50px;">
                 <br>
                 <label for="prezzo">Prezzo:</label>
-                <input type="number" id="prezzo" class="mb-2" name="Prezzo" min="1" value="1" step="0.01" style="width: 80px;">
+                <input type="number" id="prezzo" class="mb-2" name="Prezzo" min="1" max="3000" value="1" step="0.01" style="width: 80px;">
                 <br>
                 <label for="categoria">Categoria:</label>
                 <select name="Categoria"  onchange="changeimages()" class="selectinput mb-2" id="categoria">
@@ -79,7 +83,7 @@
                 </select>
                 <br>
                 <label for="qta">Quantità disponibile:</label>
-                <input type="number" class="mb-2" id="qta" name="Qta" value="1" min="1" >
+                <input type="number" class="mb-2" id="qta" name="Qta" value="1" min="1" max="15" >
                 <br>
                 <button class="btn" type="submit">Inserisci</button>
             </form>
@@ -191,6 +195,7 @@
 
 <script src="${pageContext.request.contextPath}/js/changeimages.js"></script>
 <script src="../js/setFocus.js"></script>
+<script src="../js/checkAddedProduct.js"></script>
 <% request.getSession().removeAttribute("alertMsg"); %>
     <%@include file="./fragment/footer.jsp"%>
 </body>

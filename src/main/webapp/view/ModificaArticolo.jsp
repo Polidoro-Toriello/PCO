@@ -55,11 +55,15 @@
             </div>
             <%}%>
             <h3>Modifica il prodotto</h3>
-            <form action="../modificaarticolo" method="get">
+            <form action="../modificaarticolo" method="get" onsubmit="return validateregproduct()">
                 <label for="nome">Nome prodotto:</label>
                 <input class="mb-2" type="text" id="nome" name="Nome" placeholder="nome" value="<%=articolomod.getNome()%>" style="width: 200px;">
+                <div id="errorNome">
+                </div>
                 <br>
                 <label for="descrizione">Descrizione:</label>
+                <div id="errorDescrizione">
+                </div>
                 <br>
                 <textarea class="textarea mb-2" placeholder="descrizione" id="descrizione"  name="Descrizione" maxlength="2000"><%=articolomod.getDescrizione()%>"</textarea>
                 <br>
@@ -200,5 +204,6 @@
     <%@include file="./fragment/footer.jsp"%>
 <script src="../js/changeimages.js"></script>
 <script src="../js/setFocus.js"></script>
+<script src="../js/checkAddedProduct.js"></script>
 </body>
 </html>
