@@ -1127,6 +1127,10 @@ span {
     display: none;
 }
 
+.link-detail{
+    color: #007cc7;
+    text-decoration: underline;
+}
 
 @media screen and (max-width: 1024px) {
 
