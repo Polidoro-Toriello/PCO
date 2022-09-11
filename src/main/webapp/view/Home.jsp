@@ -97,6 +97,54 @@
 <section class="articoliHome" id="articoliHome">
 
     <h2 class="title">Ultimi Arrivi</h2>
+
+    <div class="box-container">
+        <%for (ArticoloBean articolo : articoli) {%>
+        <div class="box">
+            <%if(articolo.getCategoria().equalsIgnoreCase("gpu")){%>
+            <div class="image">
+                <img src="<%="../immagini/gpu1.jpg"%>" alt="gpu">
+            </div>
+            <%}%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("pc")){%>
+            <div class="image">
+                <img src="<%="../immagini/pc1.jpg"%>" alt="pc">
+            </div>
+            <%}%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("cpu")){%>
+            <div class="image">
+                <img src="<%="../immagini/cpu1.jpg"%>" alt="cpu">
+            </div>
+            <%}%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("ram")){%>
+            <div class="image">
+                <img src="<%="../immagini/ram1.jpg"%>" alt="ram">
+            </div>
+            <%}%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("ssd")){%>
+            <div class="image">
+                <img src="<%="../immagini/ssd1.jpg"%>" alt="ssd">
+            </div>
+            <%}%>
+            <%if(articolo.getCategoria().equalsIgnoreCase("hdd")){%>
+            <div class="image">
+                <img src="<%="../immagini/hdd1.jpg"%>" alt="hdd">
+            </div>
+            <%}%>
+            <div class="info">
+                <h3><%=articolo.getNome()%>
+                </h3>
+                <div class="subInfo">
+                    <strong class="price"><%=articolo.getPrezzo()%>&euro;</strong>
+                    <a class="btn"
+                       href="../articolo?idArticolo=<%=articolo.getIdArticolo()%>">
+                        Vai al prodotto</a>
+                    <a class="btn" href="../aggiungicarrello?idArticolo=<%=articolo.getIdArticolo()%>&qta=1">Acquista</a>
+                </div>
+            </div>
+        </div>
+        <%}%>
+    </div>
 </section>
 <div class="offer">
     <div class="small-container">
