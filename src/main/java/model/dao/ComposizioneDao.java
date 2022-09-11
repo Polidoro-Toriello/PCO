@@ -120,7 +120,7 @@ public class ComposizioneDao {
                 composizioneOrdine.setIva(rs.getInt("iva"));
                 composizioneOrdine.setIdOrdine(rs.getInt("idordine"));
                 composizioneOrdine.setNome(rs.getString("nome"));
-                composizioneOrdine.setDescrizione("descrizione");
+                composizioneOrdine.setDescrizione(rs.getString("descrizione"));
                 composizioni.add(composizioneOrdine);
             }
         } catch (SQLException e) {
