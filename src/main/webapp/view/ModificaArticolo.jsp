@@ -150,11 +150,11 @@
                 <img class="offer-img" src="../immagini/NicePng_gaming-computer-png_2167532.png" alt="">
             </div>
             <div class="col-2">
-                <p>Exclusively Available on PCO</p>
+                <p>Solo su PCO</p>
                 <h1>Hp Pavillion Gaming 15</h1>
-                <small>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque nostrum perspiciatis neque
-                    velit beatae maiores saepe ex quia rerum voluptate nihil, quisquam dolor minus voluptatibus,
-                    molestiae quis necessitatibus vero.</small>
+                <small>Hp Pavillion Gaming 15 è il miglior PC desktop in circolazione! RAM da 16GB fino a 3200Mhz di frequenza, SSD da
+                    1TB, scheda grafica NVIDIA RTX 3080 e un processore Intel i9 12900K. Acquista ora, solo su PCO!</small>
+                <br>
                 <input type="submit" class="btn" value="Acquista">
             </div>
         </div>
