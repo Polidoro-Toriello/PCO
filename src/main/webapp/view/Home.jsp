@@ -140,7 +140,11 @@
                     <a class="btn"
                        href="../articolo?idArticolo=<%=articolo.getIdArticolo()%>">
                         Vai al prodotto</a>
+                    <%if(articolo.getQtaDisponibile()>=1){%>
                     <a class="btn" href="../aggiungicarrello?idArticolo=<%=articolo.getIdArticolo()%>&qta=1">Acquista</a>
+                    <%}else{%>
+                    <a class="btn" href="#" disabled>Non disponibile</a>
+                    <%}%>
                 </div>
             </div>
         </div>
