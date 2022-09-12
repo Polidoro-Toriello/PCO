@@ -3,6 +3,9 @@ package model.bean;
 public class ArticoloCarrello {
     private ArticoloBean product;
     private int qta;
+
+    public ArticoloCarrello(){}
+
     public ArticoloCarrello(ArticoloBean product, int qta) {
         super();
         this.product = product;

@@ -97,7 +97,12 @@ if(articoloBean==null){
                     <input value="<%=articoloBean.getIdArticolo()%>" name="idArticolo" type="hidden">
                     <input class="qtaSelect" type="number" value="1" max="<%=articoloBean.getQtaDisponibile()%>"
                            name="qta">
-                    <input type="submit" class="btnCarrello" value=" Aggiungi al Carrello"></div>
+                    <%if(articoloBean.getQtaDisponibile()>=1){%>
+                    <input type="submit" class="btnCarrello" value=" Aggiungi al Carrello">
+                <%}else{%>
+                    <input type="button" class="btnCarrello" value="Non disponibile">
+                    <%}%>
+                </div>
             </form>
             <h3> Dettagli Prodotto</h3>
             <br>
@@ -150,14 +155,17 @@ if(articoloBean==null){
                 <div class="subInfo">
                     <strong class="price"><%=articolo.getPrezzo()%>&euro;</strong>
                     <a class="btn" href="../articolo?idArticolo=<%=articolo.getIdArticolo()%>">Vai al Prodotto</a>
+                    <%if(articolo.getQtaDisponibile()>=1){%>
                     <a class="btn" id="aggiungiCarrello"
                        href="../aggiungicarrello?idArticolo=<%=articolo.getIdArticolo()%>&qta=1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" fill="currentColor"
                              class="bi bi-bag" viewBox="0 0 16 16">
-                            <path
-                                    d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
                         </svg>
                         Aggiungi al Carrello</a>
+                    <%}else{%>
+                    <a class="btn" href="#" disabled>Non disponibile</a>
+                    <%}%>
                 </div>
             </div>
         </div>

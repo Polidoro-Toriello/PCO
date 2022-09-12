@@ -1,6 +1,7 @@
 package model.dao;
 
 import model.bean.ArticoloBean;
+import model.bean.ArticoloCarrello;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +10,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import static other.Utils.generatePwd;
 
 public class ArticoloDao {
     public Collection<ArticoloBean> doRetrieveAll() throws SQLException, ClassNotFoundException {
@@ -221,7 +221,31 @@ public class ArticoloDao {
         }
 
         return check;
-
-
     }
+
+
+    public boolean doUpdateQuantity(ArticoloCarrello ac) throws SQLException{
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        String sql = "UPDATE articolo SET qtadisponibile = qtadisponibile - ? WHERE idarticolo=? ";
+        try{
+            conn = ConnectionPool.conn();
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, ac.getQta());
+            stmt.setInt(2, ac.getProduct().getIdArticolo());
+            check = stmt.executeUpdate() == 1;
+            conn.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stmt != null)
+                stmt.close();
+            if (conn != null)
+                conn.close();
+        }
+
+        return check;
+    }
+
 }

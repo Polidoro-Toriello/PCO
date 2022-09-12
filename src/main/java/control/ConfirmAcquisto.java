@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 @WebServlet("/confirmAcquisto")
 public class ConfirmAcquisto extends HttpServlet {
@@ -24,6 +21,7 @@ public class ConfirmAcquisto extends HttpServlet {
         IndirizzoDao indirizzoDao = new IndirizzoDao();
         ComposizioneDao composizioneDao = new ComposizioneDao();
         OrdineDao ordineDao = new OrdineDao();
+        ArticoloDao articoloDao = new ArticoloDao();
         MetodoPagamentoDao metodoPagamentoDao = new MetodoPagamentoDao();
         UserBean userBean = (UserBean) session.getAttribute("utente");
         Carrello carrello = (Carrello) session.getAttribute("carrello");
@@ -35,7 +33,7 @@ public class ConfirmAcquisto extends HttpServlet {
                 ordine.setIdIndirizzo(Integer.parseInt(req.getParameter("idIndirizzo")));
                 ordine.setIdMetodo(Integer.parseInt(req.getParameter("idMetodo")));
                 ordine.setUtente(userBean.getEmail());
-                int idOrdine = OrdineDao.doInsertOrdine(ordine);
+                int idOrdine = ordineDao.doInsertOrdine(ordine);
                 if (idOrdine > 0) {
                     if (composizioneDao.insertComposizioneOrdine(carrello, idOrdine)) {
                         session.setAttribute("alertMsg", "Ordine Completato");
@@ -44,6 +42,8 @@ public class ConfirmAcquisto extends HttpServlet {
                         session.setAttribute("metodo", metodoPagamentoDao.doRetrieveById(Integer.parseInt(req.getParameter("idMetodo"))));
                         session.setAttribute("articoliOrdine",carrello.getArticoli());
                         session.removeAttribute("carrello");
+                        for(ArticoloCarrello ac: carrello.getArticoli())
+                            articoloDao.doUpdateQuantity(ac);
                         resp.sendRedirect("view/OrdineEffettuato.jsp");
                     }
                 } else {
