@@ -1,5 +1,6 @@
 <%@ page import="model.bean.*" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%--
   Created by IntelliJ IDEA.
   User: nucle
   Date: 25/07/2022
@@ -113,6 +114,9 @@
     </div>
 </div>
 <input type="submit" class="btnAdd" value="Scarica">
+<br>
+<br>
+<a class="btnAdd" href="Home.jsp">Torna alla home</a>
 <script>
     $(document).click(function () {
         var today = new Date();
