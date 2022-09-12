@@ -10,9 +10,10 @@
 <% session.setAttribute("paginaCorrente", "Home.jsp");%>
 <% String aggiunto = (String) session.getAttribute("alertMsg"); %>
 <% Random rand = new Random();%>
+<% ArticoloDao dao = new ArticoloDao();%>
 
 <%
-    Collection<ArticoloBean> articoli = (Collection<ArticoloBean>) session.getAttribute("articoli");
+    Collection<ArticoloBean> articoli = (Collection<ArticoloBean>) dao.doRetrieveLastArrive();
 %>
 <html>
 <head>
