@@ -95,7 +95,7 @@ if(articoloBean==null){
             <form action="../aggiungicarrello" method="get">
                 <div class="productPage-btn">
                     <input value="<%=articoloBean.getIdArticolo()%>" name="idArticolo" type="hidden">
-                    <input class="qtaSelect" type="number" value="1" max="<%=articoloBean.getQtaDisponibile()%>"
+                    <input class="qtaSelect" type="number" value="1" min="1" max="<%=articoloBean.getQtaDisponibile()%>"
                            name="qta">
                     <%if(articoloBean.getQtaDisponibile()>=1){%>
                     <input type="submit" class="btnCarrello" value=" Aggiungi al Carrello">
