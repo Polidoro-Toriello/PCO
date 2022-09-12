@@ -33,7 +33,7 @@ CREATE TABLE `articolo` (
   `categoria` varchar(45) NOT NULL,
   `qtadisponibile` int(11) NOT NULL,
   PRIMARY KEY (`idarticolo`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,19 +45,19 @@ DROP TABLE IF EXISTS `composizione`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `composizione` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `quantità` int(11) NOT NULL,
-  `nome` varchar(45) NOT NULL,
+  `quantita` int(11) NOT NULL,
+  `nome` varchar(250) NOT NULL,
   `prezzo` float NOT NULL,
-  `descrizione` varchar(2000) NOT NULL,
   `iva` int(11) NOT NULL,
   `idarticolo` int(11) DEFAULT NULL,
   `idordine` int(11) NOT NULL,
+  `descrizione` varchar(2000) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `composzionearticolo_idx` (`idarticolo`),
   KEY `composizioneordine_idx` (`idordine`),
-  CONSTRAINT `composizionearticolo` FOREIGN KEY (`idarticolo`) REFERENCES `articolo` (`idarticolo`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `articolo` FOREIGN KEY (`idarticolo`) REFERENCES `articolo` (`idarticolo`) ON DELETE SET NULL ON UPDATE SET NULL,
   CONSTRAINT `composizioneordine` FOREIGN KEY (`idordine`) REFERENCES `ordine` (`idordine`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -80,7 +80,7 @@ CREATE TABLE `indirizzo` (
   PRIMARY KEY (`codice`),
   KEY `utente_idx` (`utente`),
   CONSTRAINT `utente` FOREIGN KEY (`utente`) REFERENCES `utente` (`email`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,6 +91,7 @@ DROP TABLE IF EXISTS `metodopagamento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `metodopagamento` (
+  `idMetodo` int(11) NOT NULL AUTO_INCREMENT,
   `numerocarta` varchar(45) NOT NULL,
   `tipo` varchar(45) NOT NULL,
   `scadenza` varchar(45) NOT NULL,
@@ -98,10 +99,10 @@ CREATE TABLE `metodopagamento` (
   `nome` varchar(45) NOT NULL,
   `cognome` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
-  PRIMARY KEY (`numerocarta`),
+  PRIMARY KEY (`idMetodo`),
   KEY `metodoutente_idx` (`email`),
   CONSTRAINT `metodoutente` FOREIGN KEY (`email`) REFERENCES `utente` (`email`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,11 +118,17 @@ CREATE TABLE `ordine` (
   `totale` float NOT NULL,
   `email` varchar(45) NOT NULL,
   `data` date NOT NULL,
+  `idIndirizzo` int(11) NOT NULL,
+  `idMetodo` int(11) NOT NULL,
   PRIMARY KEY (`idordine`),
   UNIQUE KEY `idOrdine_UNIQUE` (`idordine`),
   KEY `Email_idx` (`email`),
-  CONSTRAINT `Email` FOREIGN KEY (`email`) REFERENCES `utente` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `Indirizzo_idx` (`idIndirizzo`),
+  KEY `Metodo_idx` (`idMetodo`),
+  CONSTRAINT `Email` FOREIGN KEY (`email`) REFERENCES `utente` (`email`),
+  CONSTRAINT `Indirizzo` FOREIGN KEY (`idIndirizzo`) REFERENCES `indirizzo` (`codice`),
+  CONSTRAINT `Metodo` FOREIGN KEY (`idMetodo`) REFERENCES `metodopagamento` (`idMetodo`)
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -160,4 +167,4 @@ CREATE TABLE `utente` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-24 15:26:54
+-- Dump completed on 2022-09-12 21:43:04
