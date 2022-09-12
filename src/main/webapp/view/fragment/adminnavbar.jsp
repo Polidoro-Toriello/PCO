@@ -32,7 +32,7 @@
                 </ul>
             </li>
 
-            <li><a class="navigation-bar" href="../catalogoarticoli?categoria=PC">PC Assemblati</a></li>
+            <li><a class="navigation-bar" href="../catalogoarticoliadmin?categoria=PC">PC Assemblati</a></li>
 
 
             <%if (manager != null) {%>

@@ -12,6 +12,7 @@
 <% UserBean utente = (UserBean) session.getAttribute("utente"); %>
 <% UserBean manager = (UserBean) session.getAttribute("manager");
     Carrello c = (Carrello) session.getAttribute("carrello");
+    int totIva = 0;
 %>
 
 <html>
@@ -44,7 +45,24 @@
         <tr>
             <td>
                 <div class="cart-info">
-                    <img src="../immagini/NicePng_gaming-computer-png_2167532.png" alt="">
+                    <%if(articolo.getProduct().getCategoria().equals("ram")){%>
+                    <img src="../immagini/ram1.jpg" alt="">
+                    <%}%>
+                    <%if(articolo.getProduct().getCategoria().equals("cpu")){%>
+                    <img src="../immagini/cpu1.jpg" alt="">
+                    <%}%>
+                    <%if(articolo.getProduct().getCategoria().equals("gpu")){%>
+                    <img src="../immagini/gpu1.jpg" alt="">
+                    <%}%>
+                    <%if(articolo.getProduct().getCategoria().equals("hdd")){%>
+                    <img src="../immagini/hdd1.jpg" alt="">
+                    <%}%>
+                    <%if(articolo.getProduct().getCategoria().equals("ssd")){%>
+                    <img src="../immagini/ssd1.jpg" alt="">
+                    <%}%>
+                    <%if(articolo.getProduct().getCategoria().equals("pc")){%>
+                    <img src="../immagini/pc1.jpg" alt="">
+                    <%}%>
                     <div>
                         <small><%=articolo.getProduct().getNome()%>
                         </small><br>
@@ -65,6 +83,7 @@
             <td><%=articolo.getQta()*articolo.getProduct().getPrezzo()%>&euro;</td>
         </tr>
         <%
+                    totIva += articolo.getProduct().getIva();
                 }
             }
         %>
@@ -73,10 +92,6 @@
     <!--Somma totale-->
     <div class="total-price">
         <table>
-            <tr>
-                <td>Iva</td>
-                <td>22%</td>
-            </tr>
             <tr>
                 <td>Totale</td>
                 <%if (c != null) {%>
