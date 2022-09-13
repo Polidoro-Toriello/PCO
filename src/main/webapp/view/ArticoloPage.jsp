@@ -58,21 +58,18 @@ if(articoloBean==null){
 </div>
 <%}%>
 <script>
-    // When the user clicks on <span> (x), close the modal
     var span = document.getElementsByClassName("close")[0];
     var modal = document.getElementById("aggiunto")
     span.onclick = function () {
         modal.style.display = "none";
     }
-
-    // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
     }
 </script>
-<% //possibilità di mettere anchore per farlo apparire centrale
+<%
     session.removeAttribute("alertMsg");%>
 <div class="small-container single-product" style="width: 100%">
     <div class="row">
